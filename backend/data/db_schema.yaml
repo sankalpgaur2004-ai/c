@@ -1,0 +1,2563 @@
+csv.BridgeBio_CSV:
+  columns:
+    People.Active:
+      description: 'Indicates whether the employee is currently active, useful for
+        filtering active vs inactive employees; format: TEXT; sample values: ''YES'',
+        ''NO''.'
+      type: TEXT
+    People.Country:
+      description: 'The country of the employee, useful for international workforce
+        analysis; format: TEXT; sample values: ''US'', ''United States of America''.'
+      type: TEXT
+    People.Created Date:
+      description: 'The date the employee''s profile was created, useful for tracking
+        onboarding trends; format: DD-MM-YYYY; Convert: DATE(substr(col,7,4)||''-''||substr(col,4,2)||''-''||substr(col,1,2));
+        sample values: ''04-06-2026'', ''04-07-2026''.'
+      type: TEXT
+    People.Department:
+      description: 'The department the employee belongs to, critical for departmental
+        performance analysis; format: TEXT; sample values: ''115 - Manufacturing'',
+        ''515 - Human Resources''.'
+      type: TEXT
+    People.Division:
+      description: 'The division within the company, useful for grouping by organizational
+        structure; format: TEXT; sample values: ''Calcilytix'', ''BridgeBio International
+        GmbH''.'
+      type: TEXT
+    People.First Name:
+      description: 'The first name of the employee, useful for personalization in
+        reports; format: TEXT; sample values: ''Alex'', ''Artem''.'
+      type: TEXT
+    People.Hire Date:
+      description: 'The date the employee was hired, useful for tenure analysis; format:
+        DD-MM-YYYY; Convert: DATE(substr(col,7,4)||''-''||substr(col,4,2)||''-''||substr(col,1,2));
+        sample values: ''04-06-2026'', ''11/14/2022''.'
+      type: TEXT
+    People.Last Name:
+      description: 'The last name of the employee, also useful for personalization;
+        format: TEXT; sample values: ''Nichols'', ''Burmakin''.'
+      type: TEXT
+    People.Manager:
+      description: 'The manager of the employee, useful for hierarchical analysis;
+        format: TEXT; sample values: ''None'', ''Josh Loehrer''.'
+      type: TEXT
+    People.Profile Type:
+      description: 'Indicates the type of profile (e.g., Internal, None), useful for
+        filtering employee categories; format: TEXT; sample values: ''Internal'',
+        ''None''.'
+      type: TEXT
+    People.State:
+      description: 'The state where the employee is located, useful for regional analysis;
+        format: TEXT; sample values: ''CA'', ''None''.'
+      type: TEXT
+    People.Title:
+      description: 'The job title of the employee, useful for grouping by roles; format:
+        TEXT; sample values: ''Associate Director, Drug Substance'', ''Director, People
+        Operations, Intern''.'
+      type: TEXT
+    People.Title.1:
+      description: 'An alternate title for the employee, useful for additional context
+        in reports; format: TEXT; sample values: ''Associate Director, Drug Substance'',
+        ''Director, People Operations, Intern''.'
+      type: TEXT
+    People.Type of Employee:
+      description: 'Indicates the employment type (e.g., Full-Time), useful for analyzing
+        workforce composition; format: TEXT; sample values: ''Full-Time'', ''Part-Time''.'
+      type: TEXT
+    People.Username:
+      description: 'The unique identifier for each employee, used in JOIN operations;
+        format: TEXT; sample values: ''Alex.Nichols@bridgebio.com'', ''Artem.Burmakin@bridgebio.com''.'
+      type: TEXT
+  count_column: ''
+  description: The BridgeBio_CSV table contains detailed information about employees
+    within the organization, capturing essential attributes such as their roles, status,
+    and departmental affiliations. Each row represents an individual employee, making
+    it suitable for various analytics use cases, including workforce analysis, departmental
+    performance evaluation, and employee engagement metrics. Critical columns for
+    filtering and grouping include 'People.Department', 'People.Profile Type', and
+    'People.Active', which allow analysts to segment data based on organizational
+    structure and employee status.
+  enriched: true
+  entity_name_columns: []
+  filter_hints: []
+  inline_value_columns: []
+csv.dim_patient:
+  columns: {}
+  count_column: ''
+  description: Table dim_patient
+  enriched: true
+  entity_name_columns: []
+  filter_hints: []
+  inline_value_columns: []
+csv.hospital_center:
+  columns:
+    CLINICAL_STUDY_SITE:
+      description: 'Specifies whether the hospital is a clinical study site, important
+        for grouping and filtering (WHERE). Format: TEXT. Sample values: ''YES'',
+        ''NO''.'
+      type: TEXT
+    GEOGRAPHICAL_REGION:
+      description: 'Indicates the geographical area where the hospital is located,
+        useful for filtering by region (WHERE). Format: TEXT. Sample values: ''North
+        Region'', ''West Region''.'
+      type: TEXT
+    HOSPITAL_ONBOARDING_MILESTONE:
+      description: 'Describes the onboarding status of the hospital, critical for
+        filtering and understanding progress (WHERE). Format: TEXT. Sample values:
+        ''Authorized'', ''Introduction''.'
+      type: TEXT
+    ORG_ADDRESS_CITY:
+      description: 'City where the organization is located, important for geographical
+        filtering (WHERE). Format: TEXT. Sample values: ''MILWAUKEE'', ''SACRAMENTO''.'
+      type: TEXT
+    ORG_ID:
+      description: 'Unique identifier for the organization, essential for joins and
+        distinct counts (JOIN/COUNT DISTINCT). Format: TEXT. Sample values: ''US22'',
+        ''US27''.'
+      type: TEXT
+    ORG_ID_COPS_CENTER_ID:
+      description: 'Identifier for the COPS center associated with the organization,
+        useful for joins (JOIN). Format: TEXT. Sample values: ''001Tu00000Vr7OEIAZ'',
+        ''None''.'
+      type: TEXT
+    ORG_NAME:
+      description: 'Name of the organization, useful for display and filtering (WHERE).
+        Format: TEXT. Sample values: ''Froedtert Hospital (Medical College'', ''UC
+        Davis Stem Cell Transplant Progr''.'
+      type: TEXT
+    RECORD_ID:
+      description: 'Unique identifier for each record, important for distinct counts
+        and joins (COUNT DISTINCT/JOIN). Format: INTEGER. Sample values: 16, 21.'
+      type: INTEGER
+    SEGMENT:
+      description: 'Indicates the market segment of the hospital, useful for grouping
+        and filtering (GROUP BY). Format: TEXT. Sample values: ''High''.'
+      type: TEXT
+    STATE:
+      description: 'State where the hospital is situated, useful for filtering by
+        state (WHERE). Format: TEXT. Sample values: ''WI'', ''CA''.'
+      type: TEXT
+  count_column: ''
+  description: The hospital_center table contains detailed information about various
+    clinical study sites across different geographical regions. Each row represents
+    a unique hospital or medical center, providing insights into their onboarding
+    milestones and organizational details. This data is crucial for pharma commercial
+    analysts to identify potential partners, assess market segmentation, and track
+    the status of hospital onboarding. Key columns for filtering and grouping include
+    GEOGRAPHICAL_REGION, STATE, and HOSPITAL_ONBOARDING_MILESTONE.
+  enriched: true
+  entity_name_columns: []
+  filter_hints: []
+  inline_value_columns: []
+csv.sp_patient_status_synthesized:
+  columns:
+    CRx Patient ID:
+      description: 'Unique identifier for each patient in the system, used in JOIN
+        operations to link patient data across tables. Format: TEXT. Sample values:
+        ''6bbeffeb0e5e903551ee30d26aea7fd8'', ''ae73a823a67fc8597be87fb8639dd458''.'
+      type: TEXT
+    Customer_Source_ID_HCP:
+      description: 'Identifier for the healthcare provider source, useful for filtering
+        by provider. Format: TEXT. Sample values: ''NovaCare&9634036506&8078673'',
+        ''CVS&9735098955&6440561''.'
+      type: TEXT
+    File Received Date:
+      description: 'Date the file was received, important for processing timelines.
+        Format: TEXT (DD-MM-YYYY). Convert: DATE(substr(col,7,4)||''-''||substr(col,4,2)||''-''||substr(col,1,2)).
+        Sample values: ''09-13-2025'', ''01-14-2026''.'
+      type: TEXT
+    Final Primary Payer Type:
+      description: 'Type of primary payer for the prescription, useful for filtering
+        by payer type. Format: TEXT. Sample values: ''Commercial (Third party)'',
+        ''Medicare''.'
+      type: TEXT
+    NDC:
+      description: 'National Drug Code representing the medication, used in WHERE
+        clauses to filter specific drugs. Format: INTEGER. Sample values: 70539000102.'
+      type: INTEGER
+    Nexus Status:
+      description: 'Current status of the patient in the system, useful for grouping
+        by status. Format: TEXT. Sample values: ''Pending'', ''Active''.'
+      type: TEXT
+    Nexus Sub Status:
+      description: 'Sub-status providing additional detail about the current status.
+        Format: TEXT. Sample values: ''New Referral'', ''Medication Dispensed''.'
+      type: TEXT
+    Patient Referral Received Date:
+      description: 'Date the patient referral was received, important for tracking
+        referral timelines. Format: TEXT (DD-MM-YYYY). Convert: DATE(substr(col,7,4)||''-''||substr(col,4,2)||''-''||substr(col,1,2)).
+        Sample values: ''09-10-2025'', ''01-11-2026''.'
+      type: TEXT
+    Primary ICD Code:
+      description: 'Primary diagnosis code for the patient, used in filtering by diagnosis.
+        Format: TEXT. Sample values: ''M05.9''.'
+      type: TEXT
+    Primary Payer BIN:
+      description: 'Bank Identification Number for the primary payer, used in filtering.
+        Format: INTEGER. Sample values: 3858.'
+      type: INTEGER
+    Primary Payer Benefit Type:
+      description: 'Type of benefit provided by the primary payer, useful for analysis.
+        Format: TEXT. Sample values: ''PHARMACY'', ''MEDICAL''.'
+      type: TEXT
+    Primary Payer Group Number:
+      description: 'Group number for the primary payer, useful for filtering. Format:
+        TEXT. Sample values: ''GRP325'', ''GRP771''.'
+      type: TEXT
+    Primary Payer ID:
+      description: 'Identifier for the primary payer, used in JOIN operations. Format:
+        TEXT. Sample values: ''ID68878'', ''ID75435''.'
+      type: TEXT
+    Primary Payer Name:
+      description: 'Name of the primary payer, useful for filtering by payer. Format:
+        TEXT. Sample values: ''CIGNA'', ''MEDICARE B''.'
+      type: TEXT
+    Primary Payer PCN:
+      description: 'Processor Control Number for the primary payer, used in filtering.
+        Format: TEXT. Sample values: ''CIGNA'', ''00000''.'
+      type: TEXT
+    Primary Payer Plan Type:
+      description: 'Type of plan for the primary payer, useful for analysis. Format:
+        TEXT. Sample values: ''PBM'', ''MEDICARE PART B''.'
+      type: TEXT
+    Primary Payer State:
+      description: 'State of the primary payer, useful for regional analysis. Format:
+        TEXT. Sample values: ''TX'', ''MA''.'
+      type: TEXT
+    Primary Payer Zip:
+      description: 'ZIP code for the primary payer, useful for geographic analysis.
+        Format: INTEGER. Sample values: 13905.'
+      type: INTEGER
+    Record_Type:
+      description: 'Type of record indicating the nature of the entry, useful for
+        filtering. Format: TEXT. Sample values: ''S''.'
+      type: TEXT
+    Refills Remaining:
+      description: 'Number of refills left for the prescription, important for tracking
+        patient needs. Format: INTEGER. Sample values: 3.'
+      type: INTEGER
+    Rx Number:
+      description: 'Unique identifier for the prescription, used in JOIN operations.
+        Format: INTEGER. Sample values: 685582861.'
+      type: INTEGER
+    Rx Written Date:
+      description: 'Date the prescription was written, critical for time-based analysis.
+        Format: TEXT (DD-MM-YYYY). Convert: DATE(substr(col,7,4)||''-''||substr(col,4,2)||''-''||substr(col,1,2)).
+        Sample values: ''09-04-2025'', ''01-05-2026''.'
+      type: TEXT
+    SP Patient ID:
+      description: 'Unique identifier for the specialty pharmacy patient, used in
+        JOIN operations. Format: INTEGER. Sample values: 998821483.'
+      type: INTEGER
+    Secondary ICD Code:
+      description: 'Secondary diagnosis code for the patient, used in filtering by
+        diagnosis. Format: TEXT. Sample values: ''Z87.891''.'
+      type: TEXT
+    Secondary Payer BI Copay:
+      description: 'Copayment amount for the secondary payer, useful for SUM operations.
+        Format: INTEGER. Sample values: 28, 11.'
+      type: INTEGER
+    Secondary Payer BIN:
+      description: 'Bank Identification Number for the secondary payer, used in filtering.
+        Format: REAL. Sample values: 999999.0.'
+      type: REAL
+    Secondary Payer Group Number:
+      description: 'Group number for the secondary payer, useful for filtering. Format:
+        TEXT. Sample values: ''GRP967''.'
+      type: TEXT
+    Secondary Payer ID:
+      description: 'Identifier for the secondary payer, used in JOIN operations. Format:
+        TEXT. Sample values: ''ID55082''.'
+      type: TEXT
+    Secondary Payer Name:
+      description: 'Name of the secondary payer, useful for filtering by payer. Format:
+        TEXT. Sample values: ''CIGNA''.'
+      type: TEXT
+    Secondary Payer PCN:
+      description: 'Processor Control Number for the secondary payer, used in filtering.
+        Format: TEXT. Sample values: ''CIGNA''.'
+      type: TEXT
+    Secondary Payer Plan Type:
+      description: 'Type of plan for the secondary payer, useful for analysis. Format:
+        TEXT. Sample values: ''PBM''.'
+      type: TEXT
+    Secondary Payer State:
+      description: 'State of the secondary payer, useful for regional analysis. Format:
+        TEXT. Sample values: ''TX''.'
+      type: TEXT
+    Secondary Payer Total Prescription Amount:
+      description: 'Total amount covered by the secondary payer, useful for SUM operations.
+        Format: INTEGER. Sample values: 10851, 28726.'
+      type: INTEGER
+    Secondary Payer Zip:
+      description: 'ZIP code for the secondary payer, useful for geographic analysis.
+        Format: REAL. Sample values: 40021.0.'
+      type: REAL
+    Source Record ID:
+      description: 'Unique identifier for the source record, used for tracking and
+        auditing. Format: TEXT. Sample values: ''699412592266320683309132025 22:34:2''.'
+      type: TEXT
+    Source_Primary Payer Type:
+      description: 'Type of primary payer from the source, useful for filtering. Format:
+        INTEGER. Sample values: 5, 4.'
+      type: INTEGER
+    Source_Secondary Payer Type:
+      description: 'Type of secondary payer from the source, useful for filtering.
+        Format: TEXT. Sample values: ''OTHER''.'
+      type: TEXT
+    Source_Status Reason Code:
+      description: 'Code indicating the reason for the status, useful for filtering
+        specific reasons. Format: TEXT. Sample values: ''PD00'', ''AC00''.'
+      type: TEXT
+    Source_Status Reason Description:
+      description: 'Description of the status reason, important for understanding
+        context. Format: TEXT. Sample values: ''Pending'', ''Active''.'
+      type: TEXT
+    Source_Sub Status Reason Code:
+      description: 'Sub-code for additional status details, used in filtering. Format:
+        TEXT. Sample values: ''PD05'', ''AC01''.'
+      type: TEXT
+    Source_Sub Status Reason Description:
+      description: 'Description of the sub-status reason, providing further context.
+        Format: TEXT. Sample values: ''New Referral'', ''Ancillary Supplies Shipped''.'
+      type: TEXT
+    Specialty Pharmacy NCPDP ID:
+      description: 'Identifier for the specialty pharmacy, used in JOIN operations.
+        Format: INTEGER. Sample values: 7823401.'
+      type: INTEGER
+    Specialty Pharmacy Name:
+      description: 'Name of the specialty pharmacy, useful for filtering by pharmacy.
+        Format: TEXT. Sample values: ''NovaCare Specialty''.'
+      type: TEXT
+    Status Date:
+      description: 'Date of the status update, critical for time-based analysis. Format:
+        TEXT (DD-MM-YYYY). Convert: DATE(substr(col,7,4)||''-''||substr(col,4,2)||''-''||substr(col,1,2)).
+        Sample values: ''09-10-2025'', ''01-12-2026''.'
+      type: TEXT
+    Status Source:
+      description: 'Source of the status update, important for grouping by source
+        type. Format: TEXT. Sample values: ''NovaCare'', ''CVS''.'
+      type: TEXT
+    Total Fills Written:
+      description: 'Total number of fills written for the prescription, useful for
+        SUM operations. Format: INTEGER. Sample values: 3.'
+      type: INTEGER
+  count_column: ''
+  description: The 'sp_patient_status_synthesized' table provides a comprehensive
+    overview of patient statuses related to pharmaceutical prescriptions, capturing
+    various attributes associated with each patient's treatment journey. Each row
+    represents a unique patient status event, allowing analysts to track changes over
+    time and assess the effectiveness of interventions. Key analytics use cases include
+    monitoring prescription fills, analyzing payer types, and evaluating patient outcomes
+    based on status changes. Critical columns for filtering and grouping include 'CRx
+    Patient ID', 'Status Date', 'Final Primary Payer Type', and 'NDC'.
+  enriched: true
+  entity_name_columns: []
+  filter_hints: []
+  inline_value_columns: []
+databricks.dim_patient:
+  columns:
+    APHERESIS_ORG_ADDRESS:
+      description: 'Address of the apheresis organization, can be used for filtering
+        by location; format: string; sample values: ''Minneapolis-MN''.'
+      is_foreign_key: false
+      is_primary_key: false
+      type: string
+    APHERESIS_ORG_ID:
+      description: 'Identifier for the organization performing apheresis, used in
+        JOIN operations; format: string; sample values: ''001Tu00000TS9e7IAD''.'
+      is_foreign_key: false
+      is_primary_key: false
+      type: string
+    APHERESIS_ORG_NAME:
+      description: 'Name of the organization performing apheresis, useful for GROUP
+        BY analyses; format: string; sample values: ''University of Minnesota''.'
+      is_foreign_key: false
+      is_primary_key: false
+      type: string
+    APHERESIS_ORG_REGION:
+      description: 'Region of the apheresis organization, useful for GROUP BY analyses;
+        format: string; sample values: ''North Region''.'
+      is_foreign_key: false
+      is_primary_key: false
+      type: string
+    APHERESIS_SCHEDULED_DATE:
+      description: 'Date scheduled for apheresis, critical for tracking treatment
+        timelines; format: DD-MM-YYYY HH:MM; Convert: TO_DATE(APHERESIS_SCHEDULED_DATE,
+        ''dd-MM-yyyy HH24:MI''); sample values: ''25-11-2025 00:00'', ''28-04-2025
+        00:00''.'
+      is_foreign_key: false
+      is_primary_key: false
+      type: string
+    APH_1_FINISH_DATE:
+      description: 'Finish date of the first apheresis, critical for tracking treatment
+        timelines; format: DD-MM-YYYY HH:MM; Convert: TO_DATE(APH_1_FINISH_DATE, ''dd-MM-yyyy
+        HH24:MI''); sample values: ''25-11-2025 00:00''.'
+      is_foreign_key: false
+      is_primary_key: false
+      type: string
+    APH_1_START_DATE:
+      description: 'Start date of the first apheresis, critical for tracking treatment
+        timelines; format: DD-MM-YYYY HH:MM; Convert: TO_DATE(APH_1_START_DATE, ''dd-MM-yyyy
+        HH24:MI''); sample values: ''25-11-2025 00:00''.'
+      is_foreign_key: false
+      is_primary_key: false
+      type: string
+    CURRENT_MILESTONE_STATUS:
+      description: 'Current milestone status of the patient, useful for filtering
+        and GROUP BY analyses; format: string; sample values: ''Infused with Obe-Cel
+        Dose 2''.'
+      is_foreign_key: false
+      is_primary_key: false
+      type: string
+    CURRENT_MILESTONE_STATUS_DATE:
+      description: 'Date of the current milestone status, critical for tracking patient
+        progress; format: DD-MM-YYYY HH:MM; Convert: TO_DATE(CURRENT_MILESTONE_STATUS_DATE,
+        ''dd-MM-yyyy HH24:MI''); sample values: ''21-01-2026 00:00''.'
+      is_foreign_key: false
+      is_primary_key: false
+      type: string
+    DRUG_PRODUCT_INFUSION_1_DATE:
+      description: 'Date of the first drug product infusion, critical for tracking
+        treatment timelines; format: DD-MM-YYYY HH:MM; Convert: TO_DATE(DRUG_PRODUCT_INFUSION_1_DATE,
+        ''dd-MM-yyyy HH24:MI''); sample values: ''12-01-2026 00:00''.'
+      is_foreign_key: false
+      is_primary_key: false
+      type: string
+    DRUG_PRODUCT_INFUSION_2_DATE:
+      description: 'Date of the second drug product infusion, critical for tracking
+        treatment timelines; format: DD-MM-YYYY HH:MM; Convert: TO_DATE(DRUG_PRODUCT_INFUSION_2_DATE,
+        ''dd-MM-yyyy HH24:MI''); sample values: ''21-01-2026 00:00''.'
+      is_foreign_key: false
+      is_primary_key: false
+      type: string
+    DRUG_PRODUCT_RECEIVED_AT_INFUSION_SITE_DATE:
+      description: 'Date when the drug product was received at the infusion site,
+        critical for tracking supply chain efficiency; format: DD-MM-YYYY HH:MM; Convert:
+        TO_DATE(DRUG_PRODUCT_RECEIVED_AT_INFUSION_SITE_DATE, ''dd-MM-yyyy HH24:MI'');
+        sample values: ''17-12-2025 00:00''.'
+      is_foreign_key: false
+      is_primary_key: false
+      type: string
+    DUPLICATE_PATIENT_FLAG:
+      description: 'Indicates if the patient record is a duplicate, useful for filtering;
+        format: string; sample values: ''N''.'
+      is_foreign_key: false
+      is_primary_key: false
+      type: string
+    Date Diff between Apheresis to Infusion:
+      description: 'Difference in days between apheresis and infusion dates, useful
+        for AVG calculations to assess treatment efficiency; format: bigint; sample
+        values: 0, 1.'
+      is_foreign_key: false
+      is_primary_key: false
+      type: bigint
+    ENROLLMENT_DATE:
+      description: 'Date when the patient was enrolled in the program, critical for
+        filtering by enrollment periods; format: DD-MM-YYYY HH:MM; Convert: TO_DATE(ENROLLMENT_DATE,
+        ''dd-MM-yyyy HH24:MI''); sample values: ''12-11-2025 00:00'', ''27-03-2025
+        00:00''.'
+      is_foreign_key: false
+      is_primary_key: false
+      type: string
+    INFUSION_ORG_ADDRESS:
+      description: 'Address of the infusion organization, can be used for filtering
+        by location; format: string; sample values: ''Minneapolis-MN''.'
+      is_foreign_key: false
+      is_primary_key: false
+      type: string
+    INFUSION_ORG_ID:
+      description: 'Identifier for the organization performing infusion, used in JOIN
+        operations; format: string; sample values: ''001Tu00000TS9e7IAD''.'
+      is_foreign_key: false
+      is_primary_key: false
+      type: string
+    INFUSION_ORG_NAME:
+      description: 'Name of the organization performing infusion, useful for GROUP
+        BY analyses; format: string; sample values: ''University of Minnesota''.'
+      is_foreign_key: false
+      is_primary_key: false
+      type: string
+    INFUSION_ORG_REGION:
+      description: 'Region of the infusion organization, useful for GROUP BY analyses;
+        format: string; sample values: ''North Region''.'
+      is_foreign_key: false
+      is_primary_key: false
+      type: string
+    IS_APHERESED:
+      description: 'Flag indicating if the patient has undergone apheresis, useful
+        for filtering; format: bigint; sample values: 1.'
+      is_foreign_key: false
+      is_primary_key: false
+      type: bigint
+    IS_DP_DELIVERED:
+      description: 'Flag indicating if the drug product was delivered, useful for
+        filtering; format: bigint; sample values: 1.'
+      is_foreign_key: false
+      is_primary_key: false
+      type: bigint
+    IS_POST_APH_DROP_OFF:
+      description: 'Flag indicating if the patient was dropped off post-apheresis,
+        useful for filtering; format: bigint; sample values: 0, 1.'
+      is_foreign_key: false
+      is_primary_key: false
+      type: bigint
+    IS_REGISTERD_IN_PORTAL:
+      description: 'Flag indicating if the patient is registered in the portal, useful
+        for filtering; format: bigint; sample values: 1.'
+      is_foreign_key: false
+      is_primary_key: false
+      type: bigint
+    IS_SCHEDULED_FOR_APH:
+      description: 'Flag indicating if the patient is scheduled for apheresis, useful
+        for filtering; format: bigint; sample values: 1.'
+      is_foreign_key: false
+      is_primary_key: false
+      type: bigint
+    NEW_PRESCRIBER_FLAG:
+      description: 'Indicates if a new prescriber has been assigned, useful for filtering;
+        format: string; sample values: ''None'', ''Y''.'
+      is_foreign_key: false
+      is_primary_key: false
+      type: string
+    ORG_ADDRESS:
+      description: 'Address of the enrolling organization, can be used for filtering
+        by location; format: string; sample values: ''Minneapolis-MN'', ''CHICAGO-IL''.'
+      is_foreign_key: false
+      is_primary_key: false
+      type: string
+    ORG_NAME:
+      description: 'Name of the organization enrolling the patient, useful for GROUP
+        BY analyses; format: string; sample values: ''University of Minnesota'', ''Northwestern
+        Medicine''.'
+      is_foreign_key: false
+      is_primary_key: false
+      type: string
+    ORG_REGION:
+      description: 'Region of the enrolling organization, useful for GROUP BY analyses
+        to assess regional performance; format: string; sample values: ''North Region''.'
+      is_foreign_key: false
+      is_primary_key: false
+      type: string
+    RE_REGISTRATION_FLAG:
+      description: 'Indicates if re-registration is required, useful for filtering;
+        format: string; sample values: ''None''.'
+      is_foreign_key: false
+      is_primary_key: false
+      type: string
+    SRC_ORG_ID:
+      description: 'Identifier for the organization enrolling the patient, used in
+        JOIN operations; format: string; sample values: ''001Tu00000TS9e7IAD'', ''001J700000Cfr4NIAR''.'
+      is_foreign_key: false
+      is_primary_key: false
+      type: string
+    SRC_PATIENT_ID:
+      description: 'Unique identifier for each patient, used in JOIN operations to
+        link with other tables; format: string; sample values: ''001Tu00000myc5NIAQ'',
+        ''001Tu00000RVmPfIAL''.'
+      is_foreign_key: false
+      is_primary_key: false
+      type: string
+    SRC_PATIENT_STATUS:
+      description: 'Current status of the patient, useful for filtering and GROUP
+        BY analyses; format: string; sample values: ''Treated''.'
+      is_foreign_key: false
+      is_primary_key: false
+      type: string
+    THERAPY_CYCLE:
+      description: 'Indicates the therapy cycle the patient is in, useful for filtering
+        and GROUP BY analyses; format: string; sample values: ''a0YTu00000mMrQSMA0''.'
+      is_foreign_key: false
+      is_primary_key: false
+      type: string
+  count_column: ''
+  description: The dim_patient table contains detailed information about patients
+    enrolled in a pharmaceutical treatment program, capturing key dates and statuses
+    throughout their treatment journey. Each row represents a unique patient, allowing
+    for granular analysis of patient enrollment, therapy cycles, and infusion events.
+    Analysts can utilize this data to track patient progress, identify trends in treatment
+    outcomes, and assess the efficiency of various healthcare organizations involved
+    in the treatment process.
+  enriched: true
+  entity_name_columns: []
+  filter_hints: []
+  inline_value_columns: []
+dda3741c_sqlite_8a01b1.dim_patient:
+  columns:
+    APHERESIS_ORG_ADDRESS:
+      description: 'Address of the apheresis organization, used for demographic analysis;
+        format: TEXT; sample values: ''Minneapolis-MN''.'
+      type: TEXT
+    APHERESIS_ORG_ID:
+      description: 'Identifier for the organization performing apheresis, used in
+        JOIN operations; format: TEXT; sample values: ''001Tu00000TS9e7IAD''.'
+      type: TEXT
+    APHERESIS_ORG_NAME:
+      description: 'Name of the organization performing apheresis, useful for GROUP
+        BY analyses; format: TEXT; sample values: ''University of Minnesota''.'
+      type: TEXT
+    APHERESIS_ORG_REGION:
+      description: 'Geographical region of the apheresis organization, useful for
+        regional analysis; format: TEXT; sample values: ''North Region''.'
+      type: TEXT
+    APHERESIS_SCHEDULED_DATE:
+      description: 'Date scheduled for apheresis, critical for tracking treatment
+        timelines; format: DD-MM-YYYY HH:MM; Convert: DATE(substr(col,7,4)||''-''||substr(col,4,2)||''-''||substr(col,1,2));
+        sample values: ''25-11-2025 00:00'', ''28-04-2025 00:00''.'
+      type: TEXT
+    APH_1_FINISH_DATE:
+      description: 'Finish date of the first apheresis, critical for tracking treatment
+        timelines; format: DD-MM-YYYY HH:MM; Convert: DATE(substr(col,7,4)||''-''||substr(col,4,2)||''-''||substr(col,1,2));
+        sample values: ''25-11-2025 00:00'', ''28-04-2025 00:00''.'
+      type: TEXT
+    APH_1_START_DATE:
+      description: 'Start date of the first apheresis, critical for tracking treatment
+        timelines; format: DD-MM-YYYY HH:MM; Convert: DATE(substr(col,7,4)||''-''||substr(col,4,2)||''-''||substr(col,1,2));
+        sample values: ''25-11-2025 00:00'', ''28-04-2025 00:00''.'
+      type: TEXT
+    CURRENT_MILESTONE_STATUS:
+      description: 'Description of the current milestone status, useful for tracking
+        patient progress; format: TEXT; sample values: ''Infused with Obe-Cel Dose
+        2''.'
+      type: TEXT
+    CURRENT_MILESTONE_STATUS_DATE:
+      description: 'Date of the current milestone status, critical for tracking treatment
+        timelines; format: DD-MM-YYYY HH:MM; Convert: DATE(substr(col,7,4)||''-''||substr(col,4,2)||''-''||substr(col,1,2));
+        sample values: ''21-01-2026 00:00'', ''04-06-2025 00:00''.'
+      type: TEXT
+    DRUG_PRODUCT_INFUSION_1_DATE:
+      description: 'Date of the first drug product infusion, critical for tracking
+        treatment timelines; format: DD-MM-YYYY HH:MM; Convert: DATE(substr(col,7,4)||''-''||substr(col,4,2)||''-''||substr(col,1,2));
+        sample values: ''12-01-2026 00:00'', ''27-05-2025 00:00''.'
+      type: TEXT
+    DRUG_PRODUCT_INFUSION_2_DATE:
+      description: 'Date of the second drug product infusion, critical for tracking
+        treatment timelines; format: DD-MM-YYYY HH:MM; Convert: DATE(substr(col,7,4)||''-''||substr(col,4,2)||''-''||substr(col,1,2));
+        sample values: ''21-01-2026 00:00'', ''04-06-2025 00:00''.'
+      type: TEXT
+    DRUG_PRODUCT_RECEIVED_AT_INFUSION_SITE_DATE:
+      description: 'Date when the drug product was received at the infusion site,
+        critical for tracking treatment timelines; format: DD-MM-YYYY HH:MM; Convert:
+        DATE(substr(col,7,4)||''-''||substr(col,4,2)||''-''||substr(col,1,2)); sample
+        values: ''17-12-2025 00:00'', ''21-05-2025 00:00''.'
+      type: TEXT
+    DUPLICATE_PATIENT_FLAG:
+      description: 'Indicates if the patient record is a duplicate, useful for filtering;
+        format: TEXT; sample values: ''N''.'
+      type: TEXT
+    Date Diff between Apheresis to Infusion:
+      description: 'Calculates the difference in days between apheresis and infusion
+        dates, useful for AVG calculations; format: REAL; sample values: 0, 1.'
+      type: REAL
+    ENROLLMENT_DATE:
+      description: 'Date when the patient was enrolled in the program, useful for
+        filtering by enrollment periods; format: DD-MM-YYYY HH:MM; Convert: DATE(substr(col,7,4)||''-''||substr(col,4,2)||''-''||substr(col,1,2));
+        sample values: ''12-11-2025 00:00'', ''27-03-2025 00:00''.'
+      type: TEXT
+    INFUSION_ORG_ADDRESS:
+      description: 'Address of the infusion organization, used for demographic analysis;
+        format: TEXT; sample values: ''Minneapolis-MN''.'
+      type: TEXT
+    INFUSION_ORG_ID:
+      description: 'Identifier for the organization performing the infusion, used
+        in JOIN operations; format: TEXT; sample values: ''001Tu00000TS9e7IAD''.'
+      type: TEXT
+    INFUSION_ORG_NAME:
+      description: 'Name of the organization performing the infusion, useful for GROUP
+        BY analyses; format: TEXT; sample values: ''University of Minnesota''.'
+      type: TEXT
+    INFUSION_ORG_REGION:
+      description: 'Geographical region of the infusion organization, useful for regional
+        analysis; format: TEXT; sample values: ''North Region''.'
+      type: TEXT
+    IS_APHERESED:
+      description: 'Flag indicating if the patient has undergone apheresis, useful
+        for filtering; format: INTEGER; sample values: 0, 1.'
+      type: INTEGER
+    IS_DP_DELIVERED:
+      description: 'Flag indicating if the drug product was delivered, useful for
+        filtering; format: INTEGER; sample values: 0, 1.'
+      type: INTEGER
+    IS_POST_APH_DROP_OFF:
+      description: 'Flag indicating if the patient is a post-apheresis drop-off, useful
+        for filtering; format: INTEGER; sample values: 0, 1.'
+      type: INTEGER
+    IS_REGISTERD_IN_PORTAL:
+      description: 'Flag indicating if the patient is registered in the portal, useful
+        for filtering; format: INTEGER; sample values: 0, 1.'
+      type: INTEGER
+    IS_SCHEDULED_FOR_APH:
+      description: 'Flag indicating if the patient is scheduled for apheresis, useful
+        for filtering; format: INTEGER; sample values: 0, 1.'
+      type: INTEGER
+    NEW_PRESCRIBER_FLAG:
+      description: 'Indicates if a new prescriber is involved, useful for filtering
+        by prescriber changes; format: TEXT; sample values: ''None'', ''Y''.'
+      type: TEXT
+    ORG_ADDRESS:
+      description: 'Address of the enrolling organization, used for demographic analysis;
+        format: TEXT; sample values: ''Minneapolis-MN'', ''CHICAGO-IL''.'
+      type: TEXT
+    ORG_NAME:
+      description: 'Name of the organization enrolling the patient, useful for GROUP
+        BY analyses; format: TEXT; sample values: ''University of Minnesota'', ''Northwestern
+        Medicine''.'
+      type: TEXT
+    ORG_REGION:
+      description: 'Geographical region of the enrolling organization, useful for
+        regional analysis; format: TEXT; sample values: ''North Region''.'
+      type: TEXT
+    RE_REGISTRATION_FLAG:
+      description: 'Indicates if re-registration is required, useful for filtering
+        by registration status; format: TEXT; sample values: ''None''.'
+      type: TEXT
+    SRC_ORG_ID:
+      description: 'Identifier for the organization enrolling the patient, used in
+        JOIN operations; format: TEXT; sample values: ''001Tu00000TS9e7IAD'', ''001J700000Cfr4NIAR''.'
+      type: TEXT
+    SRC_PATIENT_ID:
+      description: 'Unique identifier for each patient, used in JOIN operations to
+        link with other tables; format: TEXT; sample values: ''001Tu00000myc5NIAQ'',
+        ''001Tu00000RVmPfIAL''.'
+      type: TEXT
+    SRC_PATIENT_STATUS:
+      description: 'Current status of the patient in the treatment process, useful
+        for filtering by treatment outcomes; format: TEXT; sample values: ''Treated''.'
+      type: TEXT
+    THERAPY_CYCLE:
+      description: 'Indicates the therapy cycle the patient is undergoing, useful
+        for filtering by treatment phases; format: TEXT; sample values: ''a0YTu00000mMrQSMA0''.'
+      type: TEXT
+  count_column: ''
+  description: The 'dim_patient' table contains detailed records of patients enrolled
+    in a pharmaceutical treatment program, capturing key dates and statuses throughout
+    their treatment journey. Each row represents an individual patient, allowing for
+    granular analysis of treatment timelines, organizational involvement, and patient
+    outcomes. Analysts can utilize this data for various use cases, including tracking
+    treatment efficacy, identifying delays in the treatment process, and assessing
+    patient demographics. Critical columns for filtering and grouping include 'SRC_PATIENT_ID',
+    'ENROLLMENT_DATE', 'APH_1_START_DATE', and 'SRC_PATIENT_STATUS'.
+  enriched: true
+  entity_name_columns: []
+  filter_hints: []
+  inline_value_columns: []
+dda3741c_sqlite_8a01b1.hospital_center:
+  columns:
+    CLINICAL_STUDY_SITE:
+      description: 'Specifies whether the hospital is a clinical study site, aiding
+        in filtering active sites; used in WHERE clauses; format: TEXT; sample values:
+        ''YES'', ''NO''.'
+      type: TEXT
+    GEOGRAPHICAL_REGION:
+      description: 'Indicates the geographical area where the hospital is located,
+        useful for regional analysis; can be used in WHERE and GROUP BY clauses; format:
+        TEXT; sample values: ''North Region'', ''West Region'', ''South Region''.'
+      type: TEXT
+    HOSPITAL_ONBOARDING_MILESTONE:
+      description: 'Status of the hospital''s onboarding process, critical for understanding
+        operational readiness; used in WHERE clauses; format: TEXT; sample values:
+        ''Authorized'', ''Introduction'', ''Inactive''.'
+      type: TEXT
+    ORG_ADDRESS_CITY:
+      description: 'City where the organization is located, useful for geographical
+        filtering; used in WHERE clauses; format: TEXT; sample values: ''MILWAUKEE'',
+        ''SACRAMENTO'', ''AUSTIN''.'
+      type: TEXT
+    ORG_ID:
+      description: 'Unique identifier for each organization, essential for joins and
+        distinct counts; used in WHERE and JOIN clauses; format: TEXT; sample values:
+        ''US22'', ''US27'', ''US04''.'
+      type: TEXT
+    ORG_ID_COPS_CENTER_ID:
+      description: 'Identifier for the COPS center associated with the organization,
+        useful for linking related data; used in JOIN clauses; format: TEXT; sample
+        values: ''001Tu00000Vr7OEIAZ'', ''None''.'
+      type: TEXT
+    ORG_NAME:
+      description: 'Name of the organization, providing context for analysis; used
+        in SELECT and WHERE clauses; format: TEXT; sample values: ''Froedtert Hospital
+        (Medical College'', ''UC Davis Stem Cell Transplant Progr'', ''St David''s
+        South Austin Medical Cen''.'
+      type: TEXT
+    RECORD_ID:
+      description: 'Unique identifier for each record, important for data integrity
+        and distinct counts; used in WHERE and COUNT DISTINCT clauses; format: INTEGER;
+        sample values: 16, 21, 50.'
+      type: INTEGER
+    SEGMENT:
+      description: 'Classification of the hospital''s market segment, useful for performance
+        analysis; used in WHERE and GROUP BY clauses; format: TEXT; sample values:
+        ''High''.'
+      type: TEXT
+    STATE:
+      description: 'State abbreviation of the hospital''s location, important for
+        regional segmentation; used in WHERE and GROUP BY clauses; format: TEXT; sample
+        values: ''WI'', ''CA'', ''TX''.'
+      type: TEXT
+  count_column: ''
+  description: The hospital_center table contains information about various clinical
+    study sites across different geographical regions, focusing on their onboarding
+    milestones and organizational details. Each row represents a unique hospital or
+    medical center, providing insights into their operational status and segment classification.
+    This data can be utilized for analytics purposes such as identifying active study
+    sites, segment performance analysis, and geographical distribution of hospitals,
+    with critical columns including ORG_ID, HOSPITAL_ONBOARDING_MILESTONE, and GEOGRAPHICAL_REGION
+    for filtering and grouping.
+  enriched: true
+  entity_name_columns: []
+  filter_hints: []
+  inline_value_columns: []
+dda3741c_sqlite_b0128c.dim_patient:
+  columns:
+    APHERESIS_ORG_ADDRESS:
+      description: 'Address of the apheresis organization, relevant for geographical
+        analysis; format: TEXT; sample values: ''Minneapolis-MN'', ''CHICAGO-IL''.'
+      type: TEXT
+    APHERESIS_ORG_ID:
+      description: 'Identifier for the organization performing apheresis, used in
+        JOIN operations; format: TEXT; sample values: ''001Tu00000TS9e7IAD'', ''001J700000Cfr4NIAR''.'
+      type: TEXT
+    APHERESIS_ORG_NAME:
+      description: 'Name of the organization performing apheresis, useful for filtering;
+        format: TEXT; sample values: ''University of Minnesota'', ''Northwestern Medicine''.'
+      type: TEXT
+    APHERESIS_ORG_REGION:
+      description: 'Region of the apheresis organization, useful for GROUP BY analyses;
+        format: TEXT; sample values: ''North Region'', ''South Region''.'
+      type: TEXT
+    APHERESIS_SCHEDULED_DATE:
+      description: 'Date scheduled for apheresis, critical for tracking treatment
+        timelines; used in WHERE clauses; format: DD-MM-YYYY HH:MM; Convert: DATE(substr(col,7,4)||''-''||substr(col,4,2)||''-''||substr(col,1,2));
+        sample values: ''25-11-2025 00:00'', ''28-04-2025 00:00''.'
+      type: TEXT
+    APH_1_FINISH_DATE:
+      description: 'Finish date of the first apheresis, critical for tracking timelines;
+        used in WHERE clauses; format: DD-MM-YYYY HH:MM; Convert: DATE(substr(col,7,4)||''-''||substr(col,4,2)||''-''||substr(col,1,2));
+        sample values: ''25-11-2025 00:00'', ''28-04-2025 00:00''.'
+      type: TEXT
+    APH_1_START_DATE:
+      description: 'Start date of the first apheresis, critical for tracking timelines;
+        used in WHERE clauses; format: DD-MM-YYYY HH:MM; Convert: DATE(substr(col,7,4)||''-''||substr(col,4,2)||''-''||substr(col,1,2));
+        sample values: ''25-11-2025 00:00'', ''28-04-2025 00:00''.'
+      type: TEXT
+    CURRENT_MILESTONE_STATUS:
+      description: 'Current milestone status of the patient, critical for tracking
+        progress; used in WHERE clauses; format: TEXT; sample values: ''Infused with
+        Obe-Cel Dose 2'', ''Pending''.'
+      type: TEXT
+    CURRENT_MILESTONE_STATUS_DATE:
+      description: 'Date of the current milestone status, critical for tracking timelines;
+        used in WHERE clauses; format: DD-MM-YYYY HH:MM; Convert: DATE(substr(col,7,4)||''-''||substr(col,4,2)||''-''||substr(col,1,2));
+        sample values: ''21-01-2026 00:00'', ''04-06-2025 00:00''.'
+      type: TEXT
+    DRUG_PRODUCT_INFUSION_1_DATE:
+      description: 'Date of the first drug product infusion, critical for tracking
+        treatment progress; used in WHERE clauses; format: DD-MM-YYYY HH:MM; Convert:
+        DATE(substr(col,7,4)||''-''||substr(col,4,2)||''-''||substr(col,1,2)); sample
+        values: ''12-01-2026 00:00'', ''27-05-2025 00:00''.'
+      type: TEXT
+    DRUG_PRODUCT_INFUSION_2_DATE:
+      description: 'Date of the second drug product infusion, critical for tracking
+        treatment progress; used in WHERE clauses; format: DD-MM-YYYY HH:MM; Convert:
+        DATE(substr(col,7,4)||''-''||substr(col,4,2)||''-''||substr(col,1,2)); sample
+        values: ''21-01-2026 00:00'', ''04-06-2025 00:00''.'
+      type: TEXT
+    DRUG_PRODUCT_RECEIVED_AT_INFUSION_SITE_DATE:
+      description: 'Date when the drug product was received at the infusion site,
+        critical for tracking timelines; used in WHERE clauses; format: DD-MM-YYYY
+        HH:MM; Convert: DATE(substr(col,7,4)||''-''||substr(col,4,2)||''-''||substr(col,1,2));
+        sample values: ''17-12-2025 00:00'', ''21-05-2025 00:00''.'
+      type: TEXT
+    DUPLICATE_PATIENT_FLAG:
+      description: 'Indicates if the patient record is a duplicate, useful for filtering;
+        format: TEXT; sample values: ''N'', ''Y''. '
+      type: TEXT
+    Date Diff between Apheresis to Infusion:
+      description: 'Calculates the difference in days between apheresis and infusion
+        dates, useful for AVG calculations; format: REAL; sample values: 0, 1.'
+      type: REAL
+    ENROLLMENT_DATE:
+      description: 'Date when the patient was enrolled in the study, critical for
+        tracking timelines; used in WHERE clauses; format: DD-MM-YYYY HH:MM; Convert:
+        DATE(substr(col,7,4)||''-''||substr(col,4,2)||''-''||substr(col,1,2)); sample
+        values: ''12-11-2025 00:00'', ''27-03-2025 00:00''.'
+      type: TEXT
+    INFUSION_ORG_ADDRESS:
+      description: 'Address of the infusion organization, relevant for geographical
+        analysis; format: TEXT; sample values: ''Minneapolis-MN'', ''CHICAGO-IL''.'
+      type: TEXT
+    INFUSION_ORG_ID:
+      description: 'Identifier for the organization performing infusion, used in JOIN
+        operations; format: TEXT; sample values: ''001Tu00000TS9e7IAD'', ''001J700000Cfr4NIAR''.'
+      type: TEXT
+    INFUSION_ORG_NAME:
+      description: 'Name of the organization performing infusion, useful for filtering;
+        format: TEXT; sample values: ''University of Minnesota'', ''Northwestern Medicine''.'
+      type: TEXT
+    INFUSION_ORG_REGION:
+      description: 'Region of the infusion organization, useful for GROUP BY analyses;
+        format: TEXT; sample values: ''North Region'', ''South Region''.'
+      type: TEXT
+    IS_APHERESED:
+      description: 'Flag indicating if the patient has been apheresis, useful for
+        filtering; format: INTEGER; sample values: 0, 1.'
+      type: INTEGER
+    IS_DP_DELIVERED:
+      description: 'Flag indicating if the drug product was delivered, useful for
+        filtering; format: INTEGER; sample values: 0, 1.'
+      type: INTEGER
+    IS_POST_APH_DROP_OFF:
+      description: 'Flag indicating if the patient is post apheresis drop-off, useful
+        for filtering; format: INTEGER; sample values: 0, 1.'
+      type: INTEGER
+    IS_REGISTERD_IN_PORTAL:
+      description: 'Flag indicating if the patient is registered in the portal, useful
+        for filtering; format: INTEGER; sample values: 0, 1.'
+      type: INTEGER
+    IS_SCHEDULED_FOR_APH:
+      description: 'Flag indicating if the patient is scheduled for apheresis, useful
+        for filtering; format: INTEGER; sample values: 0, 1.'
+      type: INTEGER
+    NEW_PRESCRIBER_FLAG:
+      description: 'Indicates if a new prescriber is involved, useful for filtering;
+        format: TEXT; sample values: ''None'', ''Y''.'
+      type: TEXT
+    ORG_ADDRESS:
+      description: 'Address of the organization, relevant for geographical analysis;
+        format: TEXT; sample values: ''Minneapolis-MN'', ''CHICAGO-IL''.'
+      type: TEXT
+    ORG_NAME:
+      description: 'Name of the organization, used for filtering and reporting; format:
+        TEXT; sample values: ''University of Minnesota'', ''Northwestern Medicine''.'
+      type: TEXT
+    ORG_REGION:
+      description: 'Region of the organization, useful for GROUP BY analyses to assess
+        regional performance; format: TEXT; sample values: ''North Region'', ''South
+        Region''.'
+      type: TEXT
+    RE_REGISTRATION_FLAG:
+      description: 'Indicates if re-registration is required, useful for filtering;
+        format: TEXT; sample values: ''None'', ''Registration 1''.'
+      type: TEXT
+    SRC_ORG_ID:
+      description: 'Identifier for the organization enrolling the patient, useful
+        for GROUP BY analyses; format: TEXT; sample values: ''001Tu00000TS9e7IAD'',
+        ''001J700000Cfr4NIAR''.'
+      type: TEXT
+    SRC_PATIENT_ID:
+      description: 'Unique identifier for each patient, used in JOIN operations to
+        link with other tables; format: TEXT; sample values: ''001Tu00000myc5NIAQ'',
+        ''001Tu00000RVmPfIAL''.'
+      type: TEXT
+    SRC_PATIENT_STATUS:
+      description: 'Current status of the patient, useful for filtering and reporting;
+        format: TEXT; sample values: ''Treated'', ''Pending''.'
+      type: TEXT
+    THERAPY_CYCLE:
+      description: 'Indicates the therapy cycle the patient is in, useful for filtering
+        and grouping; format: TEXT; sample values: ''a0YTu00000mMrQSMA0'', ''a0YTu00000R0bYIMAZ''.'
+      type: TEXT
+  count_column: ''
+  description: The dim_patient table contains detailed records of patients involved
+    in pharmaceutical therapies, capturing key milestones from enrollment to infusion.
+    Each row represents an individual patient's journey, including critical dates
+    and statuses that are essential for tracking treatment progress and outcomes.
+    Analysts can utilize this data for various use cases, such as evaluating treatment
+    timelines, assessing patient engagement, and identifying trends in therapy cycles.
+    Key columns for filtering and grouping include SRC_PATIENT_ID, ENROLLMENT_DATE,
+    APHERESIS_SCHEDULED_DATE, and CURRENT_MILESTONE_STATUS.
+  enriched: true
+  entity_name_columns: []
+  filter_hints: []
+  inline_value_columns: []
+dda3741c_sqlite_b0128c.hospital_center:
+  columns:
+    CLINICAL_STUDY_SITE:
+      description: 'Specifies whether the site is involved in clinical studies, aiding
+        in filtering active sites (WHERE). Format: TEXT. Sample values: ''YES'', ''NO''.'
+      type: TEXT
+    GEOGRAPHICAL_REGION:
+      description: 'Indicates the geographical area where the hospital is located,
+        useful for regional analysis (WHERE, GROUP BY). Format: TEXT. Sample values:
+        ''North Region'', ''West Region''.'
+      type: TEXT
+    HOSPITAL_ONBOARDING_MILESTONE:
+      description: 'Describes the onboarding status of the hospital, critical for
+        assessing engagement (WHERE, GROUP BY). Format: TEXT. Sample values: ''Authorized'',
+        ''Introduction''.'
+      type: TEXT
+    ORG_ADDRESS_CITY:
+      description: 'City where the hospital is located, useful for regional segmentation
+        (WHERE, GROUP BY). Format: TEXT. Sample values: ''MILWAUKEE'', ''SACRAMENTO''.'
+      type: TEXT
+    ORG_ID:
+      description: 'Unique identifier for each organization, essential for joins with
+        other tables (JOIN). Format: TEXT. Sample values: ''US22'', ''US27''.'
+      type: TEXT
+    ORG_ID_COPS_CENTER_ID:
+      description: 'Identifier for the COPS center associated with the organization,
+        useful for linking data (JOIN). Format: TEXT. Sample values: ''001Tu00000Vr7OEIAZ'',
+        ''None''.'
+      type: TEXT
+    ORG_NAME:
+      description: 'The name of the hospital organization, useful for reporting and
+        identification (WHERE, GROUP BY). Format: TEXT. Sample values: ''Froedtert
+        Hospital (Medical College'', ''UC Davis Stem Cell Transplant Progr''.'
+      type: TEXT
+    RECORD_ID:
+      description: 'Unique identifier for each record, useful for tracking and referencing
+        (WHERE). Format: INTEGER. Sample values: 16, 21.'
+      type: INTEGER
+    SEGMENT:
+      description: 'Classification of the hospital''s market segment, useful for targeted
+        analysis (WHERE, GROUP BY). Format: TEXT. Sample values: ''High''.'
+      type: TEXT
+    STATE:
+      description: 'The state abbreviation where the hospital is located, important
+        for geographical filtering (WHERE, GROUP BY). Format: TEXT. Sample values:
+        ''WI'', ''CA''.'
+      type: TEXT
+  count_column: ''
+  description: The hospital_center table contains information about various clinical
+    study sites associated with hospitals across different geographical regions. Each
+    row represents a unique hospital organization, detailing its onboarding milestone
+    and segment classification. This data is crucial for pharma commercial analysts
+    to identify active and inactive sites, assess regional engagement, and strategize
+    outreach efforts. Key columns for filtering and grouping include GEOGRAPHICAL_REGION,
+    SEGMENT, and HOSPITAL_ONBOARDING_MILESTONE.
+  enriched: true
+  entity_name_columns: []
+  filter_hints: []
+  inline_value_columns: []
+eebf45c6_databricks.dim_patient:
+  columns:
+    APHERESIS_ORG_ADDRESS:
+      description: 'Address of the apheresis organization, used for geographical analysis;
+        format: string; sample values: ''Minneapolis-MN'', ''CHICAGO-IL''.'
+      type: string
+    APHERESIS_ORG_ID:
+      description: 'Identifier for the organization performing apheresis, used in
+        JOIN operations; format: string; sample values: ''001Tu00000TS9e7IAD'', ''001J700000Cfr4NIAR''.'
+      type: string
+    APHERESIS_ORG_NAME:
+      description: 'Name of the organization performing apheresis, useful for GROUP
+        BY and filtering; format: string; sample values: ''University of Minnesota'',
+        ''Northwestern Medicine''.'
+      type: string
+    APHERESIS_ORG_REGION:
+      description: 'Region of the apheresis organization, useful for regional analysis
+        and filtering; format: string; sample values: ''North Region'', ''South Region''.'
+      type: string
+    APHERESIS_SCHEDULED_DATE:
+      description: 'Date scheduled for apheresis, critical for tracking treatment
+        timelines; format: DD-MM-YYYY HH:MM; Convert: TO_DATE(APHERESIS_SCHEDULED_DATE,
+        ''dd-MM-yyyy HH24:MI''); sample values: ''25-11-2025 00:00'', ''28-04-2025
+        00:00''.'
+      type: string
+    APH_1_FINISH_DATE:
+      description: 'Finish date of the first apheresis, critical for tracking treatment
+        timelines; format: DD-MM-YYYY HH:MM; Convert: TO_DATE(APH_1_FINISH_DATE, ''dd-MM-yyyy
+        HH24:MI''); sample values: ''25-11-2025 00:00'', ''28-04-2025 00:00''.'
+      type: string
+    APH_1_START_DATE:
+      description: 'Start date of the first apheresis, critical for tracking treatment
+        timelines; format: DD-MM-YYYY HH:MM; Convert: TO_DATE(APH_1_START_DATE, ''dd-MM-yyyy
+        HH24:MI''); sample values: ''25-11-2025 00:00'', ''28-04-2025 00:00''.'
+      type: string
+    CURRENT_MILESTONE_STATUS:
+      description: 'Current milestone status of the patient, useful for tracking treatment
+        progress; format: string; sample values: ''Infused with Obe-Cel Dose 2'',
+        ''Awaiting Treatment''.'
+      type: string
+    CURRENT_MILESTONE_STATUS_DATE:
+      description: 'Date of the current milestone status, critical for tracking treatment
+        timelines; format: DD-MM-YYYY HH:MM; Convert: TO_DATE(CURRENT_MILESTONE_STATUS_DATE,
+        ''dd-MM-yyyy HH24:MI''); sample values: ''21-01-2026 00:00'', ''04-06-2025
+        00:00''.'
+      type: string
+    DRUG_PRODUCT_INFUSION_1_DATE:
+      description: 'Date of the first drug product infusion, critical for tracking
+        treatment timelines; format: DD-MM-YYYY HH:MM; Convert: TO_DATE(DRUG_PRODUCT_INFUSION_1_DATE,
+        ''dd-MM-yyyy HH24:MI''); sample values: ''12-01-2026 00:00'', ''27-05-2025
+        00:00''.'
+      type: string
+    DRUG_PRODUCT_INFUSION_2_DATE:
+      description: 'Date of the second drug product infusion, critical for tracking
+        treatment timelines; format: DD-MM-YYYY HH:MM; Convert: TO_DATE(DRUG_PRODUCT_INFUSION_2_DATE,
+        ''dd-MM-yyyy HH24:MI''); sample values: ''21-01-2026 00:00'', ''04-06-2025
+        00:00''.'
+      type: string
+    DRUG_PRODUCT_RECEIVED_AT_INFUSION_SITE_DATE:
+      description: 'Date when the drug product was received at the infusion site,
+        critical for tracking supply chain; format: DD-MM-YYYY HH:MM; Convert: TO_DATE(DRUG_PRODUCT_RECEIVED_AT_INFUSION_SITE_DATE,
+        ''dd-MM-yyyy HH24:MI''); sample values: ''17-12-2025 00:00'', ''21-05-2025
+        00:00''.'
+      type: string
+    DUPLICATE_PATIENT_FLAG:
+      description: 'Indicates if the patient record is a duplicate, useful for filtering;
+        format: string; sample values: ''N'', ''Y''. '
+      type: string
+    Date Diff between Apheresis to Infusion:
+      description: 'Difference in days between apheresis and infusion dates, useful
+        for calculating treatment efficiency; format: bigint; sample values: 0, 1.'
+      type: bigint
+    ENROLLMENT_DATE:
+      description: 'Date when the patient was enrolled in the study, useful for filtering
+        by enrollment timing; format: DD-MM-YYYY HH:MM; Convert: TO_DATE(ENROLLMENT_DATE,
+        ''dd-MM-yyyy HH24:MI''); sample values: ''12-11-2025 00:00'', ''27-03-2025
+        00:00''.'
+      type: string
+    INFUSION_ORG_ADDRESS:
+      description: 'Address of the infusion organization, used for geographical analysis;
+        format: string; sample values: ''Minneapolis-MN'', ''CHICAGO-IL''.'
+      type: string
+    INFUSION_ORG_ID:
+      description: 'Identifier for the organization performing infusion, used in JOIN
+        operations; format: string; sample values: ''001Tu00000TS9e7IAD'', ''001J700000Cfr4NIAR''.'
+      type: string
+    INFUSION_ORG_NAME:
+      description: 'Name of the organization performing infusion, useful for GROUP
+        BY and filtering; format: string; sample values: ''University of Minnesota'',
+        ''Northwestern Medicine''.'
+      type: string
+    INFUSION_ORG_REGION:
+      description: 'Region of the infusion organization, useful for regional analysis
+        and filtering; format: string; sample values: ''North Region'', ''South Region''.'
+      type: string
+    IS_APHERESED:
+      description: 'Flag indicating if the patient has undergone apheresis, useful
+        for filtering; format: bigint; sample values: 0, 1.'
+      type: bigint
+    IS_DP_DELIVERED:
+      description: 'Flag indicating if the drug product was delivered, useful for
+        filtering; format: bigint; sample values: 0, 1.'
+      type: bigint
+    IS_POST_APH_DROP_OFF:
+      description: 'Flag indicating if the patient was dropped off post-apheresis,
+        useful for filtering; format: bigint; sample values: 0, 1.'
+      type: bigint
+    IS_REGISTERD_IN_PORTAL:
+      description: 'Flag indicating if the patient is registered in the portal, useful
+        for filtering; format: bigint; sample values: 0, 1.'
+      type: bigint
+    IS_SCHEDULED_FOR_APH:
+      description: 'Flag indicating if the patient is scheduled for apheresis, useful
+        for filtering; format: bigint; sample values: 0, 1.'
+      type: bigint
+    NEW_PRESCRIBER_FLAG:
+      description: 'Indicates if a new prescriber is involved, useful for filtering;
+        format: string; sample values: ''None'', ''Y''.'
+      type: string
+    ORG_ADDRESS:
+      description: 'Address of the organization, used for geographical analysis; format:
+        string; sample values: ''Minneapolis-MN'', ''CHICAGO-IL''.'
+      type: string
+    ORG_NAME:
+      description: 'Name of the organization treating the patient, useful for GROUP
+        BY and filtering; format: string; sample values: ''University of Minnesota'',
+        ''Northwestern Medicine''.'
+      type: string
+    ORG_REGION:
+      description: 'Region of the organization, useful for regional analysis and filtering;
+        format: string; sample values: ''North Region'', ''South Region''.'
+      type: string
+    RE_REGISTRATION_FLAG:
+      description: 'Indicates if re-registration is required, useful for filtering;
+        format: string; sample values: ''None'', ''Registration 1''.'
+      type: string
+    SRC_ORG_ID:
+      description: 'Identifier for the organization where the patient is registered,
+        used in JOIN operations; format: string; sample values: ''001Tu00000TS9e7IAD'',
+        ''001J700000Cfr4NIAR''.'
+      type: string
+    SRC_PATIENT_ID:
+      description: 'Unique identifier for each patient, used in JOIN operations; format:
+        string; sample values: ''001Tu00000myc5NIAQ'', ''001Tu00000RVmPfIAL''.'
+      type: string
+    SRC_PATIENT_STATUS:
+      description: 'Current status of the patient, useful for filtering by treatment
+        outcome; format: string; sample values: ''Treated'', ''Not Treated''.'
+      type: string
+    THERAPY_CYCLE:
+      description: 'Cycle of therapy the patient is undergoing, useful for grouping
+        by treatment phases; format: string; sample values: ''a0YTu00000mMrQSMA0'',
+        ''a0YTu00000R0bYIMAZ''.'
+      type: string
+  count_column: ''
+  description: The dim_patient table contains detailed records of patients involved
+    in pharmaceutical treatments, specifically focusing on their enrollment, apheresis,
+    and infusion processes. Each row represents an individual patient's journey through
+    various treatment milestones, making it essential for analyzing patient outcomes
+    and treatment efficacy. Key analytics use cases include tracking patient status,
+    evaluating treatment timelines, and identifying trends in patient demographics
+    and treatment locations. Critical columns for filtering and grouping include SRC_PATIENT_ID,
+    ENROLLMENT_DATE, APHERESIS_SCHEDULED_DATE, and CURRENT_MILESTONE_STATUS.
+  enriched: true
+  entity_name_columns: []
+  filter_hints: []
+  inline_value_columns: []
+eebf45c6_sp_patient_status_synthesized.sp_patient_status_synthesized:
+  columns:
+    CRx Patient ID:
+      description: 'Unique identifier for each patient in the system, used for JOIN
+        operations to link patient data across tables. Format: TEXT. Sample values:
+        ''6bbeffeb0e5e903551ee30d26aea7fd8'', ''ae73a823a67fc8597be87fb8639dd458''.'
+      type: TEXT
+    Customer_Source_ID_HCP:
+      description: 'Identifier for the healthcare provider source, useful for filtering
+        by provider. Format: TEXT. Sample values: ''NovaCare&9634036506&8078673'',
+        ''CVS&9735098955&6440561''.'
+      type: TEXT
+    File Received Date:
+      description: 'Date when the file was received, useful for tracking data processing
+        timelines. Format: TEXT (DD-MM-YYYY). SQL usage: WHERE. Convert: DATE(substr(col,7,4)||''-''||substr(col,4,2)||''-''||substr(col,1,2)).
+        Sample values: ''09-13-2025'', ''01-14-2026''.'
+      type: TEXT
+    Final Primary Payer Type:
+      description: 'Type of primary payer for the prescription, useful for filtering
+        by payer type. Format: TEXT. Sample values: ''Commercial (Third party)'',
+        ''Medicare''.'
+      type: TEXT
+    NDC:
+      description: 'National Drug Code representing the medication, used for filtering
+        and grouping by drug type. Format: INTEGER. Sample values: 70539000102.'
+      type: INTEGER
+    Nexus Status:
+      description: 'Current status of the patient in the treatment process, critical
+        for grouping by patient outcomes. Format: TEXT. Sample values: ''Pending'',
+        ''Active''.'
+      type: TEXT
+    Nexus Sub Status:
+      description: 'Sub-status providing further detail on the current status, useful
+        for analysis. Format: TEXT. Sample values: ''New Referral'', ''Medication
+        Dispensed''.'
+      type: TEXT
+    Patient Referral Received Date:
+      description: 'Date when the patient referral was received, important for tracking
+        referral timelines. Format: TEXT (DD-MM-YYYY). SQL usage: WHERE. Convert:
+        DATE(substr(col,7,4)||''-''||substr(col,4,2)||''-''||substr(col,1,2)). Sample
+        values: ''09-10-2025'', ''01-11-2026''.'
+      type: TEXT
+    Primary ICD Code:
+      description: 'Primary diagnosis code for the patient, useful for filtering by
+        condition. Format: TEXT. Sample values: ''M05.9'', ''L40.50''.'
+      type: TEXT
+    Primary Payer BIN:
+      description: 'Bank Identification Number for the primary payer, useful for filtering.
+        Format: INTEGER. Sample values: 3858.'
+      type: INTEGER
+    Primary Payer Benefit Type:
+      description: 'Type of benefit provided by the primary payer, useful for grouping
+        by benefit type. Format: TEXT. Sample values: ''PHARMACY'', ''MEDICAL''.'
+      type: TEXT
+    Primary Payer Group Number:
+      description: 'Group number for the primary payer, useful for filtering by group.
+        Format: TEXT. Sample values: ''GRP325'', ''GRP771''.'
+      type: TEXT
+    Primary Payer ID:
+      description: 'Identifier for the primary payer, useful for JOIN operations.
+        Format: TEXT. Sample values: ''ID68878'', ''ID75435''.'
+      type: TEXT
+    Primary Payer Name:
+      description: 'Name of the primary payer, useful for filtering and reporting.
+        Format: TEXT. Sample values: ''CIGNA'', ''MEDICARE B''.'
+      type: TEXT
+    Primary Payer PCN:
+      description: 'Processor Control Number for the primary payer, useful for filtering.
+        Format: TEXT. Sample values: ''CIGNA'', ''00000''.'
+      type: TEXT
+    Primary Payer Plan Type:
+      description: 'Type of plan for the primary payer, useful for grouping. Format:
+        TEXT. Sample values: ''PBM'', ''MEDICARE PART B''.'
+      type: TEXT
+    Primary Payer State:
+      description: 'State of the primary payer, useful for regional analysis. Format:
+        TEXT. Sample values: ''TX'', ''MA''.'
+      type: TEXT
+    Primary Payer Zip:
+      description: 'ZIP code for the primary payer, useful for geographic analysis.
+        Format: INTEGER. Sample values: 13905.'
+      type: INTEGER
+    Record_Type:
+      description: 'Type of record indicating the nature of the entry, useful for
+        filtering. Format: TEXT. Sample values: ''S''.'
+      type: TEXT
+    Refills Remaining:
+      description: 'Number of refills left for the prescription, important for assessing
+        patient needs. Format: INTEGER. Sample values: 3.'
+      type: INTEGER
+    Rx Number:
+      description: 'Prescription number associated with the patient, useful for tracking
+        fills. Format: INTEGER. Sample values: 685582861.'
+      type: INTEGER
+    Rx Written Date:
+      description: 'Date when the prescription was written, critical for time-based
+        analysis. Format: TEXT (DD-MM-YYYY). SQL usage: WHERE, GROUP BY. Convert:
+        DATE(substr(col,7,4)||''-''||substr(col,4,2)||''-''||substr(col,1,2)). Sample
+        values: ''09-04-2025'', ''01-05-2026''.'
+      type: TEXT
+    SP Patient ID:
+      description: 'Unique identifier for the specialty pharmacy patient, useful for
+        JOIN operations. Format: INTEGER. Sample values: 998821483.'
+      type: INTEGER
+    Secondary ICD Code:
+      description: 'Secondary diagnosis code for the patient, useful for filtering
+        by condition. Format: TEXT. Sample values: ''Z87.891'', ''E11.9''.'
+      type: TEXT
+    Secondary Payer BI Copay:
+      description: 'Copayment amount for the secondary payer, useful for SUM operations.
+        Format: INTEGER. Sample values: 28, 11.'
+      type: INTEGER
+    Secondary Payer BIN:
+      description: 'Bank Identification Number for the secondary payer, useful for
+        filtering. Format: REAL. Sample values: 999999.0.'
+      type: REAL
+    Secondary Payer Group Number:
+      description: 'Group number for the secondary payer, useful for filtering. Format:
+        TEXT. Sample values: ''LILLYCARE''.'
+      type: TEXT
+    Secondary Payer ID:
+      description: 'Identifier for the secondary payer, useful for JOIN operations.
+        Format: TEXT. Sample values: ''LCAR''.'
+      type: TEXT
+    Secondary Payer Name:
+      description: 'Name of the secondary payer, useful for filtering and reporting.
+        Format: TEXT. Sample values: ''LILLY CARES''.'
+      type: TEXT
+    Secondary Payer PCN:
+      description: 'Processor Control Number for the secondary payer, useful for filtering.
+        Format: TEXT. Sample values: ''LILLY''.'
+      type: TEXT
+    Secondary Payer Plan Type:
+      description: 'Type of plan for the secondary payer, useful for grouping. Format:
+        TEXT. Sample values: ''PAP''.'
+      type: TEXT
+    Secondary Payer State:
+      description: 'State of the secondary payer, useful for regional analysis. Format:
+        TEXT. Sample values: ''NC'', ''GA''.'
+      type: TEXT
+    Secondary Payer Total Prescription Amount:
+      description: 'Total amount for prescriptions covered by the secondary payer,
+        useful for SUM operations. Format: INTEGER. Sample values: 76, 34.'
+      type: INTEGER
+    Secondary Payer Zip:
+      description: 'ZIP code for the secondary payer, useful for geographic analysis.
+        Format: REAL. Sample values: 10851.0.'
+      type: REAL
+    Source Record ID:
+      description: 'Unique identifier for the source record, useful for tracking specific
+        entries. Format: TEXT. Sample values: ''699412592266320683309132025 22:34:2''.'
+      type: TEXT
+    Source_Primary Payer Type:
+      description: 'Type of primary payer from the source, useful for filtering. Format:
+        INTEGER. Sample values: 5, 4.'
+      type: INTEGER
+    Source_Secondary Payer Type:
+      description: 'Type of secondary payer from the source, useful for filtering.
+        Format: TEXT. Sample values: ''OTHER''.'
+      type: TEXT
+    Source_Status Reason Code:
+      description: 'Code indicating the reason for the status, useful for filtering
+        by specific reasons. Format: TEXT. Sample values: ''PD00'', ''AC00''.'
+      type: TEXT
+    Source_Status Reason Description:
+      description: 'Description of the status reason, providing context for the status
+        code. Format: TEXT. Sample values: ''Pending'', ''Active''.'
+      type: TEXT
+    Source_Sub Status Reason Code:
+      description: 'Sub-code for more detailed status categorization, useful for filtering.
+        Format: TEXT. Sample values: ''PD05'', ''AC01''.'
+      type: TEXT
+    Source_Sub Status Reason Description:
+      description: 'Description of the sub-status reason, providing additional context.
+        Format: TEXT. Sample values: ''New Referral'', ''Ancillary Supplies Shipped''.'
+      type: TEXT
+    Specialty Pharmacy NCPDP ID:
+      description: 'Identifier for the specialty pharmacy, useful for JOIN operations.
+        Format: INTEGER. Sample values: 7823401.'
+      type: INTEGER
+    Specialty Pharmacy Name:
+      description: 'Name of the specialty pharmacy, useful for filtering and reporting.
+        Format: TEXT. Sample values: ''NovaCare Specialty'', ''CVS Specialty''.'
+      type: TEXT
+    Status Date:
+      description: 'Date when the status was recorded, critical for time-based analysis.
+        Format: TEXT (DD-MM-YYYY). SQL usage: WHERE, GROUP BY. Convert: DATE(substr(col,7,4)||''-''||substr(col,4,2)||''-''||substr(col,1,2)).
+        Sample values: ''09-10-2025'', ''01-12-2026''.'
+      type: TEXT
+    Status Source:
+      description: 'Source of the status update, important for understanding the origin
+        of data. Format: TEXT. Sample values: ''NovaCare'', ''CVS''.'
+      type: TEXT
+    Total Fills Written:
+      description: 'Total number of fills written for the patient, useful for SUM
+        operations to analyze prescription adherence. Format: INTEGER. Sample values:
+        3.'
+      type: INTEGER
+  count_column: ''
+  description: The sp_patient_status_synthesized table provides a comprehensive overview
+    of patient statuses related to pharmaceutical prescriptions, capturing various
+    attributes associated with each patient's treatment journey. Each row represents
+    a unique patient status event, allowing analysts to track changes over time and
+    assess the effectiveness of interventions. Key analytics use cases include monitoring
+    prescription fills, analyzing payer types, and evaluating patient outcomes based
+    on status changes. Critical columns for filtering and grouping include CRx Patient
+    ID, Status Date, Final Primary Payer Type, and Nexus Status.
+  enriched: true
+  entity_name_columns: []
+  filter_hints: []
+  inline_value_columns: []
+eebf45c6_sqlite.dim_patient:
+  columns:
+    APHERESIS_ORG_ADDRESS:
+      description: 'Address of the apheresis organization, relevant for geographical
+        analysis; format: TEXT; sample values: ''Minneapolis-MN'', ''CHICAGO-IL''.'
+      type: TEXT
+    APHERESIS_ORG_ID:
+      description: 'Identifier for the organization performing apheresis, used in
+        JOIN operations; format: TEXT; sample values: ''001Tu00000TS9e7IAD'', ''001J700000Cfr4NIAR''.'
+      type: TEXT
+    APHERESIS_ORG_NAME:
+      description: 'Name of the organization performing apheresis, useful for filtering;
+        format: TEXT; sample values: ''University of Minnesota'', ''Northwestern Medicine''.'
+      type: TEXT
+    APHERESIS_ORG_REGION:
+      description: 'Region of the apheresis organization, useful for GROUP BY analyses;
+        format: TEXT; sample values: ''North Region'', ''South Region''.'
+      type: TEXT
+    APHERESIS_SCHEDULED_DATE:
+      description: 'Date scheduled for apheresis, critical for tracking treatment
+        timelines; used in WHERE clauses; format: DD-MM-YYYY HH:MM; Convert: DATE(substr(col,7,4)||''-''||substr(col,4,2)||''-''||substr(col,1,2));
+        sample values: ''25-11-2025 00:00'', ''28-04-2025 00:00''.'
+      type: TEXT
+    APH_1_FINISH_DATE:
+      description: 'Finish date of the first apheresis, critical for tracking timelines;
+        used in WHERE clauses; format: DD-MM-YYYY HH:MM; Convert: DATE(substr(col,7,4)||''-''||substr(col,4,2)||''-''||substr(col,1,2));
+        sample values: ''25-11-2025 00:00'', ''28-04-2025 00:00''.'
+      type: TEXT
+    APH_1_START_DATE:
+      description: 'Start date of the first apheresis, critical for tracking timelines;
+        used in WHERE clauses; format: DD-MM-YYYY HH:MM; Convert: DATE(substr(col,7,4)||''-''||substr(col,4,2)||''-''||substr(col,1,2));
+        sample values: ''25-11-2025 00:00'', ''28-04-2025 00:00''.'
+      type: TEXT
+    CURRENT_MILESTONE_STATUS:
+      description: 'Current milestone status of the patient, critical for tracking
+        progress; used in WHERE clauses; format: TEXT; sample values: ''Infused with
+        Obe-Cel Dose 2'', ''Pending''.'
+      type: TEXT
+    CURRENT_MILESTONE_STATUS_DATE:
+      description: 'Date of the current milestone status, critical for tracking timelines;
+        used in WHERE clauses; format: DD-MM-YYYY HH:MM; Convert: DATE(substr(col,7,4)||''-''||substr(col,4,2)||''-''||substr(col,1,2));
+        sample values: ''21-01-2026 00:00'', ''04-06-2025 00:00''.'
+      type: TEXT
+    DRUG_PRODUCT_INFUSION_1_DATE:
+      description: 'Date of the first drug product infusion, critical for tracking
+        treatment progress; used in WHERE clauses; format: DD-MM-YYYY HH:MM; Convert:
+        DATE(substr(col,7,4)||''-''||substr(col,4,2)||''-''||substr(col,1,2)); sample
+        values: ''12-01-2026 00:00'', ''27-05-2025 00:00''.'
+      type: TEXT
+    DRUG_PRODUCT_INFUSION_2_DATE:
+      description: 'Date of the second drug product infusion, critical for tracking
+        treatment progress; used in WHERE clauses; format: DD-MM-YYYY HH:MM; Convert:
+        DATE(substr(col,7,4)||''-''||substr(col,4,2)||''-''||substr(col,1,2)); sample
+        values: ''21-01-2026 00:00'', ''04-06-2025 00:00''.'
+      type: TEXT
+    DRUG_PRODUCT_RECEIVED_AT_INFUSION_SITE_DATE:
+      description: 'Date when the drug product was received at the infusion site,
+        critical for tracking timelines; used in WHERE clauses; format: DD-MM-YYYY
+        HH:MM; Convert: DATE(substr(col,7,4)||''-''||substr(col,4,2)||''-''||substr(col,1,2));
+        sample values: ''17-12-2025 00:00'', ''21-05-2025 00:00''.'
+      type: TEXT
+    DUPLICATE_PATIENT_FLAG:
+      description: 'Indicates if the patient record is a duplicate, useful for filtering;
+        format: TEXT; sample values: ''N'', ''Y''. '
+      type: TEXT
+    Date Diff between Apheresis to Infusion:
+      description: 'Calculates the difference in days between apheresis and infusion
+        dates, useful for AVG calculations; format: REAL; sample values: 0, 1.'
+      type: REAL
+    ENROLLMENT_DATE:
+      description: 'Date when the patient was enrolled in the study, critical for
+        tracking timelines; used in WHERE clauses; format: DD-MM-YYYY HH:MM; Convert:
+        DATE(substr(col,7,4)||''-''||substr(col,4,2)||''-''||substr(col,1,2)); sample
+        values: ''12-11-2025 00:00'', ''27-03-2025 00:00''.'
+      type: TEXT
+    INFUSION_ORG_ADDRESS:
+      description: 'Address of the infusion organization, relevant for geographical
+        analysis; format: TEXT; sample values: ''Minneapolis-MN'', ''CHICAGO-IL''.'
+      type: TEXT
+    INFUSION_ORG_ID:
+      description: 'Identifier for the organization performing infusion, used in JOIN
+        operations; format: TEXT; sample values: ''001Tu00000TS9e7IAD'', ''001J700000Cfr4NIAR''.'
+      type: TEXT
+    INFUSION_ORG_NAME:
+      description: 'Name of the organization performing infusion, useful for filtering;
+        format: TEXT; sample values: ''University of Minnesota'', ''Northwestern Medicine''.'
+      type: TEXT
+    INFUSION_ORG_REGION:
+      description: 'Region of the infusion organization, useful for GROUP BY analyses;
+        format: TEXT; sample values: ''North Region'', ''South Region''.'
+      type: TEXT
+    IS_APHERESED:
+      description: 'Flag indicating if the patient has been apheresis, useful for
+        filtering; format: INTEGER; sample values: 0, 1.'
+      type: INTEGER
+    IS_DP_DELIVERED:
+      description: 'Flag indicating if the drug product was delivered, useful for
+        filtering; format: INTEGER; sample values: 0, 1.'
+      type: INTEGER
+    IS_POST_APH_DROP_OFF:
+      description: 'Flag indicating if the patient is post apheresis drop-off, useful
+        for filtering; format: INTEGER; sample values: 0, 1.'
+      type: INTEGER
+    IS_REGISTERD_IN_PORTAL:
+      description: 'Flag indicating if the patient is registered in the portal, useful
+        for filtering; format: INTEGER; sample values: 0, 1.'
+      type: INTEGER
+    IS_SCHEDULED_FOR_APH:
+      description: 'Flag indicating if the patient is scheduled for apheresis, useful
+        for filtering; format: INTEGER; sample values: 0, 1.'
+      type: INTEGER
+    NEW_PRESCRIBER_FLAG:
+      description: 'Indicates if a new prescriber is involved, useful for filtering;
+        format: TEXT; sample values: ''None'', ''Y''.'
+      type: TEXT
+    ORG_ADDRESS:
+      description: 'Address of the organization, relevant for geographical analysis;
+        format: TEXT; sample values: ''Minneapolis-MN'', ''CHICAGO-IL''.'
+      type: TEXT
+    ORG_NAME:
+      description: 'Name of the organization, used for filtering and reporting; format:
+        TEXT; sample values: ''University of Minnesota'', ''Northwestern Medicine''.'
+      type: TEXT
+    ORG_REGION:
+      description: 'Region of the organization, useful for GROUP BY analyses to assess
+        regional performance; format: TEXT; sample values: ''North Region'', ''South
+        Region''.'
+      type: TEXT
+    RE_REGISTRATION_FLAG:
+      description: 'Indicates if re-registration is required, useful for filtering;
+        format: TEXT; sample values: ''None'', ''Registration 1''.'
+      type: TEXT
+    SRC_ORG_ID:
+      description: 'Identifier for the organization enrolling the patient, useful
+        for GROUP BY analyses; format: TEXT; sample values: ''001Tu00000TS9e7IAD'',
+        ''001J700000Cfr4NIAR''.'
+      type: TEXT
+    SRC_PATIENT_ID:
+      description: 'Unique identifier for each patient, used in JOIN operations to
+        link with other tables; format: TEXT; sample values: ''001Tu00000myc5NIAQ'',
+        ''001Tu00000RVmPfIAL''.'
+      type: TEXT
+    SRC_PATIENT_STATUS:
+      description: 'Current status of the patient, useful for filtering and reporting;
+        format: TEXT; sample values: ''Treated'', ''Pending''.'
+      type: TEXT
+    THERAPY_CYCLE:
+      description: 'Indicates the therapy cycle the patient is in, useful for filtering
+        and grouping; format: TEXT; sample values: ''a0YTu00000mMrQSMA0'', ''a0YTu00000R0bYIMAZ''.'
+      type: TEXT
+  count_column: ''
+  description: The dim_patient table contains detailed records of patients involved
+    in pharmaceutical therapies, capturing key milestones from enrollment to infusion.
+    Each row represents an individual patient's journey, including critical dates
+    and statuses that are essential for tracking treatment progress and outcomes.
+    Analysts can utilize this data for various use cases, such as evaluating treatment
+    timelines, assessing patient engagement, and identifying trends in therapy cycles.
+    Key columns for filtering and grouping include SRC_PATIENT_ID, ENROLLMENT_DATE,
+    APHERESIS_SCHEDULED_DATE, and CURRENT_MILESTONE_STATUS.
+  enriched: true
+  entity_name_columns: []
+  filter_hints: []
+  inline_value_columns: []
+eebf45c6_sqlite.hospital_center:
+  columns:
+    CLINICAL_STUDY_SITE:
+      description: 'Specifies whether the site is involved in clinical studies, aiding
+        in filtering active sites (WHERE). Format: TEXT. Sample values: ''YES'', ''NO''.'
+      type: TEXT
+    GEOGRAPHICAL_REGION:
+      description: 'Indicates the geographical area where the hospital is located,
+        useful for regional analysis (WHERE, GROUP BY). Format: TEXT. Sample values:
+        ''North Region'', ''West Region''.'
+      type: TEXT
+    HOSPITAL_ONBOARDING_MILESTONE:
+      description: 'Describes the onboarding status of the hospital, critical for
+        assessing engagement (WHERE, GROUP BY). Format: TEXT. Sample values: ''Authorized'',
+        ''Introduction''.'
+      type: TEXT
+    ORG_ADDRESS_CITY:
+      description: 'City where the hospital is located, useful for regional segmentation
+        (WHERE, GROUP BY). Format: TEXT. Sample values: ''MILWAUKEE'', ''SACRAMENTO''.'
+      type: TEXT
+    ORG_ID:
+      description: 'Unique identifier for each organization, essential for joins with
+        other tables (JOIN). Format: TEXT. Sample values: ''US22'', ''US27''.'
+      type: TEXT
+    ORG_ID_COPS_CENTER_ID:
+      description: 'Identifier for the COPS center associated with the organization,
+        useful for linking data (JOIN). Format: TEXT. Sample values: ''001Tu00000Vr7OEIAZ'',
+        ''None''.'
+      type: TEXT
+    ORG_NAME:
+      description: 'The name of the hospital organization, useful for reporting and
+        identification (WHERE, GROUP BY). Format: TEXT. Sample values: ''Froedtert
+        Hospital (Medical College'', ''UC Davis Stem Cell Transplant Progr''.'
+      type: TEXT
+    RECORD_ID:
+      description: 'Unique identifier for each record, useful for tracking and referencing
+        (WHERE). Format: INTEGER. Sample values: 16, 21.'
+      type: INTEGER
+    SEGMENT:
+      description: 'Classification of the hospital''s market segment, useful for targeted
+        analysis (WHERE, GROUP BY). Format: TEXT. Sample values: ''High''.'
+      type: TEXT
+    STATE:
+      description: 'The state abbreviation where the hospital is located, important
+        for geographical filtering (WHERE, GROUP BY). Format: TEXT. Sample values:
+        ''WI'', ''CA''.'
+      type: TEXT
+  count_column: ''
+  description: The hospital_center table contains information about various clinical
+    study sites associated with hospitals across different geographical regions. Each
+    row represents a unique hospital organization, detailing its onboarding milestone
+    and segment classification. This data is crucial for pharma commercial analysts
+    to identify active and inactive sites, assess regional engagement, and strategize
+    outreach efforts. Key columns for filtering and grouping include GEOGRAPHICAL_REGION,
+    SEGMENT, and HOSPITAL_ONBOARDING_MILESTONE.
+  enriched: true
+  entity_name_columns: []
+  filter_hints: []
+  inline_value_columns: []
+eebf45c6_sqlite.interaction:
+  columns:
+    CONTACT_FULL_NAME:
+      description: 'Full name of the contact person, useful for identifying key stakeholders;
+        TEXT format; Sample values: ''Michelle Mott'', ''Brittney Baer'', ''Kina Marie
+        Chung''.'
+      type: TEXT
+    CONTACT_ROLE:
+      description: 'Role of the contact within their organization, important for segmenting
+        interactions; TEXT format; Sample values: ''Cell Therapy Coordinator'', ''Cell
+        Therapy Coordinator''.'
+      type: TEXT
+    INTERACTION_DATE:
+      description: 'Date of the interaction, essential for time-series analysis; TEXT
+        format: ''DD-MM-YYYY HH:MM''; Convert: DATE(substr(col,7,4)||''-''||substr(col,4,2)||''-''||substr(col,1,2));
+        Sample values: ''05-12-2025 00:00'', ''03-12-2025 00:00''.'
+      type: TEXT
+    INTERACTION_ID:
+      description: 'Unique identifier for each interaction, used in SQL for JOIN operations;
+        INTEGER format; Sample values: 1, 2, 3.'
+      type: INTEGER
+    INTERACTION_TYPE:
+      description: 'Type of interaction, useful for categorizing engagement methods;
+        TEXT format; Sample values: ''Email'', ''Email''.'
+      type: TEXT
+    ORG_CITY:
+      description: 'City where the organization is located, useful for regional analysis;
+        TEXT format; Sample values: ''DUARTE'', ''NASHVILLE'', ''MIAMI''.'
+      type: TEXT
+    ORG_NAME:
+      description: 'Name of the organization involved in the interaction, critical
+        for filtering by specific institutions; TEXT format; Sample values: ''City
+        of Hope National Medical Cente'', ''Vanderbilt University Medical Cente''.'
+      type: TEXT
+    ORG_RECORD_ID:
+      description: 'Unique identifier for the organization, used in SQL for JOIN operations;
+        INTEGER format; Sample values: 7, 134, 4.'
+      type: INTEGER
+    ORG_STATE:
+      description: 'State where the organization is located, important for geographical
+        segmentation; TEXT format; Sample values: ''CA'', ''TN'', ''FL''.'
+      type: TEXT
+    RECORD_OWNER:
+      description: 'Name of the representative who owns the record, important for
+        accountability and performance tracking; TEXT format; Sample values: ''Crystal'',
+        ''Felice'', ''Avery''.'
+      type: TEXT
+    REGION_INFO_BASED_ON_ORG:
+      description: 'Region associated with the organization, critical for regional
+        performance analysis; TEXT format; Sample values: ''West Region'', ''South
+        Region'', ''North Region''. '
+      type: TEXT
+  count_column: ''
+  description: The interaction table captures detailed records of interactions between
+    pharmaceutical representatives and healthcare professionals. Each row represents
+    a unique interaction, providing insights into engagement strategies and regional
+    performance. Analysts can utilize this data to identify trends, measure the effectiveness
+    of outreach efforts, and optimize resource allocation. Critical columns for filtering
+    and grouping include INTERACTION_DATE for time-based analysis and REGION_INFO_BASED_ON_ORG
+    for regional performance assessments.
+  enriched: true
+  entity_name_columns: []
+  filter_hints: []
+  inline_value_columns: []
+relationships:
+- sqlite.dim_patient.SRC_ORG_ID = sqlite.hospital_center.ORG_ID_COPS_CENTER_ID
+- sqlite.hospital_center.RECORD_ID = sqlite.interaction.ORG_RECORD_ID
+- databricks.dim_patient.SRC_ORG_ID = hospital_center.hospital_center.ORG_ID_COPS_CENTER_ID
+snowflake.DIM_PATIENT:
+  columns:
+    APHERESIS_ORG_ADDRESS:
+      description: 'The address of the organization where apheresis was performed,
+        useful for location-based analysis (JOIN). Format: TEXT. Sample values: ''Minneapolis-MN'',
+        ''CHICAGO-IL''.'
+      is_foreign_key: false
+      is_primary_key: false
+      type: TEXT
+    APHERESIS_ORG_ID:
+      description: 'The unique identifier for the apheresis organization, useful for
+        joining with other tables (JOIN). Format: TEXT. Sample values: ''001Tu00000TS9e7IAD'',
+        ''001J700000Cfr4NIAR''.'
+      is_foreign_key: false
+      is_primary_key: false
+      type: TEXT
+    APHERESIS_ORG_NAME:
+      description: 'The name of the organization where apheresis was performed, useful
+        for filtering and analyzing treatment locations (WHERE). Format: TEXT. Sample
+        values: ''University of Minnesota'', ''Northwestern Medicine''.'
+      is_foreign_key: false
+      is_primary_key: false
+      type: TEXT
+    APHERESIS_ORG_REGION:
+      description: 'The region of the organization performing apheresis, useful for
+        grouping patients by geographical location (GROUP BY). Format: TEXT. Sample
+        values: ''North Region'', ''South Region''.'
+      is_foreign_key: false
+      is_primary_key: false
+      type: TEXT
+    APHERESIS_SCHEDULED_DATE:
+      description: 'The date when apheresis is scheduled, useful for monitoring treatment
+        schedules (WHERE). Format: DD-MM-YYYY HH:MM. Convert: TO_DATE(APHERESIS_SCHEDULED_DATE,
+        ''DD-MM-YYYY HH24:MI''). Sample values: ''25-11-2025 00:00'', ''28-04-2025
+        00:00''.'
+      is_foreign_key: false
+      is_primary_key: false
+      type: TEXT
+    APH_1_FINISH_DATE:
+      description: 'The date when the first apheresis procedure was completed, useful
+        for tracking treatment timelines (WHERE/ORDER BY). Format: DD-MM-YYYY HH:MM.
+        Convert: TO_DATE(APH_1_FINISH_DATE, ''DD-MM-YYYY HH24:MI''). Sample values:
+        ''25-11-2025 00:00'', ''28-04-2025 00:00''.'
+      is_foreign_key: false
+      is_primary_key: false
+      type: TEXT
+    APH_1_START_DATE:
+      description: 'The date when the first apheresis procedure started, useful for
+        tracking treatment timelines (WHERE/ORDER BY). Format: DD-MM-YYYY HH:MM. Convert:
+        TO_DATE(APH_1_START_DATE, ''DD-MM-YYYY HH24:MI''). Sample values: ''25-11-2025
+        00:00'', ''28-04-2025 00:00''.'
+      is_foreign_key: false
+      is_primary_key: false
+      type: TEXT
+    CURRENT_MILESTONE_STATUS:
+      description: 'The current milestone status of the patient, useful for filtering
+        and analyzing patient outcomes (WHERE). Format: TEXT. Sample values: ''Infused
+        with Obe-Cel Dose 2'', ''Pending''.'
+      is_foreign_key: false
+      is_primary_key: false
+      type: TEXT
+    CURRENT_MILESTONE_STATUS_DATE:
+      description: 'The date of the current milestone status, useful for tracking
+        patient progress (WHERE). Format: DD-MM-YYYY HH:MM. Convert: TO_DATE(CURRENT_MILESTONE_STATUS_DATE,
+        ''DD-MM-YYYY HH24:MI''). Sample values: ''21-01-2026 00:00'', ''04-06-2025
+        00:00''.'
+      is_foreign_key: false
+      is_primary_key: false
+      type: TEXT
+    DATE_DIFF_BETWEEN_APHERESIS_TO_INFUSION:
+      description: 'The difference in days between apheresis and infusion dates, useful
+        for calculating treatment timelines (AVG/SUM). Format: NUMBER. Sample values:
+        1, 2.'
+      is_foreign_key: false
+      is_primary_key: false
+      type: NUMBER
+    DRUG_PRODUCT_INFUSION_1_DATE:
+      description: 'The date when the first drug product infusion occurred, used for
+        tracking treatment timelines (WHERE/ORDER BY). Format: DD-MM-YYYY HH:MM. Convert:
+        TO_DATE(DRUG_PRODUCT_INFUSION_1_DATE, ''DD-MM-YYYY HH24:MI''). Sample values:
+        ''12-01-2026 00:00'', ''04-06-2025 00:00''.'
+      is_foreign_key: false
+      is_primary_key: false
+      type: TEXT
+    DRUG_PRODUCT_INFUSION_2_DATE:
+      description: 'The date when the second drug product infusion occurred, used
+        for tracking treatment timelines (WHERE/ORDER BY). Format: DD-MM-YYYY HH:MM.
+        Convert: TO_DATE(DRUG_PRODUCT_INFUSION_2_DATE, ''DD-MM-YYYY HH24:MI''). Sample
+        values: ''21-01-2026 00:00'', ''04-06-2025 00:00''.'
+      is_foreign_key: false
+      is_primary_key: false
+      type: TEXT
+    DRUG_PRODUCT_RECEIVED_AT_INFUSION_SITE_DATE:
+      description: 'The date when the drug product was received at the infusion site,
+        useful for tracking supply chain efficiency (WHERE). Format: DD-MM-YYYY HH:MM.
+        Convert: TO_DATE(DRUG_PRODUCT_RECEIVED_AT_INFUSION_SITE_DATE, ''DD-MM-YYYY
+        HH24:MI''). Sample values: ''17-12-2025 00:00'', ''21-05-2025 00:00''.'
+      is_foreign_key: false
+      is_primary_key: false
+      type: TEXT
+    DUPLICATE_PATIENT_FLAG:
+      description: 'Indicates if the patient record is a duplicate, useful for data
+        quality checks (WHERE). Format: BOOLEAN. Sample values: True, False.'
+      is_foreign_key: false
+      is_primary_key: false
+      type: BOOLEAN
+    ENROLLMENT_DATE:
+      description: 'The date when the patient was enrolled in the treatment program,
+        useful for tracking patient entry into the system (WHERE). Format: DD-MM-YYYY
+        HH:MM. Convert: TO_DATE(ENROLLMENT_DATE, ''DD-MM-YYYY HH24:MI''). Sample values:
+        ''12-11-2025 00:00'', ''27-03-2025 00:00''.'
+      is_foreign_key: false
+      is_primary_key: false
+      type: TEXT
+    INFUSION_ORG_ADDRESS:
+      description: 'The address of the infusion organization, useful for location-based
+        filtering (WHERE). Format: TEXT. Sample values: ''Minneapolis-MN'', ''CHICAGO-IL''.'
+      is_foreign_key: false
+      is_primary_key: false
+      type: TEXT
+    INFUSION_ORG_ID:
+      description: 'The unique identifier for the infusion organization, useful for
+        joining with other tables (JOIN). Format: TEXT. Sample values: ''001Tu00000TS9e7IAD'',
+        ''001J700000Cfr4NIAR''.'
+      is_foreign_key: false
+      is_primary_key: false
+      type: TEXT
+    INFUSION_ORG_NAME:
+      description: 'The name of the infusion organization, useful for filtering and
+        analyzing treatment locations (WHERE). Format: TEXT. Sample values: ''University
+        of Minnesota'', ''Northwestern Medicine''.'
+      is_foreign_key: false
+      is_primary_key: false
+      type: TEXT
+    INFUSION_ORG_REGION:
+      description: 'The region of the organization providing infusion services, useful
+        for grouping patients by geographical location (GROUP BY). Format: TEXT. Sample
+        values: ''North Region'', ''South Region''.'
+      is_foreign_key: false
+      is_primary_key: false
+      type: TEXT
+    IS_APHERESED:
+      description: 'Indicates if the patient has undergone apheresis, useful for filtering
+        patients based on treatment procedures (WHERE). Format: NUMBER. Sample values:
+        1, 0.'
+      is_foreign_key: false
+      is_primary_key: false
+      type: NUMBER
+    IS_DP_DELIVERED:
+      description: 'Indicates if the drug product has been delivered, useful for filtering
+        based on delivery status (WHERE). Format: NUMBER. Sample values: 1, 0.'
+      is_foreign_key: false
+      is_primary_key: false
+      type: NUMBER
+    IS_POST_APH_DROP_OFF:
+      description: 'Indicates if there was a drop-off after apheresis, useful for
+        analyzing patient engagement (WHERE). Format: NUMBER. Sample values: 1, 0.'
+      is_foreign_key: false
+      is_primary_key: false
+      type: NUMBER
+    IS_REGISTERD_IN_PORTAL:
+      description: 'Indicates whether the patient is registered in the portal, useful
+        for filtering patients based on their registration status (WHERE). Format:
+        NUMBER. Sample values: 1, 0.'
+      is_foreign_key: false
+      is_primary_key: false
+      type: NUMBER
+    IS_SCHEDULED_FOR_APH:
+      description: 'Indicates if the patient is scheduled for apheresis, useful for
+        filtering based on treatment schedules (WHERE). Format: NUMBER. Sample values:
+        1, 0.'
+      is_foreign_key: false
+      is_primary_key: false
+      type: NUMBER
+    NEW_PRESCRIBER_FLAG:
+      description: 'Indicates if a new prescriber is involved in the patient''s treatment,
+        useful for analyzing prescriber changes (WHERE). Format: BOOLEAN. Sample values:
+        True, False.'
+      is_foreign_key: false
+      is_primary_key: false
+      type: BOOLEAN
+    ORG_ADDRESS:
+      description: 'The address of the organization, useful for location-based analysis
+        (JOIN). Format: TEXT. Sample values: ''Minneapolis-MN'', ''CHICAGO-IL''.'
+      is_foreign_key: false
+      is_primary_key: false
+      type: TEXT
+    ORG_NAME:
+      description: 'The name of the organization, useful for filtering and analyzing
+        treatment locations (WHERE). Format: TEXT. Sample values: ''University of
+        Minnesota'', ''Northwestern Medicine''.'
+      is_foreign_key: false
+      is_primary_key: false
+      type: TEXT
+    ORG_REGION:
+      description: 'The region of the organization, useful for grouping patients by
+        geographical location (GROUP BY). Format: TEXT. Sample values: ''North Region'',
+        ''South Region''.'
+      is_foreign_key: false
+      is_primary_key: false
+      type: TEXT
+    RE_REGISTRATION_FLAG:
+      description: 'Indicates if the patient has been re-registered, useful for analyzing
+        patient retention (WHERE). Format: TEXT. Sample values: ''Registration 1'',
+        ''Registration 2''.'
+      is_foreign_key: false
+      is_primary_key: false
+      type: TEXT
+    SRC_ORG_ID:
+      description: 'The unique identifier for the source organization, useful for
+        joining with other tables (JOIN). Format: TEXT. Sample values: ''001Tu00000TS9e7IAD'',
+        ''001J700000Cfr4NIAR''.'
+      is_foreign_key: false
+      is_primary_key: false
+      type: TEXT
+    SRC_PATIENT_ID:
+      description: 'The unique identifier for the patient, essential for tracking
+        individual patient records (WHERE). Format: TEXT. Sample values: ''001Tu00000myc5NIAQ'',
+        ''001Tu00000RVmPfIAL''.'
+      is_foreign_key: false
+      is_primary_key: false
+      type: TEXT
+    SRC_PATIENT_STATUS:
+      description: 'The current status of the patient in the treatment process, useful
+        for filtering and analyzing patient outcomes (WHERE). Format: TEXT. Sample
+        values: ''Treated'', ''Pending''.'
+      is_foreign_key: false
+      is_primary_key: false
+      type: TEXT
+    THERAPY_CYCLE:
+      description: 'Describes the therapy cycle the patient is undergoing, useful
+        for filtering and analyzing treatment patterns (WHERE). Format: TEXT. Sample
+        values: ''a0YTu00000mMrQSMA0'', ''a0YTu00000R0bYIMAZ''.'
+      is_foreign_key: false
+      is_primary_key: false
+      type: TEXT
+  count_column: ''
+  description: The DIM_PATIENT table contains detailed records of patients involved
+    in pharmaceutical treatments, specifically focusing on their therapy cycles and
+    infusion schedules. Each row represents an individual patient's journey through
+    the treatment process, capturing critical dates and statuses that are essential
+    for tracking patient progress and outcomes. Analysts can utilize this data for
+    various use cases, including evaluating treatment efficacy, monitoring patient
+    engagement, and optimizing resource allocation across infusion sites. Key columns
+    for filtering and grouping include SRC_PATIENT_ID, ENROLLMENT_DATE, and CURRENT_MILESTONE_STATUS.
+  enriched: true
+  entity_name_columns: []
+  filter_hints: []
+  inline_value_columns: []
+snowflake.HOSPITAL_CENTER:
+  columns:
+    CLINICAL_STUDY_SITE:
+      description: 'Indicates whether the hospital is a clinical study site, useful
+        for filtering (WHERE) to focus on study sites; format: BOOLEAN; sample values:
+        True, False.'
+      is_foreign_key: false
+      is_primary_key: false
+      type: BOOLEAN
+    GEOGRAPHICAL_REGION:
+      description: 'Represents the broader region of the hospital, useful for grouping
+        (GROUP BY) and regional performance analysis; format: TEXT; sample values:
+        ''North Region'', ''West Region'', ''South Region''.'
+      is_foreign_key: false
+      is_primary_key: false
+      type: TEXT
+    HOSPITAL_ONBOARDING_MILESTONE:
+      description: 'Indicates the current onboarding status of the hospital, useful
+        for filtering (WHERE) to identify hospitals at specific milestones; format:
+        TEXT; sample values: ''Authorized'', ''Introduction'', ''Inactive''.'
+      is_foreign_key: false
+      is_primary_key: false
+      type: TEXT
+    ORG_ADDRESS_CITY:
+      description: 'The city where the hospital is located, important for geographical
+        analysis and filtering (WHERE); format: TEXT; sample values: ''MILWAUKEE'',
+        ''SACRAMENTO'', ''AUSTIN''.'
+      is_foreign_key: false
+      is_primary_key: false
+      type: TEXT
+    ORG_ID:
+      description: 'A unique identifier for the organization, important for joins
+        (JOIN) and data integrity; format: TEXT; sample values: ''US22'', ''US27'',
+        ''US04''.'
+      is_foreign_key: false
+      is_primary_key: false
+      type: TEXT
+    ORG_ID_COPS_CENTER_ID:
+      description: 'An identifier related to the COPS center, useful for joins (JOIN)
+        and data linkage; format: TEXT; sample values: ''001Tu00000Vr7OEIAZ'', ''None''.'
+      is_foreign_key: false
+      is_primary_key: false
+      type: TEXT
+    ORG_NAME:
+      description: 'The official name of the hospital, useful for identification and
+        filtering (WHERE); format: TEXT; sample values: ''Froedtert Hospital (Medical
+        College)'', ''UC Davis Stem Cell Transplant Program'', ''St David''s South
+        Austin Medical Center''.'
+      is_foreign_key: false
+      is_primary_key: false
+      type: TEXT
+    RECORD_ID:
+      description: 'A unique identifier for each hospital record, essential for joins
+        (JOIN) and ensuring data integrity; format: NUMBER; sample values: 16, 21,
+        50.'
+      is_foreign_key: false
+      is_primary_key: false
+      type: NUMBER
+    SEGMENT:
+      description: 'Defines the market segment of the hospital, allowing for segmentation
+        analysis and filtering (WHERE); format: TEXT; sample values: ''High''.'
+      is_foreign_key: false
+      is_primary_key: false
+      type: TEXT
+    STATE:
+      description: 'The state where the hospital is located, useful for geographical
+        filtering (WHERE) and analysis; format: TEXT; sample values: ''WI'', ''CA'',
+        ''TX''.'
+      is_foreign_key: false
+      is_primary_key: false
+      type: TEXT
+  count_column: ''
+  description: The HOSPITAL_CENTER table provides critical information about various
+    hospital centers involved in clinical studies, including their onboarding milestones
+    and geographical locations. Each row represents a unique hospital center, allowing
+    for detailed analysis of their status and segmentation within the pharmaceutical
+    landscape. Key analytics use cases include filtering by geographical region or
+    onboarding milestone, and grouping by segment to assess performance across different
+    hospital types.
+  enriched: true
+  entity_name_columns: []
+  filter_hints: []
+  inline_value_columns: []
+snowflake.INTERACTION:
+  columns:
+    CONTACT_FULL_NAME:
+      description: 'The full name of the HCP, HEALTHCARE PROFESSIONAL at the organization,
+        important for identifying key stakeholders; can be used in WHERE clauses;
+        format: TEXT; examples: ''Michelle Mott'', ''Brittney Baer'', ''Kina Marie
+        Chung''.'
+      is_foreign_key: false
+      is_primary_key: false
+      type: TEXT
+    CONTACT_ROLE:
+      description: 'The role of the HCP person, which helps in understanding the hierarchy
+        and decision-making process within organizations; can be used in WHERE clauses;
+        format: TEXT; examples: ''Cell Therapy Coordinator'', ''Cell Therapy Coordinator'',
+        ''Cell Therapy Coordinator''.'
+      is_foreign_key: false
+      is_primary_key: false
+      type: TEXT
+    INTERACTION_DATE:
+      description: 'The date of the interaction, critical for time-based analysis
+        and trend identification; can be used in WHERE clauses and GROUP BY; format:
+        TEXT (DD-MM-YYYY HH:MM); conversion: TO_DATE(INTERACTION_DATE, ''DD-MM-YYYY
+        HH24:MI''); examples: ''05-12-2025 00:00'', ''03-12-2025 00:00'', ''02-12-2025
+        00:00''.'
+      is_foreign_key: false
+      is_primary_key: false
+      type: TEXT
+    INTERACTION_TYPE:
+      description: 'The type of interaction, which helps categorize the nature of
+        engagement; can be used in WHERE clauses and GROUP BY; format: TEXT; examples:
+        ''Email'', ''Email'', ''Email''.'
+      is_foreign_key: false
+      is_primary_key: false
+      type: TEXT
+    ORG_CITY:
+      description: 'The city where the organization is located, useful for regional
+        analysis; can be used in WHERE clauses; format: TEXT; examples: ''DUARTE'',
+        ''NASHVILLE'', ''MIAMI''.'
+      is_foreign_key: false
+      is_primary_key: false
+      type: TEXT
+    ORG_NAME:
+      description: 'The name of the organization, crucial for identifying the entities
+        involved in interactions; can be used in WHERE clauses; format: TEXT; examples:
+        ''City of Hope National Medical Cente'', ''Vanderbilt University Medical Cente'',
+        ''University of Miami, Sylvester Comp''.'
+      is_foreign_key: false
+      is_primary_key: false
+      type: TEXT
+    ORG_RECORD_ID:
+      description: 'A unique identifier for the organization, essential for joining
+        with other tables; can be used in JOIN clauses; format: NUMBER; examples:
+        7, 134, 4.'
+      is_foreign_key: false
+      is_primary_key: false
+      type: NUMBER
+    ORG_STATE:
+      description: 'The state where the organization is located, important for regional
+        segmentation; can be used in WHERE clauses and GROUP BY; format: TEXT; examples:
+        ''CA'', ''TN'', ''FL''.'
+      is_foreign_key: false
+      is_primary_key: false
+      type: TEXT
+    RECORD_OWNER:
+      description: 'The SALES REPRESENTATIVE responsible for the record, useful for
+        accountability and performance tracking; can be used in WHERE clauses; format:
+        TEXT; examples: ''Crystal'', ''Felice'', ''Avery''.'
+      is_foreign_key: false
+      is_primary_key: false
+      type: TEXT
+    REGION_INFO_BASED_ON_ORG:
+      description: 'The region classification based on the organization''s location,
+        useful for regional performance analysis; can be used in WHERE clauses and
+        GROUP BY; format: TEXT; examples: ''West Region'', ''South Region'', ''North
+        Region''.'
+      is_foreign_key: false
+      is_primary_key: false
+      type: TEXT
+  count_column: ''
+  description: The INTERACTION table captures detailed records of interactions between
+    pharmaceutical representatives and healthcare organizations. Each row represents
+    a unique interaction, providing insights into engagement patterns across different
+    regions and roles within organizations. Analysts can utilize this data for various
+    use cases, including performance tracking, regional analysis, and understanding
+    the effectiveness of communication strategies. Critical columns for filtering
+    and grouping include ORG_STATE, INTERACTION_TYPE, and INTERACTION_DATE.
+  enriched: true
+  entity_name_columns: []
+  filter_hints: []
+  inline_value_columns: []
+sqlite.dim_patient:
+  columns:
+    APHERESIS_ORG_ADDRESS:
+      description: 'Address of the center where apheresis is performed, pharma commercial
+        meaning: treatment location, SQL usage: WHERE, GROUP BY, data format: string
+        (e.g., Minneapolis-MN), sample values: Minneapolis-MN, CHICAGO-IL'
+      is_foreign_key: false
+      is_primary_key: false
+      type: TEXT
+    APHERESIS_ORG_ID:
+      description: 'Identifier for the center where apheresis is performed, pharma
+        commercial meaning: treatment location, SQL usage: WHERE, GROUP BY, JOIN,
+        data format: alphanumeric string (e.g., 001Tu00000TS9e7IAD), sample values:
+        001Tu00000TS9e7IAD, 001J700000Cfr4NIAR'
+      is_foreign_key: false
+      is_primary_key: false
+      type: TEXT
+    APHERESIS_ORG_NAME:
+      description: 'Name of the center where apheresis is performed, pharma commercial
+        meaning: treatment location, SQL usage: WHERE, GROUP BY, data format: string
+        (e.g., University of Minnesota), sample values: University of Minnesota, Northwestern
+        Medicine'
+      is_foreign_key: false
+      is_primary_key: false
+      type: TEXT
+    APHERESIS_ORG_REGION:
+      description: 'Region where the apheresis center is located, pharma commercial
+        meaning: geographic location, SQL usage: WHERE, GROUP BY, data format: string
+        (e.g., North Region), sample values: North Region'
+      is_foreign_key: false
+      is_primary_key: false
+      type: TEXT
+    APHERESIS_SCHEDULED_DATE:
+      description: 'Date when apheresis is scheduled, pharma commercial meaning: treatment
+        planning, SQL usage: WHERE, GROUP BY, data format: DD-MM-YYYY HH:MM (e.g.,
+        25-11-2025 00:00), Convert: DATE(substr(col,7,4)||''-''||substr(col,4,2)||''-''||substr(col,1,2)),
+        sample values: 25-11-2025 00:00, 28-04-2025 00:00, 09-01-2026 00:00'
+      is_foreign_key: false
+      is_primary_key: false
+      type: TEXT
+    APH_1_FINISH_DATE:
+      description: 'Finish date of the first apheresis, pharma commercial meaning:
+        treatment end, SQL usage: WHERE, GROUP BY, data format: DD-MM-YYYY HH:MM (e.g.,
+        25-11-2025 00:00), Convert: DATE(substr(col,7,4)||''-''||substr(col,4,2)||''-''||substr(col,1,2)),
+        sample values: 25-11-2025 00:00, 28-04-2025 00:00, 09-01-2026 00:00'
+      is_foreign_key: false
+      is_primary_key: false
+      type: TEXT
+    APH_1_START_DATE:
+      description: 'Start date of the first apheresis, pharma commercial meaning:
+        treatment start, SQL usage: WHERE, GROUP BY, data format: DD-MM-YYYY HH:MM
+        (e.g., 25-11-2025 00:00), Convert: DATE(substr(col,7,4)||''-''||substr(col,4,2)||''-''||substr(col,1,2)),
+        sample values: 25-11-2025 00:00, 28-04-2025 00:00, 09-01-2026 00:00'
+      is_foreign_key: false
+      is_primary_key: false
+      type: TEXT
+    CURRENT_MILESTONE_STATUS:
+      description: 'Current milestone status of the patient, pharma commercial meaning:
+        patient progress, SQL usage: WHERE, GROUP BY, data format: string (e.g., Infused
+        with Obe-Cel Dose 2), sample values: Infused with Obe-Cel Dose 2'
+      is_foreign_key: false
+      is_primary_key: false
+      type: TEXT
+    CURRENT_MILESTONE_STATUS_DATE:
+      description: 'Date of the current milestone status, pharma commercial meaning:
+        patient progress, SQL usage: WHERE, GROUP BY, data format: DD-MM-YYYY HH:MM
+        (e.g., 21-01-2026 00:00), Convert: DATE(substr(col,7,4)||''-''||substr(col,4,2)||''-''||substr(col,1,2)),
+        sample values: 21-01-2026 00:00, 04-06-2025 00:00, 11-03-2026 00:00'
+      is_foreign_key: false
+      is_primary_key: false
+      type: TEXT
+    DRUG_PRODUCT_INFUSION_1_DATE:
+      description: 'Date of the first infusion, pharma commercial meaning: treatment
+        administration, SQL usage: WHERE, GROUP BY, data format: DD-MM-YYYY HH:MM
+        (e.g., 12-01-2026 00:00), Convert: DATE(substr(col,7,4)||''-''||substr(col,4,2)||''-''||substr(col,1,2)),
+        sample values: 12-01-2026 00:00, 27-05-2025 00:00, 25-02-2026 00:00'
+      is_foreign_key: false
+      is_primary_key: false
+      type: TEXT
+    DRUG_PRODUCT_INFUSION_2_DATE:
+      description: 'Date of the second infusion, pharma commercial meaning: treatment
+        administration, SQL usage: WHERE, GROUP BY, data format: DD-MM-YYYY HH:MM
+        (e.g., 21-01-2026 00:00), Convert: DATE(substr(col,7,4)||''-''||substr(col,4,2)||''-''||substr(col,1,2)),
+        sample values: 21-01-2026 00:00, 04-06-2025 00:00, 11-03-2026 00:00'
+      is_foreign_key: false
+      is_primary_key: false
+      type: TEXT
+    DRUG_PRODUCT_RECEIVED_AT_INFUSION_SITE_DATE:
+      description: 'Date when the drug product is received at the infusion site, pharma
+        commercial meaning: supply chain tracking, SQL usage: WHERE, GROUP BY, data
+        format: DD-MM-YYYY HH:MM (e.g., 17-12-2025 00:00), Convert: DATE(substr(col,7,4)||''-''||substr(col,4,2)||''-''||substr(col,1,2)),
+        sample values: 17-12-2025 00:00, 21-05-2025 00:00, 16-02-2026 00:00'
+      is_foreign_key: false
+      is_primary_key: false
+      type: TEXT
+    DUPLICATE_PATIENT_FLAG:
+      description: 'Flag indicating if the patient is a duplicate, pharma commercial
+        meaning: patient tracking, SQL usage: WHERE, GROUP BY, data format: string
+        (e.g., N), sample values: N'
+      is_foreign_key: false
+      is_primary_key: false
+      type: TEXT
+    Date Diff between Apheresis to Infusion:
+      description: 'Difference in days between apheresis and infusion, pharma commercial
+        meaning: treatment timing, SQL usage: WHERE, GROUP BY, data format: numeric
+        (e.g., 0), sample values: 0'
+      is_foreign_key: false
+      is_primary_key: false
+      type: REAL
+    ENROLLMENT_DATE:
+      description: 'Date when the patient enrolled in the program, pharma commercial
+        meaning: patient onboarding, SQL usage: WHERE, GROUP BY, data format: DD-MM-YYYY
+        HH:MM (e.g., 12-11-2025 00:00), Convert: DATE(substr(col,7,4)||''-''||substr(col,4,2)||''-''||substr(col,1,2)),
+        sample values: 12-11-2025 00:00, 27-03-2025 00:00, 29-12-2025 00:00'
+      is_foreign_key: false
+      is_primary_key: false
+      type: TEXT
+    INFUSION_ORG_ADDRESS:
+      description: 'Address of the center where infusion is performed, pharma commercial
+        meaning: treatment location, SQL usage: WHERE, GROUP BY, data format: string
+        (e.g., Minneapolis-MN), sample values: Minneapolis-MN, CHICAGO-IL'
+      is_foreign_key: false
+      is_primary_key: false
+      type: TEXT
+    INFUSION_ORG_ID:
+      description: 'Identifier for the center where infusion is performed, pharma
+        commercial meaning: treatment location, SQL usage: WHERE, GROUP BY, JOIN,
+        data format: alphanumeric string (e.g., 001Tu00000TS9e7IAD), sample values:
+        001Tu00000TS9e7IAD, 001J700000Cfr4NIAR'
+      is_foreign_key: false
+      is_primary_key: false
+      type: TEXT
+    INFUSION_ORG_NAME:
+      description: 'Name of the center where infusion is performed, pharma commercial
+        meaning: treatment location, SQL usage: WHERE, GROUP BY, data format: string
+        (e.g., University of Minnesota), sample values: University of Minnesota, Northwestern
+        Medicine'
+      is_foreign_key: false
+      is_primary_key: false
+      type: TEXT
+    INFUSION_ORG_REGION:
+      description: 'Region where the infusion center is located, pharma commercial
+        meaning: geographic location, SQL usage: WHERE, GROUP BY, data format: string
+        (e.g., North Region), sample values: North Region'
+      is_foreign_key: false
+      is_primary_key: false
+      type: TEXT
+    IS_APHERESED:
+      description: 'Flag indicating if the patient has undergone apheresis, pharma
+        commercial meaning: treatment administration, SQL usage: WHERE, GROUP BY,
+        data format: integer (e.g., 1), sample values: 1'
+      is_foreign_key: false
+      is_primary_key: false
+      type: INTEGER
+    IS_DP_DELIVERED:
+      description: 'Flag indicating if the drug product has been delivered, pharma
+        commercial meaning: supply chain tracking, SQL usage: WHERE, GROUP BY, data
+        format: integer (e.g., 1), sample values: 1'
+      is_foreign_key: false
+      is_primary_key: false
+      type: INTEGER
+    IS_POST_APH_DROP_OFF:
+      description: 'Flag indicating if the patient has dropped off after apheresis,
+        pharma commercial meaning: patient retention, SQL usage: WHERE, GROUP BY,
+        data format: integer (e.g., 0), sample values: 0'
+      is_foreign_key: false
+      is_primary_key: false
+      type: INTEGER
+    IS_REGISTERD_IN_PORTAL:
+      description: 'Flag indicating if the patient is registered in the portal, pharma
+        commercial meaning: patient engagement, SQL usage: WHERE, GROUP BY, data format:
+        integer (e.g., 1), sample values: 1'
+      is_foreign_key: false
+      is_primary_key: false
+      type: INTEGER
+    IS_SCHEDULED_FOR_APH:
+      description: 'Flag indicating if the patient is scheduled for apheresis, pharma
+        commercial meaning: treatment planning, SQL usage: WHERE, GROUP BY, data format:
+        integer (e.g., 1), sample values: 1'
+      is_foreign_key: false
+      is_primary_key: false
+      type: INTEGER
+    NEW_PRESCRIBER_FLAG:
+      description: 'Flag indicating if the patient has a new prescriber, pharma commercial
+        meaning: prescriber tracking, SQL usage: WHERE, GROUP BY, data format: string
+        (e.g., None, Y), sample values: None, Y'
+      is_foreign_key: false
+      is_primary_key: false
+      type: TEXT
+    ORG_ADDRESS:
+      description: 'Address of the CENTER where the patient is enrolled, pharma commercial
+        meaning: treatment location, SQL usage: WHERE, GROUP BY, data format: string
+        (e.g., Minneapolis-MN), sample values: Minneapolis-MN, CHICAGO-IL'
+      is_foreign_key: false
+      is_primary_key: false
+      type: TEXT
+    ORG_NAME:
+      description: 'Name of the center where the patient is enrolled, pharma commercial
+        meaning: treatment location, SQL usage: WHERE, GROUP BY, data format: string
+        (e.g., University of Minnesota), sample values: University of Minnesota, Northwestern
+        Medicine'
+      is_foreign_key: false
+      is_primary_key: false
+      type: TEXT
+    ORG_REGION:
+      description: 'Region where the center is located, pharma commercial meaning:
+        geographic location, SQL usage: WHERE, GROUP BY, data format: string (e.g.,
+        North Region), sample values: North Region'
+      is_foreign_key: false
+      is_primary_key: false
+      type: TEXT
+    RE_REGISTRATION_FLAG:
+      description: 'Flag indicating if the patient has re-registered, pharma commercial
+        meaning: patient engagement, SQL usage: WHERE, GROUP BY, data format: string
+        (e.g., Registration 1), sample values: Registration 1'
+      is_foreign_key: false
+      is_primary_key: false
+      type: TEXT
+    SRC_ORG_ID:
+      description: 'Identifier for the center where the patient is enrolled, pharma
+        commercial meaning: treatment location, SQL usage: WHERE, GROUP BY, JOIN,
+        data format: alphanumeric string (e.g., 001Tu00000TS9e7IAD), sample values:
+        001Tu00000TS9e7IAD, 001J700000Cfr4NIAR'
+      is_foreign_key: false
+      is_primary_key: false
+      type: TEXT
+    SRC_PATIENT_ID:
+      description: 'Unique patient identifier, used for tracking patient interactions
+        and history, SQL usage: WHERE, GROUP BY, COUNT DISTINCT, data format: alphanumeric
+        string (e.g., 001Tu00000myc5NIAQ), sample values: 001Tu00000myc5NIAQ, 001Tu00000RVmPfIAL,
+        001Tu00000snstCIAQ'
+      is_foreign_key: false
+      is_primary_key: false
+      type: TEXT
+    SRC_PATIENT_STATUS:
+      description: 'Current status of the patient, pharma commercial meaning: patient
+        progress, SQL usage: WHERE, GROUP BY, data format: string (e.g., Treated),
+        sample values: Treated'
+      is_foreign_key: false
+      is_primary_key: false
+      type: TEXT
+    THERAPY_CYCLE:
+      description: 'Therapy cycle identifier, pharma commercial meaning: treatment
+        protocol, SQL usage: WHERE, GROUP BY, data format: alphanumeric string (e.g.,
+        a0YTu00000mMrQSMA0), sample values: a0YTu00000mMrQSMA0, a0YTu00000R0bYIMAZ'
+      is_foreign_key: false
+      is_primary_key: false
+      type: TEXT
+  count_column: ''
+  description: This table represents patient-level data for a pharmaceutical company,
+    with each row corresponding to a unique patient. The data can be used for various
+    analytics use cases, such as tracking patient enrollment, apheresis, and infusion
+    dates, as well as analyzing patient status and milestone achievements. Critical
+    columns for filtering and grouping include SRC_PATIENT_ID, ENROLLMENT_DATE, APHERESIS_SCHEDULED_DATE,
+    and CURRENT_MILESTONE_STATUS. The table provides a comprehensive view of patient
+    interactions with the pharmaceutical company, enabling commercial analysts to
+    gain insights into patient journeys and treatment outcomes.
+  enriched: true
+  entity_name_columns: []
+  filter_hints: []
+  inline_value_columns: []
+sqlite.hospital_center:
+  columns:
+    CLINICAL_STUDY_SITE:
+      description: 'Indicates whether the center is part of the CLINICAL STUDY program,
+        useful for filtering and grouping (SQL: WHERE, GROUP BY), data format: TEXT
+        (e.g., ''YES'', ''NO'')'
+      is_foreign_key: false
+      is_primary_key: false
+      type: TEXT
+    GEOGRAPHICAL_REGION:
+      description: 'Represents the US region where the pharmaceutical center is located,
+        useful for regional market analysis (SQL: WHERE, GROUP BY), data format: TEXT
+        (e.g., ''North Region'', ''West Region'', ''South Region'')'
+      is_foreign_key: false
+      is_primary_key: false
+      type: TEXT
+    HOSPITAL_ONBOARDING_MILESTONE:
+      description: 'Current milestone achieved by the pharmaceutical center, useful
+        for tracking center progress (SQL: WHERE, GROUP BY), data format: TEXT (e.g.,
+        ''Authorized'', ''Introduction'', ''Inactive'')'
+      is_foreign_key: false
+      is_primary_key: false
+      type: TEXT
+    ORG_ADDRESS_CITY:
+      description: 'City where the pharmaceutical center is located, useful for regional
+        analysis (SQL: WHERE, GROUP BY), data format: TEXT (e.g., ''MILWAUKEE'', ''SACRAMENTO'',
+        ''AUSTIN'')'
+      is_foreign_key: false
+      is_primary_key: false
+      type: TEXT
+    ORG_ID:
+      description: 'Unique identifier for each pharmaceutical center, useful for joining
+        with other tables (SQL: JOIN), data format: TEXT (e.g., ''US22'', ''US27'',
+        ''US04'')'
+      is_foreign_key: false
+      is_primary_key: false
+      type: TEXT
+    ORG_ID_COPS_CENTER_ID:
+      description: 'Unique identifier for the center in the COPS system, useful for
+        joining with other tables (SQL: JOIN), data format: TEXT (e.g., ''001Tu00000Vr7OEIAZ'',
+        ''None'', ''001J700000CfuCCIAZ'')'
+      is_foreign_key: false
+      is_primary_key: false
+      type: TEXT
+    ORG_NAME:
+      description: 'Name of the pharmaceutical center, useful for filtering and grouping
+        (SQL: WHERE, GROUP BY), data format: TEXT (e.g., ''Froedtert Hospital (Medical
+        College'', ''UC Davis Stem Cell Transplant Progr'', ''St David''s South Austin
+        Medical Cen'')'
+      is_foreign_key: false
+      is_primary_key: false
+      type: TEXT
+    RECORD_ID:
+      description: 'Unique identifier for each record, useful for data integrity checks
+        (SQL: COUNT DISTINCT), data format: INTEGER (e.g., 16, 21, 50)'
+      is_foreign_key: false
+      is_primary_key: false
+      type: INTEGER
+    SEGMENT:
+      description: 'Defines the market segment of the hospital, allowing for segmentation
+        analysis (SQL: WHERE, GROUP BY), data format: TEXT (e.g., ''High'', ''Low'',
+        ''Medium'', ''Very High'')'
+      is_foreign_key: false
+      is_primary_key: false
+      type: TEXT
+    STATE:
+      description: 'State where the pharmaceutical center is located, useful for regional
+        analysis (SQL: WHERE, GROUP BY), data format: TEXT (e.g., ''WI'', ''CA'',
+        ''TX'')'
+      is_foreign_key: false
+      is_primary_key: false
+      type: TEXT
+  count_column: ''
+  description: This table represents a collection of pharmaceutical centers across
+    different regions in the US, with each row providing information about a specific
+    center. The granularity of the data is at the center level, allowing for analytics
+    use cases such as regional market analysis, center performance tracking, and milestone
+    progress monitoring. Critical columns for filtering and grouping include GEOGRAPHICAL_REGION,
+    ORG_ID, and HOSPITAL_ONBOARDING_MILESTONE. By analyzing this data, pharma commercial
+    analysts can gain insights into center authorization, progress towards milestones,
+    and regional trends.
+  enriched: true
+  entity_name_columns: []
+  filter_hints: []
+  inline_value_columns: []
+sqlite.interaction:
+  columns:
+    CONTACT_FULL_NAME:
+      description: 'Represents the full name of the healthcare professional contacted(HCP
+        NAME), useful for tracking interactions with specific individuals (SQL: WHERE,
+        GROUP BY), data format: TEXT (e.g., Michelle Mott, Brittney Baer, Kina Marie
+        Chung), sample values: Michelle Mott, Brittney Baer, Kina Marie Chung'
+      is_foreign_key: false
+      is_primary_key: false
+      type: TEXT
+    CONTACT_ROLE:
+      description: 'Indicates the role of the healthcare professional contacted, useful
+        for analyzing interactions by role (SQL: WHERE, GROUP BY, COUNT DISTINCT),
+        data format: TEXT (e.g., Cell Therapy Coordinator), sample values: Cell Therapy
+        Coordinator, Cell Therapy Coordinator, Cell Therapy Coordinator'
+      is_foreign_key: false
+      is_primary_key: false
+      type: TEXT
+    INTERACTION_DATE:
+      description: 'Date of the interaction, useful for analyzing trends over time
+        (SQL: WHERE, GROUP BY, Convert: DATE(substr(col,7,4)||''-''||substr(col,4,2)||''-''||substr(col,1,2))),
+        data format: TEXT (DD-MM-YYYY HH:MM, e.g., 05-12-2025 00:00), sample values:
+        05-12-2025 00:00, 03-12-2025 00:00, 02-12-2025 00:00'
+      is_foreign_key: false
+      is_primary_key: false
+      type: TEXT
+    INTERACTION_ID:
+      description: 'Unique identifier for the interaction, useful for tracking interactions
+        (SQL: WHERE, GROUP BY), data format: TEXT (e.g., 1), sample values: 2, 3,
+        4'
+      is_foreign_key: false
+      is_primary_key: false
+      type: TEXT
+    INTERACTION_TYPE:
+      description: 'Type of interaction (e.g., email, phone call), useful for analyzing
+        interactions by type (SQL: WHERE, GROUP BY, COUNT DISTINCT), data format:
+        TEXT (e.g., Email), sample values: Email, Email, Email'
+      is_foreign_key: false
+      is_primary_key: false
+      type: TEXT
+    ORG_CITY:
+      description: 'City where the healthcare center is located, useful for analyzing
+        interactions by city (SQL: WHERE, GROUP BY), data format: TEXT (e.g., DUARTE),
+        sample values: DUARTE, NASHVILLE, MIAMI'
+      is_foreign_key: false
+      is_primary_key: false
+      type: TEXT
+    ORG_NAME:
+      description: 'Name of the healthcare center, useful for analyzing interactions
+        by location (SQL: WHERE, GROUP BY), data format: TEXT (e.g., City of Hope
+        National Medical Cente), sample values: City of Hope National Medical Cente,
+        Vanderbilt University Medical Cente, University of Miami, Sylvester Comp'
+      is_foreign_key: false
+      is_primary_key: false
+      type: TEXT
+    ORG_RECORD_ID:
+      description: 'Unique identifier for the healthcare center, useful for joining
+        with other tables (SQL: JOIN), data format: INTEGER (e.g., 7, 134, 4), sample
+        values: 7, 134, 4'
+      is_foreign_key: false
+      is_primary_key: false
+      type: INTEGER
+    ORG_STATE:
+      description: 'State where the healthcare center is located, useful for analyzing
+        interactions by state (SQL: WHERE, GROUP BY), data format: TEXT (e.g., CA),
+        sample values: CA, TN, FL'
+      is_foreign_key: false
+      is_primary_key: false
+      type: TEXT
+    RECORD_OWNER:
+      description: 'Represents the sales representative, useful for tracking record
+        ownership (SQL: WHERE, GROUP BY), data format: TEXT (e.g., Crystal), sample
+        values: Crystal , Felice , Avery '
+      is_foreign_key: false
+      is_primary_key: false
+      type: TEXT
+    REGION_INFO_BASED_ON_ORG:
+      description: 'Region where the healthcare center is located, useful for analyzing
+        interactions by region (SQL: WHERE, GROUP BY), data format: TEXT (e.g., West
+        Region), sample values: West Region, South Region, North Region, East Region'
+      is_foreign_key: false
+      is_primary_key: false
+      type: TEXT
+  count_column: ''
+  description: This table represents interactions between pharmaceutical representatives
+    and healthcare professionals, with each row providing a unique interaction record.
+    The granularity of the data allows for analysis of individual interactions, enabling
+    pharma commercial analysts to track engagement trends, identify key opinion leaders,
+    and optimize sales strategies. Critical columns for filtering and grouping include
+    ORG_NAME, CONTACT_ROLE, and INTERACTION_TYPE, which can be used to analyze interactions
+    by location, role, or type. By leveraging this data, analysts can develop targeted
+    marketing campaigns and improve sales performance.
+  enriched: true
+  entity_name_columns: []
+  filter_hints: []
+  inline_value_columns: []

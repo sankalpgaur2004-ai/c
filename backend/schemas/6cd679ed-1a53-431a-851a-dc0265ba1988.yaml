@@ -1,0 +1,137 @@
+dataset: Bridge Bio Chart
+workspace: Agentic BI
+report_name: Bridge Bio Chart
+tables:
+- name: Org List
+  description: The "Org List" table contains information about employees within an
+    organization, including their names, email addresses, departments, phone numbers,
+    job titles, and their reporting managers. It provides a structured overview of
+    the organizational hierarchy and contact details, particularly focusing on the
+    manufacturing department.
+  columns:
+  - name: Name
+    type: string
+    sample_values:
+    - Alex Nichols
+    - Renee Cramer
+    - Preety Sahdev
+    - Leena Prasad
+    - Sree Cheboyina
+    description: The Name column contains the full names of individuals in the organization.
+  - name: Email
+    type: string
+    sample_values:
+    - Alex.Nichols@bridgebio.com
+    - renee.cramer@bridgebio.com
+    - preety.sahdev@bridgebio.com
+    - Leena.Prasad@BridgeBio.com
+    - Sree.Cheboyina@bridgebio.com
+    description: The Email column provides the professional email addresses of the
+      individuals.
+  - name: Department
+    type: string
+    sample_values:
+    - 115 - Manufacturing
+    - 106 - Clinical Operations
+    - 515 - Human Resources
+    - 525 - Facility
+    - 150 - Business Dev & Operations
+    description: The Department column indicates the specific department and its code
+      where the individual works.
+  - name: Phone
+    type: string
+    sample_values: []
+    description: The Phone column is intended to store personal phone numbers of the
+      individuals, but currently has no data.
+  - name: Work Phone
+    type: string
+    sample_values: []
+    description: The Work Phone column is meant to hold the work phone numbers of
+      the individuals, but currently has no data.
+  - name: Job Title
+    type: string
+    sample_values:
+    - Associate Director, Drug Substance & Management
+    - Business Operations Manager
+    - Sr. Director, Drug Product Formulation & Dev
+    - Executive Dir, Drug Product & Formulation Dev
+    - Executive Director, Manufacturing
+    description: The Job Title column describes the professional role or position
+      held by the individual within the organization.
+  - name: Reports To
+    type: string
+    sample_values:
+    - '0'
+    - Clayton Beard
+    - Ben Collman
+    - Rob Ely
+    - Mike Monteith
+    description: The Reports To column specifies the name of the person to whom the
+      individual directly reports, or '0' if they do not report to anyone.
+- name: UTC Final (2)
+  description: The table "UTC Final (2)" contains contact and organizational information
+    for employees at a company, including their names, email addresses, phone numbers,
+    work phone numbers, job titles, and the names of their supervisors. It provides
+    a hierarchical view of the company's structure, indicating who reports to whom,
+    with Martine Rothblatt identified as the CEO.
+  columns:
+  - name: Name
+    type: string
+    sample_values:
+    - Martine Rothblatt
+    - Aimee Smart
+    - Aman Kaur
+    - Daniel Backman
+    - Gregory Hurst
+    description: The full name of the individual associated with the record.
+  - name: Email
+    type: string
+    sample_values:
+    - Mar@unither.com
+    - ASmart@unither.com
+    - akaur@unither.com
+    - dbackman@unither.com
+    - ghurst@unither.com
+    description: The email address used for professional communication by the individual.
+  - name: Phone
+    type: string
+    sample_values:
+    - (240) 281-1212
+    - +1 (781) 9703429
+    - +1 (703) 5980625
+    - +1 (919) 2654019
+    - +1 (415) 302-7406
+    description: The personal or primary contact phone number of the individual.
+  - name: Work Phone
+    type: string
+    sample_values:
+    - 240-821-1733
+    - 240-821-1640
+    - 603-769-3651
+    - 603-262-3298
+    - 603-769-3657
+    description: The office or work-related contact phone number of the individual.
+  - name: Job Title
+    type: string
+    sample_values:
+    - CEO
+    - VP, Clinical Development
+    - Associate Director, Biomaterials Science
+    - Associate Director, Print Process Engineering
+    - Associate Director & Principal Mathematician, Human Organ Design
+    description: The professional position or role held by the individual within the
+      organization.
+  - name: Reports To
+    type: string
+    sample_values:
+    - Martine Rothblatt
+    - Michael Benkowitz
+    - David Barton
+    - Gregory Bottorff
+    - Monal Chand
+    description: The name of the person to whom the individual directly reports within
+      the organization.
+measures: []
+relationships: []
+pages:
+  BridgeBio Org Chart: []

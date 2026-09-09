@@ -1,0 +1,128 @@
+# =============================================================================
+# CONVERGEAI CI/CD Pipeline
+# Target: Azure VM (Ubuntu), deployed via SSH
+# Environment URL: https://converge.circulants.ai (Adjust as needed)
+#
+# Required GitLab CI/CD Variables:
+#   SSH_PRIVATE_KEY — Private key for VM access
+#   VM_HOST         — Public IP or hostname of the Azure VM
+#   VM_USER         — SSH user (defaults to azureuser)
+#   PROD_ENV_FILE   — Content of the backend .env file
+# =============================================================================
+
+default:
+  tags:
+    - azure
+
+variables:
+  DEPLOY_DIR: "/var/www/insightagent"
+  VM_USER: "azureuser"
+
+stages:
+  - build
+  - deploy
+
+# ── STAGE: build ─────────────────────────────────────────────────────────────
+# Builds the frontend and prepares the backend dependencies manifest
+build_app:
+  stage: build
+  image: node:18
+  script:
+    - "echo '[BUILD] Building Frontend...'"
+    - "cd frontend"
+    - "npm install"
+    - "npm run build"
+    - "cd .."
+    - "echo '[BUILD] Checking Backend...'"
+    - "if [ ! -f requirements.txt ]; then echo 'ERROR: root requirements.txt missing'; exit 1; fi"
+  artifacts:
+    paths:
+      - frontend/dist/
+      - backend/
+      - requirements.txt
+    expire_in: 2 hours
+  only:
+    - nlm
+
+# ── STAGE: deploy ────────────────────────────────────────────────────────────
+# Deploys files to VM and configures systemd services
+deploy_production:
+  stage: deploy
+  environment:
+    name: production
+  script:
+    # 1. Prepare directories directly (no SSH needed)
+    - echo '[DEPLOY] Preparing deployment directories...'
+    - sudo mkdir -p $DEPLOY_DIR/backend $DEPLOY_DIR/frontend $DEPLOY_DIR/uploads $DEPLOY_DIR/data
+    - sudo chown -R $VM_USER:$VM_USER $DEPLOY_DIR
+
+    # 2. Sync Backend files
+    - echo '[DEPLOY] Syncing backend files...'
+    - sudo rsync -az --delete --exclude='venv/' --exclude='__pycache__/' --exclude='data/' --exclude='uploads/' --exclude='schemas/' backend/ $DEPLOY_DIR/backend/
+    - sudo cp requirements.txt $DEPLOY_DIR/backend/requirements.txt
+
+    # 3. Sync Frontend files
+    - echo '[DEPLOY] Syncing frontend files...'
+    - sudo rsync -az --delete frontend/dist/ $DEPLOY_DIR/frontend/
+
+    # 4. Inject Secrets (Main.py expects .env in the project root)
+    - echo '[DEPLOY] Injecting environment variables...'
+    - sudo rm -f $DEPLOY_DIR/.env
+    - echo "CORS_ORIGINS=$CORS_ORIGINS" | sudo tee $DEPLOY_DIR/.env > /dev/null
+    - echo "OPENAI_API_KEY=$OPENAI_API_KEY" | sudo tee -a $DEPLOY_DIR/.env > /dev/null
+    - echo "PORT=$PORT" | sudo tee -a $DEPLOY_DIR/.env > /dev/null
+    - echo "DATABASE_TYPE=$DATABASE_TYPE" | sudo tee -a $DEPLOY_DIR/.env > /dev/null
+    - echo "DATABASE_PATH=$DATABASE_PATH" | sudo tee -a $DEPLOY_DIR/.env > /dev/null
+    - echo "AUTO_CONNECT_DB=$AUTO_CONNECT_DB" | sudo tee -a $DEPLOY_DIR/.env > /dev/null
+    - echo "JWT_SHARED_SECRET=$JWT_SHARED_SECRET" | sudo tee -a $DEPLOY_DIR/.env > /dev/null
+    - echo "COOKIE_DOMAIN=$COOKIE_DOMAIN" | sudo tee -a $DEPLOY_DIR/.env > /dev/null
+    - echo "A2_URL=$A2_URL" | sudo tee -a $DEPLOY_DIR/.env > /dev/null
+    - echo "CAI_URL=$CAI_URL" | sudo tee -a $DEPLOY_DIR/.env > /dev/null
+    - echo "FRONTEND_URL=$FRONTEND_URL" | sudo tee -a $DEPLOY_DIR/.env > /dev/null
+
+    # 5. Install Python dependencies
+    - echo '[DEPLOY] Updating dependencies...'
+    - cd $DEPLOY_DIR/backend
+    - if [ ! -d venv ]; then sudo python3 -m venv venv; fi
+    - sudo venv/bin/pip install --quiet --upgrade pip
+    - sudo venv/bin/pip install --quiet -r requirements.txt
+    # Install Playwright browser binary — skips download if already at correct version
+    - sudo venv/bin/playwright install chromium --with-deps
+    - sudo chown -R $VM_USER:$VM_USER $DEPLOY_DIR
+
+    # 6. Write systemd service files
+    - echo '[DEPLOY] Writing systemd service files...'
+    - |
+      cat > /tmp/convergeai-backend.service << 'UNIT'
+      [Unit]
+      Description=ConvergeAI Backend
+      After=network.target
+
+      [Service]
+      Type=simple
+      User=azureuser
+      Group=azureuser
+      WorkingDirectory=/var/www/insightagent/backend
+      ExecStart=/var/www/insightagent/backend/venv/bin/uvicorn main:app --host 0.0.0.0 --port 8002
+      Restart=on-failure
+      RestartSec=5
+
+      [Install]
+      WantedBy=multi-user.target
+      UNIT
+    # 7. Enable and restart backend service
+    - echo '[DEPLOY] Restarting backend service...'
+    - sudo fuser -k 8002/tcp || true
+    - sudo mv /tmp/convergeai-backend.service /etc/systemd/system/
+    - sudo systemctl daemon-reload
+    - sudo systemctl enable convergeai-backend.service
+    - sudo systemctl restart convergeai-backend.service
+
+    # 8. Nginx is configured manually on the server (/etc/nginx/sites-available/convergeai)
+    #    and is intentionally NOT managed by this pipeline. Static frontend files are
+    #    picked up automatically by the existing config — no reload needed for content changes.
+    #    Only touch Nginx manually on the server if the config itself needs to change.
+
+  only:
+    - nlm
+  when: on_success

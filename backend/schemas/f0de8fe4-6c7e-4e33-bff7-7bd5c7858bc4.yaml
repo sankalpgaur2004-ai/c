@@ -1,0 +1,4009 @@
+dataset: Copay_Analysis_Dashboard_2026_06_18_V4 2 (2)
+workspace: Agentic BI
+report_name: Copay_Analysis_Dashboard_2026_06_18_V4 2 (2)
+tables:
+- name: DATE_DIM_DOF
+  description: The DATE_DIM_DOF table is a comprehensive date dimension table that
+    provides detailed information about each date, including its key attributes such
+    as day, week, month, quarter, and year. It includes various date-related descriptors
+    like day of the week, month name, and fiscal periods, along with start and end
+    dates for weeks, months, quarters, and years. Additionally, it contains indicators
+    for weekdays, month-end, leap years, and holiday descriptions, making it a valuable
+    resource for time-based analysis and reporting.
+  columns:
+  - name: DATE_KEY
+    type: Float64
+    sample_values:
+    - '20050801.0'
+    - '20050802.0'
+    - '20050803.0'
+    - '20050804.0'
+    - '20050805.0'
+    description: A unique identifier for each date, represented as a float in the
+      format YYYYMMDD.
+  - name: DATE
+    type: datetime64[ns]
+    sample_values:
+    - '2005-08-01'
+    - '2005-08-02'
+    - '2005-08-03'
+    - '2005-08-04'
+    - '2005-08-05'
+    description: The calendar date in a datetime format.
+  - name: FULL_DATE_DESC
+    type: string
+    sample_values:
+    - Monday, August 01, 2005
+    - Tuesday, August 02, 2005
+    - Wednesday, August 03, 2005
+    - Thursday, August 04, 2005
+    - Friday, August 05, 2005
+    description: A string representation of the date including the day of the week,
+      month, day, and year.
+  - name: DAY_OF_WEEK
+    type: Float64
+    sample_values:
+    - '1.0'
+    - '2.0'
+    - '3.0'
+    - '4.0'
+    - '5.0'
+    description: A numerical representation of the day of the week, where 1 represents
+      Monday.
+  - name: DAY_OF_MONTH
+    type: Float64
+    sample_values:
+    - '1.0'
+    - '2.0'
+    - '3.0'
+    - '4.0'
+    - '5.0'
+    description: The day of the month as a numerical value.
+  - name: DAY_OF_YEAR
+    type: Float64
+    sample_values:
+    - '213.0'
+    - '214.0'
+    - '215.0'
+    - '216.0'
+    - '217.0'
+    description: The day of the year as a numerical value, ranging from 1 to 366.
+  - name: WEEK_OF_MONTH
+    type: Float64
+    sample_values:
+    - '1.0'
+    - '2.0'
+    - '3.0'
+    - '4.0'
+    - '5.0'
+    description: The week number within the month, starting from 1.
+  - name: WEEK
+    type: Float64
+    sample_values:
+    - '31.0'
+    - '32.0'
+    - '33.0'
+    - '34.0'
+    - '35.0'
+    description: The week number within the year, starting from 1.
+  - name: MONTH
+    type: Float64
+    sample_values:
+    - '8.0'
+    - '7.0'
+    - '9.0'
+    - '6.0'
+    - '5.0'
+    description: The month of the year as a numerical value, ranging from 1 to 12.
+  - name: QUARTER
+    type: Float64
+    sample_values:
+    - '3.0'
+    - '2.0'
+    - '1.0'
+    - '4.0'
+    description: The quarter of the year as a numerical value, ranging from 1 to 4.
+  - name: YEAR
+    type: Int64
+    sample_values:
+    - '2005'
+    - '2006'
+    - '2007'
+    - '2009'
+    - '2010'
+    description: The year in which the date falls, represented as a four-digit integer.
+  - name: DAY_NAME
+    type: string
+    sample_values:
+    - Monday
+    - Tuesday
+    - Wednesday
+    - Thursday
+    - Friday
+    description: The full name of the day of the week for a given date.
+  - name: DAY_NAME_ABBREV
+    type: string
+    sample_values:
+    - Mon
+    - Tue
+    - Wed
+    - Thu
+    - Fri
+    description: The abbreviated name of the day of the week, typically three letters.
+  - name: MONTH_NAME
+    type: string
+    sample_values:
+    - August
+    - July
+    - September
+    - June
+    - May
+    description: The full name of the month for a given date.
+  - name: MONTH_NAME_ABBREV
+    type: string
+    sample_values:
+    - Aug
+    - Jul
+    - Sep
+    - Jun
+    - May
+    description: The abbreviated name of the month, typically three letters.
+  - name: DAY_CD
+    type: string
+    sample_values:
+    - '20050801'
+    - '20050802'
+    - '20050803'
+    - '20050804'
+    - '20050805'
+    description: A string representing the date in the format YYYYMMDD.
+  - name: WEEK_CD
+    type: string
+    sample_values:
+    - '200531'
+    - '200532'
+    - '200533'
+    - '200534'
+    - '200535'
+    description: A string representing the week of the year in the format YYYYWW.
+  - name: MONTH_CD
+    type: string
+    sample_values:
+    - '200508'
+    - '200608'
+    - '200708'
+    - '200908'
+    - '201008'
+    description: A string representing the month of the year in the format YYYYMM.
+  - name: QUARTER_CD
+    type: string
+    sample_values:
+    - '200503'
+    - '200603'
+    - '200703'
+    - '200903'
+    - '201003'
+    description: A string representing the quarter of the year in the format YYYYQ.
+  - name: WEEK_START_DATE
+    type: datetime64[ns]
+    sample_values:
+    - '2005-08-01'
+    - '2005-08-08'
+    - '2005-08-15'
+    - '2005-08-22'
+    - '2005-08-29'
+    description: The date on which the week starts, represented in the format YYYY-MM-DD.
+  - name: WEEK_END_DATE
+    type: datetime64[ns]
+    sample_values:
+    - '2005-08-07'
+    - '2005-08-14'
+    - '2005-08-21'
+    - '2005-08-28'
+    - '2005-09-04'
+    description: The date representing the end of a week, typically a Sunday.
+  - name: MONTH_START_DATE
+    type: datetime64[ns]
+    sample_values:
+    - '2005-08-01'
+    - '2006-08-01'
+    - '2007-08-01'
+    - '2009-08-01'
+    - '2010-08-01'
+    description: The date marking the first day of a month.
+  - name: MONTH_END_DATE
+    type: datetime64[ns]
+    sample_values:
+    - '2005-08-31'
+    - '2006-08-31'
+    - '2007-08-31'
+    - '2009-08-31'
+    - '2010-08-31'
+    description: The date marking the last day of a month.
+  - name: PREV_QUARTER_START_DATE
+    type: datetime64[ns]
+    sample_values:
+    - '2005-04-01'
+    - '2006-04-01'
+    - '2007-04-01'
+    - '2009-04-01'
+    - '2010-04-01'
+    description: The date representing the first day of the previous quarter.
+  - name: PREV_QUARTER_END_DATE
+    type: datetime64[ns]
+    sample_values:
+    - '2005-06-30'
+    - '2006-06-30'
+    - '2007-06-30'
+    - '2009-06-30'
+    - '2010-06-30'
+    description: The date representing the last day of the previous quarter.
+  - name: QUARTER_START_DATE
+    type: datetime64[ns]
+    sample_values:
+    - '2005-07-01'
+    - '2006-07-01'
+    - '2007-07-01'
+    - '2009-07-01'
+    - '2010-07-01'
+    description: The date marking the first day of the current quarter.
+  - name: QUARTER_END_DATE
+    type: datetime64[ns]
+    sample_values:
+    - '2005-09-30'
+    - '2006-09-30'
+    - '2007-09-30'
+    - '2009-09-30'
+    - '2010-09-30'
+    description: The date marking the last day of the current quarter.
+  - name: NEXT_QUARTER_START_DATE
+    type: datetime64[ns]
+    sample_values:
+    - '2005-10-01'
+    - '2006-10-01'
+    - '2007-10-01'
+    - '2009-10-01'
+    - '2010-10-01'
+    description: The date representing the first day of the next quarter.
+  - name: NEXT_QUARTER_END_DATE
+    type: datetime64[ns]
+    sample_values:
+    - '2005-12-31'
+    - '2006-12-31'
+    - '2007-12-31'
+    - '2009-12-31'
+    - '2010-12-31'
+    description: The date representing the last day of the next quarter.
+  - name: YEAR_START_DATE
+    type: datetime64[ns]
+    sample_values:
+    - '2005-01-01'
+    - '2006-01-01'
+    - '2007-01-01'
+    - '2009-01-01'
+    - '2010-01-01'
+    description: The date marking the first day of the year.
+  - name: YEAR_END_DATE
+    type: datetime64[ns]
+    sample_values:
+    - '2005-12-31'
+    - '2006-12-31'
+    - '2007-12-31'
+    - '2009-12-31'
+    - '2010-12-31'
+    description: The date representing the last day of the calendar year.
+  - name: DAYS_IN_YEAR
+    type: Float64
+    sample_values:
+    - '365.0'
+    - '366.0'
+    - '1.0'
+    description: The number of days in the specified year, accounting for leap years.
+  - name: FISCAL_DAY_CD
+    type: string
+    sample_values:
+    - FY2005213
+    - FY2005214
+    - FY2005215
+    - FY2005216
+    - FY2005217
+    description: A code representing a specific day within the fiscal year.
+  - name: FISCAL_WEEK_CD
+    type: string
+    sample_values:
+    - FY200531
+    - FY200532
+    - FY200533
+    - FY200534
+    - FY200535
+    description: A code representing a specific week within the fiscal year.
+  - name: FISCAL_MONTH_CD
+    type: string
+    sample_values:
+    - FY200508
+    - FY200608
+    - FY200708
+    - FY200908
+    - FY201008
+    description: A code representing a specific month within the fiscal year.
+  - name: FISCAL_QUARTER_CD
+    type: string
+    sample_values:
+    - FY200503
+    - FY200603
+    - FY200703
+    - FY200903
+    - FY201003
+    description: A code representing a specific quarter within the fiscal year.
+  - name: FISCAL_WEEK_START_DATE
+    type: datetime64[ns]
+    sample_values:
+    - '2005-08-01'
+    - '2005-08-08'
+    - '2005-08-15'
+    - '2005-08-22'
+    - '2005-08-29'
+    description: The date marking the beginning of a fiscal week.
+  - name: FISCAL_WEEK_END_DATE
+    type: datetime64[ns]
+    sample_values:
+    - '2005-08-07'
+    - '2005-08-14'
+    - '2005-08-21'
+    - '2005-08-28'
+    - '2005-09-04'
+    description: The date marking the end of a fiscal week.
+  - name: FISCAL_MONTH_START_DATE
+    type: datetime64[ns]
+    sample_values:
+    - '2005-08-01'
+    - '2006-08-01'
+    - '2007-08-01'
+    - '2009-08-01'
+    - '2010-08-01'
+    description: The date marking the beginning of a fiscal month.
+  - name: FISCAL_MONTH_END_DATE
+    type: datetime64[ns]
+    sample_values:
+    - '2005-08-31'
+    - '2006-08-31'
+    - '2007-08-31'
+    - '2009-08-31'
+    - '2010-08-31'
+    description: The date marking the end of a fiscal month.
+  - name: FISCAL_QUARTER_START_DATE
+    type: datetime64[ns]
+    sample_values:
+    - '2005-07-01'
+    - '2006-07-01'
+    - '2007-07-01'
+    - '2009-07-01'
+    - '2010-07-01'
+    description: The date marking the beginning of a fiscal quarter.
+  - name: FISCAL_QUARTER_END_DATE
+    type: datetime64[ns]
+    sample_values:
+    - '2005-09-30'
+    - '2006-09-30'
+    - '2007-09-30'
+    - '2009-09-30'
+    - '2010-09-30'
+    description: The date marking the end of a fiscal quarter.
+  - name: FISCAL_YEAR_START_DATE
+    type: datetime64[ns]
+    sample_values:
+    - '2005-01-01'
+    - '2006-01-01'
+    - '2007-01-01'
+    - '2009-01-01'
+    - '2010-01-01'
+    description: The date marking the beginning of a fiscal year.
+  - name: FISCAL_YEAR_END_DATE
+    type: datetime64[ns]
+    sample_values:
+    - '2005-12-31'
+    - '2006-12-31'
+    - '2007-12-31'
+    - '2009-12-31'
+    - '2010-12-31'
+    description: The date marking the end of a fiscal year.
+  - name: SALES_WEEK_START_DATE
+    type: datetime64[ns]
+    sample_values:
+    - '2005-07-31'
+    - '2005-08-07'
+    - '2005-08-14'
+    - '2005-08-21'
+    - '2005-08-28'
+    description: The date marking the beginning of a sales week.
+  - name: SALES_WEEK_END_DATE
+    type: datetime64[ns]
+    sample_values:
+    - '2005-08-06'
+    - '2005-08-13'
+    - '2005-08-20'
+    - '2005-08-27'
+    - '2005-09-03'
+    description: The date marking the end of a sales week.
+  - name: SALES_DAY_OF_WEEK
+    type: Float64
+    sample_values:
+    - '0.0'
+    - '1.0'
+    - '2.0'
+    - '3.0'
+    - '4.0'
+    description: A numerical representation of the day of the week for sales, where
+      0.0 typically represents Sunday.
+  - name: PREV_SEMESTER_START_DATE
+    type: datetime64[ns]
+    sample_values:
+    - '2005-10-01'
+    - '2006-10-01'
+    - '2008-10-01'
+    - '2009-10-01'
+    - '2010-10-01'
+    description: The date marking the beginning of the previous semester.
+  - name: PREV_SEMESTER_END_DATE
+    type: datetime64[ns]
+    sample_values:
+    - '2006-03-31'
+    - '2007-03-31'
+    - '2009-03-31'
+    - '2010-03-31'
+    - '2011-03-31'
+    description: The date marking the end of the previous semester.
+  - name: SEMESTER
+    type: string
+    sample_values:
+    - S2
+    - S1
+    description: A string indicating the semester, such as 'S1' for the first semester
+      or 'S2' for the second semester.
+  - name: SEMESTER_START_DATE
+    type: datetime64[ns]
+    sample_values:
+    - '2005-04-01'
+    - '2006-04-01'
+    - '2007-04-01'
+    - '2009-04-01'
+    - '2010-04-01'
+    description: The date when the semester begins.
+  - name: SEMESTER_END_DATE
+    type: datetime64[ns]
+    sample_values:
+    - '2005-09-30'
+    - '2006-09-30'
+    - '2007-09-30'
+    - '2009-09-30'
+    - '2010-09-30'
+    description: The date when the semester concludes.
+  - name: NEXT_SEMESTER_START_DATE
+    type: datetime64[ns]
+    sample_values:
+    - '2005-10-01'
+    - '2006-10-01'
+    - '2007-10-01'
+    - '2009-10-01'
+    - '2010-10-01'
+    description: The date when the following semester begins.
+  - name: NEXT_SEMESTER_END_DATE
+    type: datetime64[ns]
+    sample_values:
+    - '2006-03-31'
+    - '2007-03-31'
+    - '2008-03-31'
+    - '2010-03-31'
+    - '2011-03-31'
+    description: The date when the following semester concludes.
+  - name: WEEKDAY_IND
+    type: string
+    sample_values:
+    - X
+    description: An indicator marking whether the date is a weekday.
+  - name: MONTH_END_IND
+    type: string
+    sample_values:
+    - X
+    description: An indicator marking whether the date is the end of the month.
+  - name: LEAP_YEAR_IND
+    type: string
+    sample_values:
+    - X
+    description: An indicator marking whether the year is a leap year.
+  - name: NEXT_WEEK_DAY
+    type: datetime64[ns]
+    sample_values:
+    - '2005-08-02'
+    - '2005-08-03'
+    - '2005-08-04'
+    - '2005-08-05'
+    - '2005-08-08'
+    description: The date of the next weekday following a given date.
+  - name: PREVIOUS_WEEK_DAY
+    type: datetime64[ns]
+    sample_values:
+    - '2005-07-29'
+    - '2005-08-01'
+    - '2005-08-02'
+    - '2005-08-03'
+    - '2005-08-04'
+    description: The date of the previous weekday before a given date.
+  - name: CLOSEST_WEEK_DAY
+    type: datetime64[ns]
+    sample_values:
+    - '2005-08-01'
+    - '2005-08-02'
+    - '2005-08-03'
+    - '2005-08-04'
+    - '2005-08-05'
+    description: The date of the closest weekday to a given date.
+  - name: US_HOLIDAY_DESC
+    type: string
+    sample_values:
+    - New Years Day
+    - Juneteenth Day
+    - Christmas Day
+    - Independence Day
+    - Thanksgiving Day
+    description: This column contains descriptions of U.S. holidays.
+  - name: BIIB_US_HOLIDAY_DESC
+    type: string
+    sample_values:
+    - New Years Day Observed
+    - Thanksgiving Day Observed
+    - Day After Thanksgiving Observed
+    - Independence Day Observed
+    - Christmas Day Observed
+    description: This column contains descriptions of U.S. holidays as observed by
+      Biogen.
+  - name: CREATED_TIMESTAMP
+    type: datetime64[ns]
+    sample_values:
+    - '2022-06-21 05:19:38.773333274'
+    description: This column records the timestamp when the entry was created.
+  - name: SAT_WEEK_START_DATE
+    type: datetime64[ns]
+    sample_values:
+    - '2005-07-30'
+    - '2005-08-06'
+    - '2005-08-13'
+    - '2005-08-20'
+    - '2005-08-27'
+    description: This column indicates the start date of the week, which is a Saturday.
+  - name: FRI_WEEK_END_DATE
+    type: datetime64[ns]
+    sample_values:
+    - '2005-08-05'
+    - '2005-08-12'
+    - '2005-08-19'
+    - '2005-08-26'
+    - '2005-09-02'
+    description: This column indicates the end date of the week, which is a Friday.
+  - name: MonthYear
+    type: string
+    sample_values:
+    - Aug-05
+    - Aug-06
+    - Aug-07
+    - Aug-09
+    - Aug-10
+    description: This column represents the month and year in a 'MMM-YY' format.
+  - name: Quarter1
+    type: string
+    sample_values:
+    - 3Q
+    - 2Q
+    - 1Q
+    - 4Q
+    description: This column specifies the quarter of the year in a 'nQ' format.
+  - name: Year Quarter
+    type: string
+    sample_values:
+    - 3Q-05
+    - 3Q-06
+    - 3Q-07
+    - 3Q-09
+    - 3Q-10
+    description: This column combines the quarter and year in a 'nQ-YY' format.
+  - name: Year Month Sort
+    type: Int64
+    sample_values:
+    - '200508'
+    - '200608'
+    - '200708'
+    - '200908'
+    - '201008'
+    description: This column provides a sortable integer representation of the year
+      and month.
+  - name: YQ_Sort
+    type: Int64
+    sample_values:
+    - '20053'
+    - '20063'
+    - '20073'
+    - '20093'
+    - '20103'
+    description: This column provides a sortable integer representation of the year
+      and quarter.
+  - name: Is True
+    type: string
+    sample_values:
+    - 'False'
+    - 'True'
+    description: A string column indicating a boolean value with possible entries
+      'False' or 'True'.
+- name: DATE_DIM_ENR
+  description: The DATE_DIM_ENR table is a comprehensive date dimension table that
+    provides detailed information about each date, including its key attributes such
+    as day, week, month, quarter, and year. It includes various date-related descriptors
+    like day of the week, month name, and fiscal periods, as well as start and end
+    dates for weeks, months, quarters, and semesters. Additionally, it contains indicators
+    for weekdays, month-end, leap years, and holiday descriptions.
+  columns:
+  - name: DATE_KEY
+    type: Float64
+    sample_values:
+    - '20050801.0'
+    - '20050802.0'
+    - '20050803.0'
+    - '20050804.0'
+    - '20050805.0'
+    description: A unique identifier for each date, represented as a float in the
+      format YYYYMMDD.
+  - name: DATE
+    type: datetime64[ns]
+    sample_values:
+    - '2005-08-01'
+    - '2005-08-02'
+    - '2005-08-03'
+    - '2005-08-04'
+    - '2005-08-05'
+    description: The calendar date in a standard datetime format.
+  - name: FULL_DATE_DESC
+    type: string
+    sample_values:
+    - Monday, August 01, 2005
+    - Tuesday, August 02, 2005
+    - Wednesday, August 03, 2005
+    - Thursday, August 04, 2005
+    - Friday, August 05, 2005
+    description: A string representation of the date including the day of the week,
+      month, day, and year.
+  - name: DAY_OF_WEEK
+    type: Float64
+    sample_values:
+    - '1.0'
+    - '2.0'
+    - '3.0'
+    - '4.0'
+    - '5.0'
+    description: A numerical representation of the day of the week, where 1 represents
+      Monday.
+  - name: DAY_OF_MONTH
+    type: Float64
+    sample_values:
+    - '1.0'
+    - '2.0'
+    - '3.0'
+    - '4.0'
+    - '5.0'
+    description: The day of the month as a numerical value.
+  - name: DAY_OF_YEAR
+    type: Float64
+    sample_values:
+    - '213.0'
+    - '214.0'
+    - '215.0'
+    - '216.0'
+    - '217.0'
+    description: The day of the year as a numerical value, ranging from 1 to 366.
+  - name: WEEK_OF_MONTH
+    type: Float64
+    sample_values:
+    - '1.0'
+    - '2.0'
+    - '3.0'
+    - '4.0'
+    - '5.0'
+    description: The week number within the current month, starting from 1.
+  - name: WEEK
+    type: Float64
+    sample_values:
+    - '31.0'
+    - '32.0'
+    - '33.0'
+    - '34.0'
+    - '35.0'
+    description: The week number within the year, starting from 1.
+  - name: MONTH
+    type: Float64
+    sample_values:
+    - '8.0'
+    - '7.0'
+    - '9.0'
+    - '6.0'
+    - '5.0'
+    description: The month of the year as a numerical value, ranging from 1 to 12.
+  - name: QUARTER
+    type: Float64
+    sample_values:
+    - '3.0'
+    - '2.0'
+    - '1.0'
+    - '4.0'
+    description: The quarter of the year as a numerical value, ranging from 1 to 4.
+  - name: YEAR
+    type: Int64
+    sample_values:
+    - '2005'
+    - '2006'
+    - '2007'
+    - '2009'
+    - '2010'
+    description: The YEAR column contains four-digit integer values representing the
+      calendar year.
+  - name: DAY_NAME
+    type: string
+    sample_values:
+    - Monday
+    - Tuesday
+    - Wednesday
+    - Thursday
+    - Friday
+    description: The DAY_NAME column contains string values representing the full
+      name of the day of the week.
+  - name: DAY_NAME_ABBREV
+    type: string
+    sample_values:
+    - Mon
+    - Tue
+    - Wed
+    - Thu
+    - Fri
+    description: The DAY_NAME_ABBREV column contains string values representing the
+      abbreviated name of the day of the week.
+  - name: MONTH_NAME
+    type: string
+    sample_values:
+    - August
+    - July
+    - September
+    - June
+    - May
+    description: The MONTH_NAME column contains string values representing the full
+      name of the month.
+  - name: MONTH_NAME_ABBREV
+    type: string
+    sample_values:
+    - Aug
+    - Jul
+    - Sep
+    - Jun
+    - May
+    description: The MONTH_NAME_ABBREV column contains string values representing
+      the abbreviated name of the month.
+  - name: DAY_CD
+    type: string
+    sample_values:
+    - '20050801'
+    - '20050802'
+    - '20050803'
+    - '20050804'
+    - '20050805'
+    description: The DAY_CD column contains string values representing a unique code
+      for each day in the format YYYYMMDD.
+  - name: WEEK_CD
+    type: string
+    sample_values:
+    - '200531'
+    - '200532'
+    - '200533'
+    - '200534'
+    - '200535'
+    description: The WEEK_CD column contains string values representing a unique code
+      for each week in the format YYYYWW.
+  - name: MONTH_CD
+    type: string
+    sample_values:
+    - '200508'
+    - '200608'
+    - '200708'
+    - '200908'
+    - '201008'
+    description: The MONTH_CD column contains string values representing a unique
+      code for each month in the format YYYYMM.
+  - name: QUARTER_CD
+    type: string
+    sample_values:
+    - '200503'
+    - '200603'
+    - '200703'
+    - '200903'
+    - '201003'
+    description: The QUARTER_CD column contains string values representing a unique
+      code for each quarter in the format YYYYQQ.
+  - name: WEEK_START_DATE
+    type: datetime64[ns]
+    sample_values:
+    - '2005-08-01'
+    - '2005-08-08'
+    - '2005-08-15'
+    - '2005-08-22'
+    - '2005-08-29'
+    description: The WEEK_START_DATE column contains datetime values representing
+      the starting date of each week.
+  - name: WEEK_END_DATE
+    type: datetime64[ns]
+    sample_values:
+    - '2005-08-07'
+    - '2005-08-14'
+    - '2005-08-21'
+    - '2005-08-28'
+    - '2005-09-04'
+    description: The date representing the end of a week, typically a Sunday.
+  - name: MONTH_START_DATE
+    type: datetime64[ns]
+    sample_values:
+    - '2005-08-01'
+    - '2006-08-01'
+    - '2007-08-01'
+    - '2009-08-01'
+    - '2010-08-01'
+    description: The date marking the first day of a month.
+  - name: MONTH_END_DATE
+    type: datetime64[ns]
+    sample_values:
+    - '2005-08-31'
+    - '2006-08-31'
+    - '2007-08-31'
+    - '2009-08-31'
+    - '2010-08-31'
+    description: The date marking the last day of a month.
+  - name: PREV_QUARTER_START_DATE
+    type: datetime64[ns]
+    sample_values:
+    - '2005-04-01'
+    - '2006-04-01'
+    - '2007-04-01'
+    - '2009-04-01'
+    - '2010-04-01'
+    description: The date representing the first day of the previous quarter.
+  - name: PREV_QUARTER_END_DATE
+    type: datetime64[ns]
+    sample_values:
+    - '2005-06-30'
+    - '2006-06-30'
+    - '2007-06-30'
+    - '2009-06-30'
+    - '2010-06-30'
+    description: The date representing the last day of the previous quarter.
+  - name: QUARTER_START_DATE
+    type: datetime64[ns]
+    sample_values:
+    - '2005-07-01'
+    - '2006-07-01'
+    - '2007-07-01'
+    - '2009-07-01'
+    - '2010-07-01'
+    description: The date marking the first day of the current quarter.
+  - name: QUARTER_END_DATE
+    type: datetime64[ns]
+    sample_values:
+    - '2005-09-30'
+    - '2006-09-30'
+    - '2007-09-30'
+    - '2009-09-30'
+    - '2010-09-30'
+    description: The date marking the last day of the current quarter.
+  - name: NEXT_QUARTER_START_DATE
+    type: datetime64[ns]
+    sample_values:
+    - '2005-10-01'
+    - '2006-10-01'
+    - '2007-10-01'
+    - '2009-10-01'
+    - '2010-10-01'
+    description: The date representing the first day of the next quarter.
+  - name: NEXT_QUARTER_END_DATE
+    type: datetime64[ns]
+    sample_values:
+    - '2005-12-31'
+    - '2006-12-31'
+    - '2007-12-31'
+    - '2009-12-31'
+    - '2010-12-31'
+    description: The date representing the last day of the next quarter.
+  - name: YEAR_START_DATE
+    type: datetime64[ns]
+    sample_values:
+    - '2005-01-01'
+    - '2006-01-01'
+    - '2007-01-01'
+    - '2009-01-01'
+    - '2010-01-01'
+    description: The date marking the first day of the year.
+  - name: YEAR_END_DATE
+    type: datetime64[ns]
+    sample_values:
+    - '2005-12-31'
+    - '2006-12-31'
+    - '2007-12-31'
+    - '2009-12-31'
+    - '2010-12-31'
+    description: The date representing the last day of the calendar year.
+  - name: DAYS_IN_YEAR
+    type: Float64
+    sample_values:
+    - '365.0'
+    - '366.0'
+    - '1.0'
+    description: The number of days in the specified year, accounting for leap years.
+  - name: FISCAL_DAY_CD
+    type: string
+    sample_values:
+    - FY2005213
+    - FY2005214
+    - FY2005215
+    - FY2005216
+    - FY2005217
+    description: A code representing a specific day within the fiscal year.
+  - name: FISCAL_WEEK_CD
+    type: string
+    sample_values:
+    - FY200531
+    - FY200532
+    - FY200533
+    - FY200534
+    - FY200535
+    description: A code representing a specific week within the fiscal year.
+  - name: FISCAL_MONTH_CD
+    type: string
+    sample_values:
+    - FY200508
+    - FY200608
+    - FY200708
+    - FY200908
+    - FY201008
+    description: A code representing a specific month within the fiscal year.
+  - name: FISCAL_QUARTER_CD
+    type: string
+    sample_values:
+    - FY200503
+    - FY200603
+    - FY200703
+    - FY200903
+    - FY201003
+    description: A code representing a specific quarter within the fiscal year.
+  - name: FISCAL_WEEK_START_DATE
+    type: datetime64[ns]
+    sample_values:
+    - '2005-08-01'
+    - '2005-08-08'
+    - '2005-08-15'
+    - '2005-08-22'
+    - '2005-08-29'
+    description: The date marking the beginning of a fiscal week.
+  - name: FISCAL_WEEK_END_DATE
+    type: datetime64[ns]
+    sample_values:
+    - '2005-08-07'
+    - '2005-08-14'
+    - '2005-08-21'
+    - '2005-08-28'
+    - '2005-09-04'
+    description: The date marking the end of a fiscal week.
+  - name: FISCAL_MONTH_START_DATE
+    type: datetime64[ns]
+    sample_values:
+    - '2005-08-01'
+    - '2006-08-01'
+    - '2007-08-01'
+    - '2009-08-01'
+    - '2010-08-01'
+    description: The date marking the beginning of a fiscal month.
+  - name: FISCAL_MONTH_END_DATE
+    type: datetime64[ns]
+    sample_values:
+    - '2005-08-31'
+    - '2006-08-31'
+    - '2007-08-31'
+    - '2009-08-31'
+    - '2010-08-31'
+    description: The date marking the end of a fiscal month.
+  - name: FISCAL_QUARTER_START_DATE
+    type: datetime64[ns]
+    sample_values:
+    - '2005-07-01'
+    - '2006-07-01'
+    - '2007-07-01'
+    - '2009-07-01'
+    - '2010-07-01'
+    description: This column represents the start date of the fiscal quarter.
+  - name: FISCAL_QUARTER_END_DATE
+    type: datetime64[ns]
+    sample_values:
+    - '2005-09-30'
+    - '2006-09-30'
+    - '2007-09-30'
+    - '2009-09-30'
+    - '2010-09-30'
+    description: This column represents the end date of the fiscal quarter.
+  - name: FISCAL_YEAR_START_DATE
+    type: datetime64[ns]
+    sample_values:
+    - '2005-01-01'
+    - '2006-01-01'
+    - '2007-01-01'
+    - '2009-01-01'
+    - '2010-01-01'
+    description: This column indicates the start date of the fiscal year.
+  - name: FISCAL_YEAR_END_DATE
+    type: datetime64[ns]
+    sample_values:
+    - '2005-12-31'
+    - '2006-12-31'
+    - '2007-12-31'
+    - '2009-12-31'
+    - '2010-12-31'
+    description: This column indicates the end date of the fiscal year.
+  - name: SALES_WEEK_START_DATE
+    type: datetime64[ns]
+    sample_values:
+    - '2005-07-31'
+    - '2005-08-07'
+    - '2005-08-14'
+    - '2005-08-21'
+    - '2005-08-28'
+    description: This column shows the start date of the sales week.
+  - name: SALES_WEEK_END_DATE
+    type: datetime64[ns]
+    sample_values:
+    - '2005-08-06'
+    - '2005-08-13'
+    - '2005-08-20'
+    - '2005-08-27'
+    - '2005-09-03'
+    description: This column shows the end date of the sales week.
+  - name: SALES_DAY_OF_WEEK
+    type: Float64
+    sample_values:
+    - '0.0'
+    - '1.0'
+    - '2.0'
+    - '3.0'
+    - '4.0'
+    description: This column represents the day of the week for sales, where 0.0 corresponds
+      to Sunday.
+  - name: PREV_SEMESTER_START_DATE
+    type: datetime64[ns]
+    sample_values:
+    - '2005-10-01'
+    - '2006-10-01'
+    - '2008-10-01'
+    - '2009-10-01'
+    - '2010-10-01'
+    description: This column indicates the start date of the previous semester.
+  - name: PREV_SEMESTER_END_DATE
+    type: datetime64[ns]
+    sample_values:
+    - '2006-03-31'
+    - '2007-03-31'
+    - '2009-03-31'
+    - '2010-03-31'
+    - '2011-03-31'
+    description: This column indicates the end date of the previous semester.
+  - name: SEMESTER
+    type: string
+    sample_values:
+    - S2
+    - S1
+    description: This column denotes the semester, either S1 for the first semester
+      or S2 for the second semester.
+  - name: SEMESTER_START_DATE
+    type: datetime64[ns]
+    sample_values:
+    - '2005-04-01'
+    - '2006-04-01'
+    - '2007-04-01'
+    - '2009-04-01'
+    - '2010-04-01'
+    description: The date when the semester begins.
+  - name: SEMESTER_END_DATE
+    type: datetime64[ns]
+    sample_values:
+    - '2005-09-30'
+    - '2006-09-30'
+    - '2007-09-30'
+    - '2009-09-30'
+    - '2010-09-30'
+    description: The date when the semester concludes.
+  - name: NEXT_SEMESTER_START_DATE
+    type: datetime64[ns]
+    sample_values:
+    - '2005-10-01'
+    - '2006-10-01'
+    - '2007-10-01'
+    - '2009-10-01'
+    - '2010-10-01'
+    description: The date when the following semester begins.
+  - name: NEXT_SEMESTER_END_DATE
+    type: datetime64[ns]
+    sample_values:
+    - '2006-03-31'
+    - '2007-03-31'
+    - '2008-03-31'
+    - '2010-03-31'
+    - '2011-03-31'
+    description: The date when the following semester concludes.
+  - name: WEEKDAY_IND
+    type: string
+    sample_values:
+    - X
+    description: An indicator marking whether the date is a weekday.
+  - name: MONTH_END_IND
+    type: string
+    sample_values:
+    - X
+    description: An indicator marking whether the date is the end of the month.
+  - name: LEAP_YEAR_IND
+    type: string
+    sample_values:
+    - X
+    description: An indicator marking whether the year is a leap year.
+  - name: NEXT_WEEK_DAY
+    type: datetime64[ns]
+    sample_values:
+    - '2005-08-02'
+    - '2005-08-03'
+    - '2005-08-04'
+    - '2005-08-05'
+    - '2005-08-08'
+    description: The date of the next weekday following a given date.
+  - name: PREVIOUS_WEEK_DAY
+    type: datetime64[ns]
+    sample_values:
+    - '2005-07-29'
+    - '2005-08-01'
+    - '2005-08-02'
+    - '2005-08-03'
+    - '2005-08-04'
+    description: The date of the previous weekday before a given date.
+  - name: CLOSEST_WEEK_DAY
+    type: datetime64[ns]
+    sample_values:
+    - '2005-08-01'
+    - '2005-08-02'
+    - '2005-08-03'
+    - '2005-08-04'
+    - '2005-08-05'
+    description: The date of the closest weekday to a given date.
+  - name: US_HOLIDAY_DESC
+    type: string
+    sample_values:
+    - New Years Day
+    - Juneteenth Day
+    - Christmas Day
+    - Independence Day
+    - Thanksgiving Day
+    description: This column contains the description of U.S. holidays.
+  - name: BIIB_US_HOLIDAY_DESC
+    type: string
+    sample_values:
+    - New Years Day Observed
+    - Thanksgiving Day Observed
+    - Day After Thanksgiving Observed
+    - Independence Day Observed
+    - Christmas Day Observed
+    description: This column contains the description of U.S. holidays as observed
+      by Biogen.
+  - name: CREATED_TIMESTAMP
+    type: datetime64[ns]
+    sample_values:
+    - '2022-06-21 05:19:38.773333274'
+    description: This column records the timestamp when the entry was created.
+  - name: SAT_WEEK_START_DATE
+    type: datetime64[ns]
+    sample_values:
+    - '2005-07-30'
+    - '2005-08-06'
+    - '2005-08-13'
+    - '2005-08-20'
+    - '2005-08-27'
+    description: This column indicates the start date of the week, which is a Saturday.
+  - name: FRI_WEEK_END_DATE
+    type: datetime64[ns]
+    sample_values:
+    - '2005-08-05'
+    - '2005-08-12'
+    - '2005-08-19'
+    - '2005-08-26'
+    - '2005-09-02'
+    description: This column indicates the end date of the week, which is a Friday.
+  - name: Quarter1
+    type: string
+    sample_values:
+    - 3Q
+    - 2Q
+    - 1Q
+    - 4Q
+    description: This column specifies the quarter of the year in a two-character
+      format.
+  - name: MonthYear
+    type: string
+    sample_values:
+    - Aug-05
+    - Aug-06
+    - Aug-07
+    - Aug-09
+    - Aug-10
+    description: This column represents the month and year in a 'MMM-YY' format.
+  - name: Year Quarter
+    type: string
+    sample_values:
+    - 3Q-05
+    - 3Q-06
+    - 3Q-07
+    - 3Q-09
+    - 3Q-10
+    description: This column combines the year and quarter in a 'Q-YY' format.
+  - name: Year Month Sort
+    type: Int64
+    sample_values:
+    - '200508'
+    - '200608'
+    - '200708'
+    - '200908'
+    - '201008'
+    description: This column provides a sortable integer representation of the year
+      and month.
+  - name: YQ_Sort
+    type: Int64
+    sample_values:
+    - '20053'
+    - '20063'
+    - '20073'
+    - '20093'
+    - '20103'
+    description: This column provides a sortable integer representation of the year
+      and quarter.
+- name: ENROLLMENT_PATIENT_CLAIMS_MASTER
+  description: The ENROLLMENT_PATIENT_CLAIMS_MASTER table contains detailed records
+    of patient claims and enrollment information related to pharmacy transactions.
+    It includes data on transaction types, out-of-pocket costs, benefit flags, claim
+    details, enrollment status, and patient demographics. The table captures various
+    dates related to claims processing, such as the date of fill and date written,
+    along with identifiers like claim authorization numbers and patient IDs.
+  columns:
+  - name: Transaction type 1
+    type: string
+    sample_values:
+    - Claimed
+    - Returned
+    description: Indicates whether the transaction was claimed or returned.
+  - name: OOP
+    type: string
+    sample_values:
+    - Fully Covered
+    - Partially Covered
+    description: Specifies the out-of-pocket coverage status, such as fully or partially
+      covered.
+  - name: BENEFIT_FLG
+    type: string
+    sample_values:
+    - 0-50%
+    - 50-70%
+    - 90-100%
+    - 70-90%
+    description: Represents the percentage range of benefits covered, such as 0-50%,
+      50-70%, or 90-100%.
+  - name: Claim Bucket
+    type: string
+    sample_values:
+    - Within 6 Month
+    - After 6 Months
+    description: Categorizes claims based on the time frame, such as within 6 months
+      or after 6 months.
+  - name: HasReversal
+    type: object
+    sample_values: []
+    description: Indicates whether there is a reversal associated with the claim.
+  - name: Claim_flag
+    type: object
+    sample_values: []
+    description: Denotes a flag status related to the claim.
+  - name: ENR_KEY
+    type: Float64
+    sample_values:
+    - '73153.0'
+    - '170223.0'
+    - '122933.0'
+    - '170700.0'
+    - '103756.0'
+    description: A unique identifier for the enrollment record, represented as a float.
+  - name: ENR_EXTERNALPATIENTID
+    type: string
+    sample_values:
+    - LH2950110
+    - LH201232828
+    - LH201174667
+    - LH201396244
+    - LH151619
+    description: An external identifier for the patient, typically alphanumeric.
+  - name: ENR_MEMBERID
+    type: string
+    sample_values:
+    - W23100212481
+    - W23100240626
+    - W23100212908
+    - W23100250070
+    - W23100207862
+    description: A unique member identification number, usually alphanumeric.
+  - name: ENR_GROUPNUMBER
+    type: string
+    sample_values:
+    - OHBG01041
+    - OHBG05071
+    - OHBG06041
+    - OHBG08071
+    - OHBG07041
+    description: The group number associated with the enrollment, often alphanumeric.
+  - name: SOURCE_CD
+    type: string
+    sample_values:
+    - IQVIA_COPAY
+    description: The source code indicating the origin of the data, such as 'IQVIA_COPAY'.
+  - name: ENR_BRANDNAME
+    type: string
+    sample_values:
+    - Tysabri
+    - Spinraza
+    - Vumerity
+    - Tecfidera
+    - Avonex
+    description: The brand name of the drug associated with the enrollment, such as
+      'Tysabri'.
+  - name: RECORDTYPE
+    type: string
+    sample_values:
+    - N
+    - D
+    - U
+    description: The type of record, which can be 'N' for new, 'D' for delete, or
+      'U' for update.
+  - name: ENROLLMENTSTARTDATE
+    type: datetime64[ns]
+    sample_values:
+    - '2026-01-02'
+    - '2026-02-24'
+    - '2026-03-24'
+    - '2025-12-12'
+    - '2026-01-27'
+    description: The date when the enrollment started, formatted as a datetime object.
+  - name: ENROLLMENTENDDATE
+    type: datetime64[ns]
+    sample_values:
+    - '2048-06-30'
+    description: The date when the enrollment is scheduled to end, formatted as a
+      datetime object.
+  - name: ENROLLMENTSTATUS
+    type: string
+    sample_values:
+    - ACTIV
+    description: The current status of the enrollment, such as 'ACTIV'.
+  - name: ENROLLMENTCHANNEL
+    type: string
+    sample_values:
+    - Patient Portal
+    - HUB Portal
+    description: The channel through which the enrollment was made, such as 'Patient
+      Portal'.
+  - name: CLAIMAUTHORIZATIONNUMBER
+    type: string
+    sample_values:
+    - '131721745'
+    - '128963636'
+    - '133383820'
+    - '137387833'
+    - '136719373'
+    description: A unique number assigned to authorize a claim, such as '131721745'.
+  - name: TRANSACTIONTYPE
+    type: string
+    sample_values:
+    - C
+    - R
+    description: The type of transaction, which can be 'C' for claim or 'R' for reversal.
+  - name: DAYSUPPLY
+    type: Float64
+    sample_values:
+    - '30.0'
+    - '28.0'
+    - '90.0'
+    - '84.0'
+    - '21.0'
+    description: The number of days the supply of medication is intended to last,
+      represented as a float.
+  - name: QUANTITY
+    type: Float64
+    sample_values:
+    - '120.0'
+    - '60.0'
+    - '15.0'
+    - '1.0'
+    - '90.0'
+    description: The QUANTITY column represents the amount of medication or service
+      units provided, measured as a floating-point number.
+  - name: DATEPROCESSED
+    type: datetime64[ns]
+    sample_values:
+    - '2025-08-29 03:57:28.999999699'
+    - '2025-05-14 04:07:30.000000000'
+    - '2025-11-17 09:43:35.000000250'
+    - '2026-05-01 01:40:19.999999712'
+    - '2026-04-03 13:15:02.000000044'
+    description: The DATEPROCESSED column indicates the exact date and time when the
+      claim was processed.
+  - name: DATEOFFILL
+    type: datetime64[ns]
+    sample_values:
+    - '2025-08-29'
+    - '2025-05-14'
+    - '2025-11-17'
+    - '2026-05-01'
+    - '2026-04-02'
+    description: The DATEOFFILL column specifies the date on which the prescription
+      was filled.
+  - name: DATEWRITTEN
+    type: datetime64[ns]
+    sample_values:
+    - '2024-12-03'
+    - '2025-02-18'
+    - '2025-02-04'
+    - '2025-09-12'
+    - '2025-08-26'
+    description: The DATEWRITTEN column denotes the date when the prescription was
+      originally written by the healthcare provider.
+  - name: CLAIM_TYPE
+    type: string
+    sample_values:
+    - PHARMACY
+    - MEDICAL
+    description: The CLAIM_TYPE column categorizes the type of claim, such as PHARMACY
+      or MEDICAL.
+  - name: RXNUM
+    type: string
+    sample_values:
+    - 40454378786770737C464443
+    - 40454378786678727C414541
+    - '404543787867787978454745'
+    - 40454378786779747B424042
+    - 40454378786776767F42464A
+    description: The RXNUM column contains a unique identifier for the prescription,
+      represented as a string.
+  - name: PHARMACY_CLAIMS_KEY
+    type: Float64
+    sample_values:
+    - '7560.0'
+    - '112472.0'
+    - '23734.0'
+    - '363018.0'
+    - '331968.0'
+    description: The PHARMACY_CLAIMS_KEY column is a unique numeric identifier for
+      pharmacy claims, stored as a floating-point number.
+  - name: CLM_BRANDNAME
+    type: string
+    sample_values:
+    - Vumerity
+    - Tecfidera
+    - Skyclarys
+    - Tysabri
+    - Avonex
+    description: The CLM_BRANDNAME column lists the brand name of the medication associated
+      with the claim.
+  - name: ORIGINALCLAIMAUTHORIZATIONNUMBER
+    type: string
+    sample_values:
+    - '137147888'
+    - '138003935'
+    - '134735064'
+    - '134437257'
+    - '134393888'
+    description: The ORIGINALCLAIMAUTHORIZATIONNUMBER column provides the original
+      authorization number for the claim.
+  - name: CLM_EXTERNALPATIENTID
+    type: string
+    sample_values:
+    - LH57154
+    - LH3771297
+    - LH420012
+    - LH934446
+    - LH4396393
+    description: The CLM_EXTERNALPATIENTID column contains an external identifier
+      for the patient, used for claim processing.
+  - name: CLM_MEMBERID
+    type: string
+    sample_values:
+    - '19460591378'
+    - '29460592830'
+    - '29460586635'
+    - 09460627626
+    - '19794453973'
+    description: A unique identifier assigned to each member in the claims system.
+  - name: CLM_GROUPNUMBER
+    type: string
+    sample_values:
+    - OHBG06031
+    - OHBG06071
+    - OHBG06041
+    - OHBG06081
+    - OHBG08041
+    description: A code representing the group or plan under which the member is enrolled.
+  - name: NDC
+    type: string
+    sample_values:
+    - '64406002003'
+    - '64406000602'
+    - '73179025090'
+    - '64406000703'
+    - '64406000801'
+    description: The National Drug Code that uniquely identifies the medication dispensed.
+  - name: DRUGDESC
+    type: string
+    sample_values:
+    - VUMERITY     CAP 231MG
+    - TECFIDERA    CAP 240MG
+    - SKYCLARYS    CAP 50MG
+    - TECFIDERA    CAP STARTER
+    - TYSABRI      INJ 300/15ML
+    description: A description of the drug including its name and dosage form.
+  - name: NCPDPID
+    type: string
+    sample_values:
+    - '4436920'
+    - '2803927'
+    - '2635564'
+    - '1723370'
+    - '0131754'
+    description: A unique identifier for the pharmacy where the prescription was filled.
+  - name: PRESCRIBERNPI
+    type: string
+    sample_values:
+    - '1417241670'
+    - '1457549404'
+    - '1184101495'
+    - '1376526251'
+    - '1316107964'
+    description: The National Provider Identifier for the healthcare provider who
+      prescribed the medication.
+  - name: PATIENTBENEFIT
+    type: Float64
+    sample_values:
+    - '50.0'
+    - '250.0'
+    - '150.0'
+    - '200.0'
+    - '100.0'
+    description: The amount covered by the patient's insurance for the prescription.
+  - name: PATIENTOOP
+    type: Float64
+    sample_values:
+    - '0.0'
+    - '141.12'
+    - '64.06'
+    - '337.2'
+    - '734.15'
+    description: The out-of-pocket cost that the patient is responsible for paying.
+  - name: INSURANCEBIN
+    type: string
+    sample_values:
+    - '601341'
+    - PINTHISO
+    - U1188914
+    - U1117444
+    - LSTEWART
+    description: The Bank Identification Number used to identify the insurance plan's
+      processor.
+  - name: TRANSACTIONID
+    type: string
+    sample_values:
+    - '131721745'
+    - '128963636'
+    - '133383820'
+    - '137387833'
+    - '136719373'
+    description: A unique identifier for the specific transaction or claim.
+  - name: PATIENT_KEY
+    type: Float64
+    sample_values:
+    - '71960.0'
+    - '955547.0'
+    - '716345.0'
+    - '651037.0'
+    - '848439.0'
+    description: A unique identifier for each patient represented as a floating-point
+      number.
+  - name: PATIENT_MDM_ID
+    type: string
+    sample_values:
+    - LH57154
+    - LH3771297
+    - LH420012
+    - LH934446
+    - LH4396393
+    description: A string representing the Master Data Management ID assigned to each
+      patient.
+  - name: STATUS
+    type: string
+    sample_values:
+    - ACTIVE
+    - ACTIV
+    - DECEASED
+    description: A string indicating the current status of the patient, such as 'ACTIVE'
+      or 'DECEASED'.
+  - name: BIRTH_DATE
+    type: datetime64[ns]
+    sample_values:
+    - '1966-06-19'
+    - '1973-04-03'
+    - '1980-07-03'
+    - '1963-01-21'
+    - '1999-05-04'
+    description: The date of birth of the patient, stored in datetime format.
+  - name: GENDER
+    type: string
+    sample_values:
+    - F
+    - M
+    - U
+    description: A string representing the gender of the patient, with possible values
+      'F', 'M', or 'U'.
+  - name: PATIENT_STATE
+    type: string
+    sample_values:
+    - TX
+    - MD
+    - KS
+    - IL
+    - AL
+    description: A string indicating the state where the patient resides, represented
+      by its two-letter abbreviation.
+  - name: ZIP
+    type: string
+    sample_values:
+    - 78070-6541
+    - 77591-9216
+    - 20816-2325
+    - '75751'
+    - 67601-9318
+    description: A string representing the full ZIP code of the patient's address,
+      including the extended 4-digit code.
+  - name: ZIP_5
+    type: string
+    sample_values:
+    - '78070'
+    - '77591'
+    - '20816'
+    - '75751'
+    - '67601'
+    description: A string representing the first five digits of the patient's ZIP
+      code.
+  - name: COUNTY
+    type: string
+    sample_values:
+    - '48091'
+    - '48167'
+    - '24031'
+    - '20051'
+    - '48439'
+    description: A string representing the county code where the patient resides.
+  - name: LATITUDE
+    type: string
+    sample_values:
+    - '29.89823333166203'
+    - '29.534046627554044'
+    - '39.11940993605447'
+    - '32.09642098476046'
+    - '38.874651'
+    description: A string indicating the geographical latitude of the patient's location.
+  - name: LONGITUDE
+    type: string
+    sample_values:
+    - '-98.40629751050672'
+    - '-95.2160387138255'
+    - '-77.01943949966588'
+    - '-95.90830142440531'
+    - '-99.262119'
+    description: The LONGITUDE column contains string representations of the geographical
+      longitude coordinates of a location.
+  - name: COUNTRY
+    type: string
+    sample_values:
+    - US
+    description: The COUNTRY column indicates the country code, with 'US' representing
+      the United States.
+  - name: CLAIM_PRESENT_FLG
+    type: Float64
+    sample_values:
+    - '1.0'
+    description: The CLAIM_PRESENT_FLG column is a float that indicates whether a
+      claim is present, with '1.0' signifying presence.
+  - name: CLAIM_TRANSACTION_TYPE_FLG
+    type: Float64
+    sample_values:
+    - '1.0'
+    - '2.0'
+    description: The CLAIM_TRANSACTION_TYPE_FLG column is a float that specifies the
+      type of claim transaction, with values like '1.0' and '2.0' representing different
+      transaction types.
+- name: IQV_ENROLLMENT_DIM
+  description: The IQV_ENROLLMENT_DIM table contains detailed records of patient enrollments
+    in a healthcare program, specifically focusing on copay assistance for the brand
+    Tecfidera. Each row represents an enrollment instance, including information such
+    as patient identifiers, enrollment dates, status, source, and channel, along with
+    metadata like creation and last updated dates. The table also indicates whether
+    a record has been deleted.
+  columns:
+  - name: IQV_ENROLLMENTS_KEY
+    type: Float64
+    sample_values:
+    - '72042.0'
+    - '72043.0'
+    - '72045.0'
+    - '72046.0'
+    - '72050.0'
+    description: A unique identifier for each enrollment record, represented as a
+      floating-point number.
+  - name: EXTERNALPATIENTID
+    type: string
+    sample_values:
+    - LH1699343
+    - LH1733188
+    - LH186054
+    - LH1348956
+    - LH1307799
+    description: A string representing the external identifier assigned to a patient.
+  - name: MEMBERID
+    type: string
+    sample_values:
+    - '59443423998'
+    - 09443638087
+    - '39443428179'
+    - '19443631370'
+    - 09443644282
+    description: A string representing the unique identifier for a member within the
+      system.
+  - name: SOURCE_CD
+    type: string
+    sample_values:
+    - IQVIA_COPAY
+    - Unspecified
+    description: A string indicating the source code of the enrollment, such as 'IQVIA_COPAY'
+      or 'Unspecified'.
+  - name: BRANDNAME
+    type: string
+    sample_values:
+    - Tecfidera
+    - Avonex
+    - Plegridy
+    - Spinraza
+    - Tysabri
+    description: A string representing the brand name of the medication associated
+      with the enrollment.
+  - name: RECORDTYPE
+    type: string
+    sample_values:
+    - U
+    - N
+    - D
+    description: A string indicating the type of record, such as 'U' for update, 'N'
+      for new, or 'D' for delete.
+  - name: GROUPNUMBER
+    type: string
+    sample_values:
+    - EC15604001
+    - EC15602001
+    - EC15603001
+    - EA15611005
+    - OHBG05081
+    description: A string representing the group number associated with the enrollment.
+  - name: ENROLLMENTSTARTDATE
+    type: datetime64[ns]
+    sample_values:
+    - '2019-06-22'
+    - '2025-04-17'
+    - '2025-12-30'
+    - '2025-04-21'
+    - '2025-04-16'
+    description: A datetime value indicating when the enrollment started.
+  - name: ENROLLMENTENDDATE
+    type: datetime64[ns]
+    sample_values:
+    - '2048-06-30'
+    description: A datetime value indicating when the enrollment is scheduled to end.
+  - name: ENROLLMENTSTATUS
+    type: string
+    sample_values:
+    - ACTIV
+    description: A string representing the current status of the enrollment, such
+      as 'ACTIV'.
+  - name: ENROLLMENTCHANNEL
+    type: string
+    sample_values:
+    - Patient Portal
+    - HUB Portal
+    description: This column indicates the platform through which the enrollment was
+      made, such as 'Patient Portal' or 'HUB Portal'.
+  - name: CREATED_DATE
+    type: datetime64[ns]
+    sample_values:
+    - '2026-01-21 03:00:55.533333240'
+    - '2025-12-10 03:48:41.693333330'
+    - '2026-06-12 03:02:19.689999956'
+    - '2026-06-11 03:01:10.103333165'
+    - '2026-06-10 03:01:07.326666600'
+    description: This column records the date and time when the enrollment record
+      was initially created.
+  - name: LAST_UPDATED_DATE
+    type: datetime64[ns]
+    sample_values:
+    - '2026-01-21 03:00:55.533333240'
+    - '2026-01-21 03:00:53.863333119'
+    - '2026-06-12 03:02:19.689999956'
+    - '2026-06-11 03:01:10.103333165'
+    - '2026-06-10 03:01:07.326666600'
+    description: This column captures the most recent date and time when the enrollment
+      record was updated.
+  - name: IS_DELETED_FLG
+    type: string
+    sample_values:
+    - N
+    - Y
+    description: This column signifies whether the enrollment record is marked as
+      deleted, with 'Y' for yes and 'N' for no.
+- name: IQV_MAXIMIZER_FACT
+  description: The IQV_MAXIMIZER_FACT table contains data related to copay programs
+    managed by IQVIA, specifically focusing on the brand "Vumerity." It includes details
+    such as the unique identifier for each record (IQV_MAXIMIZER_KEY), source code,
+    brand name, member ID, various start dates for copay and maximizer programs, solution
+    status, and enrollment keys. Additionally, it tracks the creation and last updated
+    dates of each record, along with a flag indicating if the record has been deleted.
+  columns:
+  - name: IQV_MAXIMIZER_KEY
+    type: Float64
+    sample_values:
+    - '2.0'
+    - '8.0'
+    - '19.0'
+    - '20.0'
+    - '28.0'
+    description: A unique identifier for each record in the IQV_MAXIMIZER_FACT table,
+      represented as a floating-point number.
+  - name: SOURCE_CD
+    type: string
+    sample_values:
+    - IQVIA_COPAY
+    description: A code indicating the source of the data, typically representing
+      the organization or system that provided the information.
+  - name: BRANDNAME
+    type: string
+    sample_values:
+    - Vumerity
+    - Avonex
+    - Plegridy
+    - Tecfidera
+    - Tysabri
+    description: The name of the pharmaceutical brand associated with the record.
+  - name: MEMBERID
+    type: string
+    sample_values:
+    - 454C477E796674707B4540
+    - 414C477E796578737F454D
+    - 454C477E796579797E4541
+    - 434C477E79657978794346
+    - 424C477E796578707C4245
+    description: A unique identifier for the member or patient, represented as a string
+      of alphanumeric characters.
+  - name: COPAYSTART
+    type: datetime64[ns]
+    sample_values:
+    - '2023-12-19'
+    - '2024-05-23'
+    - '2023-12-26'
+    - '2023-12-20'
+    - '2024-06-03'
+    description: The date when the copay program started for the member, formatted
+      as a datetime.
+  - name: SPLITSTART
+    type: datetime64[ns]
+    sample_values: []
+    description: The date when the split billing process began, which may be empty
+      if not applicable.
+  - name: SPLITACTIVATE
+    type: datetime64[ns]
+    sample_values:
+    - '1900-01-01 00:00:00.000000000'
+    - '2025-04-04 07:50:49.000000274'
+    - '2026-02-20 17:13:35.000000250'
+    - '2025-04-01 11:15:44.000000228'
+    - '2026-02-12 10:32:39.000000079'
+    description: The date and time when the split billing was activated, with a default
+      value indicating no activation if not applicable.
+  - name: MAXSTART
+    type: datetime64[ns]
+    sample_values:
+    - '2025-03-22 11:06:30.999999827'
+    - '2026-05-09 12:59:59.999999786'
+    - '2026-05-02 13:00:02.000000257'
+    - '2026-01-24 13:00:04.000000098'
+    - '2026-02-13 12:59:59.999999786'
+    description: The date and time when the maximizer program started for the member.
+  - name: MAXSTOPPEDSTART
+    type: datetime64[ns]
+    sample_values:
+    - '2025-08-06 15:30:45.000000046'
+    - '2025-04-16 08:48:21.000000049'
+    - '2025-07-11 11:45:56.999999701'
+    - '2025-04-21 10:11:38.000000140'
+    - '2025-08-11 13:33:36.999999803'
+    description: The date and time when the maximizer program was stopped or paused
+      for the member.
+  - name: SOLUTIONSTATUS
+    type: string
+    sample_values:
+    - OHBG06031
+    - OHBG06071
+    - OHBG07031
+    - OHBG04031
+    - OHBG08031
+    description: A code representing the current status of the solution or program
+      for the member.
+  - name: PLACEHOLDER1
+    type: string
+    sample_values: []
+    description: This column is a placeholder for future data and currently contains
+      no sample values.
+  - name: PLACEHOLDER2
+    type: string
+    sample_values: []
+    description: This column is a placeholder for future data and currently contains
+      no sample values.
+  - name: PLACEHOLDER3
+    type: string
+    sample_values: []
+    description: This column is a placeholder for future data and currently contains
+      no sample values.
+  - name: PLACEHOLDER4
+    type: string
+    sample_values: []
+    description: This column is a placeholder for future data and currently contains
+      no sample values.
+  - name: PLACEHOLDER5
+    type: string
+    sample_values: []
+    description: This column is a placeholder for future data and currently contains
+      no sample values.
+  - name: IQV_ENROLLMENTS_KEY
+    type: Float64
+    sample_values:
+    - '52695.0'
+    - '62556.0'
+    - '62994.0'
+    - '31857.0'
+    - '69901.0'
+    description: This column contains a unique key for IQV enrollments represented
+      as a floating-point number.
+  - name: CREATED_DATE
+    type: datetime64[ns]
+    sample_values:
+    - '2025-12-10 03:49:08.763333358'
+    - '2026-01-11 04:08:53.646666472'
+    - '2026-01-09 04:09:38.293333246'
+    - '2026-01-08 03:39:42.333333252'
+    - '2025-12-16 06:29:15.446666754'
+    description: This column records the date and time when the entry was created
+      in the format of datetime64[ns].
+  - name: LAST_UPDATED_DATE
+    type: datetime64[ns]
+    sample_values:
+    - '2026-01-21 04:10:51.923333317'
+    - '2026-05-04 08:31:12.309999726'
+    - '2026-01-21 04:10:51.073333530'
+    - '2026-05-04 08:31:11.676666688'
+    - '2026-05-04 08:31:10.729999876'
+    description: This column captures the date and time of the most recent update
+      to the entry in the format of datetime64[ns].
+  - name: IS_DELETED_FLG
+    type: string
+    sample_values:
+    - Y
+    - N
+    description: This column indicates whether the entry is marked as deleted with
+      'Y' for yes and 'N' for no.
+- name: IQV_MAXIMIZER_FACT_RAW
+  description: The table "IQV_MAXIMIZER_FACT_RAW" contains data related to members,
+    identified by the "MEMBERID" column, which appears to be a unique identifier for
+    each member. The "SPLITACTIVATE" column records a timestamp, but in the sample
+    rows provided, it consistently shows the default date "1900-01-01 00:00:00," suggesting
+    that this field might be used as a placeholder or default value when no specific
+    activation date is available.
+  columns:
+  - name: MEMBERID
+    type: string
+    sample_values:
+    - W51100261838
+    - '59794243757'
+    - W23100137098
+    - '29460652060'
+    - W52100160338
+    description: A unique identifier for each member, represented as a string.
+  - name: SPLITACTIVATE
+    type: datetime64[ns]
+    sample_values:
+    - '1900-01-01 00:00:00.000000000'
+    - '2025-04-04 01:16:08.999999996'
+    - '2025-04-02 02:31:22.999999704'
+    - '2026-02-25 17:06:57.999999853'
+    - '2025-11-04 17:01:02.000000248'
+    description: The date and time when the split activation occurred, stored in datetime64[ns]
+      format.
+- name: LastRefresh
+  description: The "LastRefresh" table contains a single column, "UTC_Time," which
+    records the date and time of the most recent update or refresh in Coordinated
+    Universal Time (UTC). The sample row indicates that the last refresh occurred
+    on June 19, 2026, at 21:32:20.293333123 UTC.
+  columns:
+  - name: UTC_Time
+    type: datetime64[ns]
+    sample_values:
+    - '2026-06-19 21:32:20.293333123'
+    description: This column records the date and time in Coordinated Universal Time
+      (UTC) format with nanosecond precision.
+- name: MAXIMIZER_SPEND
+  description: The MAXIMIZER_SPEND table contains data related to medical claims for
+    specific brand medications, such as Tysabri, by various members. It includes details
+    such as the member ID, brand name, type of claim, patient benefit amount, split
+    activation date, and the date the prescription was filled. This information is
+    useful for analyzing spending patterns and benefits associated with medical claims.
+  columns:
+  - name: MEMBERID
+    type: string
+    sample_values:
+    - W23100220818
+    - W24100192537
+    - W24100203877
+    - W24100190083
+    - W23100245804
+    description: A unique identifier for each member in the dataset.
+  - name: BRANDNAME
+    type: string
+    sample_values:
+    - Tysabri
+    - Vumerity
+    - Plegridy
+    - Tecfidera
+    - Qalsody
+    description: The name of the brand associated with the claim.
+  - name: CLAIM_TYPE
+    type: string
+    sample_values:
+    - MEDICAL
+    - PHARMACY
+    description: Indicates whether the claim is related to medical or pharmacy expenses.
+  - name: PATIENTBENEFIT
+    type: Float64
+    sample_values:
+    - '2552.36'
+    - '1000.0'
+    - '3731.23'
+    - '2737.25'
+    - '3229.96'
+    description: The monetary benefit received by the patient for the claim.
+  - name: SPLITACTIVATE
+    type: datetime64[ns]
+    sample_values:
+    - '1900-01-01'
+    - '2025-05-14'
+    - '2025-08-08'
+    - '2025-04-08'
+    - '2026-03-26'
+    description: The date when the split activation occurred, if applicable.
+  - name: DATEOFFILL
+    type: datetime64[ns]
+    sample_values:
+    - '2026-02-26'
+    - '2026-01-06'
+    - '2026-04-30'
+    - '2026-02-14'
+    - '2026-02-27'
+    description: The date when the prescription was filled or the service was provided.
+- name: PATIENT_DIM
+  description: The PATIENT_DIM table contains detailed information about patients,
+    including unique identifiers such as PATIENT_KEY, MK_PATIENT_GNE_ID, and PATIENT_MDM_ID.
+    It includes personal details like name, gender, birth and deceased dates, and
+    address information, along with status, consent type, and age group. The table
+    also tracks metadata such as creation and last updated dates, and flags for deletion
+    and non-US residency.
+  columns:
+  - name: PATIENT_KEY
+    type: Float64
+    sample_values:
+    - '656072.0'
+    - '656075.0'
+    - '656080.0'
+    - '656109.0'
+    - '656140.0'
+    description: A unique numerical identifier for each patient, represented as a
+      floating-point number.
+  - name: MK_PATIENT_GNE_ID
+    type: string
+    sample_values:
+    - '488952'
+    - '4102363'
+    - '201157307'
+    - '512220'
+    - '1706798'
+    description: A unique string identifier assigned to each patient by the GNE system.
+  - name: PATIENT_MDM_ID
+    type: string
+    sample_values:
+    - LH488952
+    - LH4102363
+    - LH201157307
+    - LH512220
+    - LH1706798
+    description: A unique string identifier for each patient in the Master Data Management
+      system, prefixed with 'LH'.
+  - name: PATIENT_FIRST_NAME
+    type: string
+    sample_values:
+    - ALLIE-JOHN
+    - ANNIE
+    - DAVIS
+    - UNK
+    - BECA
+    description: The first name of the patient, which may include hyphens.
+  - name: PATIENT_MIDDLE_NAME
+    type: string
+    sample_values:
+    - A
+    - W
+    - D
+    - L
+    - Y
+    description: The middle initial of the patient, represented as a single character.
+  - name: PATIENT_LAST_NAME
+    type: string
+    sample_values:
+    - KALOUS
+    - HERTZLER
+    - DONOVAN
+    - BARRILLEAUX
+    - BARKER
+    description: The last name of the patient.
+  - name: STATUS
+    type: string
+    sample_values:
+    - ACTIVE
+    - DECEASED
+    - ACTIV
+    description: The current status of the patient, indicating if they are active
+      or deceased.
+  - name: GENDER
+    type: string
+    sample_values:
+    - U
+    - F
+    - M
+    description: The gender of the patient, represented as a single character code.
+  - name: BIRTH_DATE
+    type: datetime64[ns]
+    sample_values:
+    - '1900-01-01'
+    - '1961-01-01'
+    - '1970-01-01'
+    - '1963-01-01'
+    - '1960-01-01'
+    description: The birth date of the patient, stored in a datetime format.
+  - name: DECEASED_DATE
+    type: datetime64[ns]
+    sample_values:
+    - '2021-03-23'
+    - '2015-01-07'
+    - '2013-10-03'
+    - '2009-05-01'
+    - '2009-01-01'
+    description: The date on which the patient passed away, stored in a datetime format.
+  - name: PATIENT_ADDRESS_1
+    type: string
+    sample_values:
+    - PO BOX 3654
+    - PO BOX 193
+    - PO BOX 133
+    - PO BOX 453
+    - PO BOX 350056
+    description: The primary address line for the patient's mailing address, often
+      a PO Box.
+  - name: PATIENT_ADDRESS_2
+    type: string
+    sample_values:
+    - '1220 N 45TH ST., #214'
+    - BLDG A
+    - APT 3B
+    - '1126'
+    - 302 SOUTH MAIN ST
+    description: The secondary address line for additional location details such as
+      apartment or building number.
+  - name: PATIENT_CITY
+    type: string
+    sample_values:
+    - ANASCO
+    - PUERTO RICO
+    - SCHENECTADY
+    - PRAIRIEVILLE
+    - STOWE
+    description: The city where the patient resides.
+  - name: COUNTY
+    type: string
+    sample_values:
+    - '36105'
+    - '51760'
+    - '30067'
+    - '26031'
+    - '12069'
+    description: The county code associated with the patient's address.
+  - name: PATIENT_STATE
+    type: string
+    sample_values:
+    - PR
+    - NY
+    - LA
+    - VT
+    - FL
+    description: The state abbreviation where the patient lives.
+  - name: PATIENT_ZIP
+    type: string
+    sample_values:
+    - '00610'
+    - '70769'
+    - '05672'
+    - '71260'
+    - '00602'
+    description: The ZIP code for the patient's address.
+  - name: POST_CODE4
+    type: string
+    sample_values:
+    - 346%$^%
+    - '2'
+    - '1'
+    - '3'
+    - '2226'
+    description: An additional postal code identifier, possibly containing non-numeric
+      characters.
+  - name: ADDRESS_TYPE
+    type: string
+    sample_values:
+    - PORTAL
+    - UNKNOWN
+    - Home
+    - PRIMARY
+    - MAILING
+    description: The type of address, indicating its purpose or origin.
+  - name: COUNTRY
+    type: string
+    sample_values:
+    - US
+    description: The country code for the patient's address, typically 'US'.
+  - name: LONGITUDE
+    type: string
+    sample_values:
+    - '-67.12534857418137'
+    - '-90.94048085063565'
+    - '-72.72186661763502'
+    - '-92.23879928930117'
+    - '-67.1762764769791'
+    description: The longitudinal coordinate of the patient's address location.
+  - name: LATITUDE
+    type: string
+    sample_values:
+    - '18.290192610403537'
+    - '30.30732728057871'
+    - '44.48134589103163'
+    - '32.90790677087489'
+    - '18.362251345698855'
+    description: The LATITUDE column contains the geographical latitude coordinates
+      of the patient's location as a string.
+  - name: PO_BOX
+    type: string
+    sample_values:
+    - '3654'
+    - '193'
+    - '133'
+    - '453'
+    - '350056'
+    description: The PO_BOX column holds the post office box number associated with
+      the patient's address as a string.
+  - name: ADDRESS_STATUS_CODE
+    type: string
+    sample_values:
+    - ACTIVE
+    description: The ADDRESS_STATUS_CODE column indicates the current status of the
+      patient's address, such as 'ACTIVE'.
+  - name: SPP_PATIENT_ID
+    type: string
+    sample_values:
+    - Unspecified
+    - F11B9EE1-3798-424A-B3B9-987DB7ACB2FB
+    - BC43B1AD-6607-4CF6-AB25-4084F1D60F77
+    - 16D237AE-CCA7-4235-B6C7-9AA3FC12BACF
+    - bef335bc-0272-4e65-9848-a780346468b2
+    description: The SPP_PATIENT_ID column contains a unique identifier for the patient,
+      which can be specified or 'Unspecified'.
+  - name: FA_NON_US_FLAG
+    type: string
+    sample_values:
+    - N
+    - Y
+    description: The FA_NON_US_FLAG column indicates whether the patient is located
+      outside the United States, with 'Y' for yes and 'N' for no.
+  - name: CONSENT_TYPE
+    type: string
+    sample_values:
+    - BIIB Active Partner Inactive
+    - No Active Consent
+    - BIIB and Partner Active
+    - BIIB Inactive Partner Active
+    description: The CONSENT_TYPE column describes the type of consent the patient
+      has given, such as 'BIIB Active Partner Inactive'.
+  - name: PS_PATIENT_ZIP
+    type: string
+    sample_values:
+    - '73118'
+    - '62677'
+    - '84302'
+    - '48323'
+    - '99362'
+    description: The PS_PATIENT_ZIP column contains the postal ZIP code of the patient's
+      address as a string.
+  - name: PATIENT_AGE_GROUP
+    type: string
+    sample_values:
+    - 40-64
+    - 30-39
+    - 16-29
+    - 65+
+    - <16
+    description: The PATIENT_AGE_GROUP column categorizes the patient into an age
+      group range, such as '40-64'.
+  - name: CREATED_DATE
+    type: datetime64[ns]
+    sample_values:
+    - '2025-12-10 03:48:32.766666805'
+    - '2026-03-11 03:01:11.533333206'
+    - '2026-06-05 03:01:45.359999832'
+    - '2026-06-04 03:01:32.313333270'
+    - '2026-06-03 03:01:24.583333460'
+    description: The CREATED_DATE column records the date and time when the patient's
+      record was created.
+  - name: LAST_UPDATED_DATE
+    type: datetime64[ns]
+    sample_values:
+    - '2025-12-10 03:48:32.766666805'
+    - '2026-03-11 03:01:11.533333206'
+    - '2026-06-05 03:01:45.359999832'
+    - '2026-06-04 03:01:32.313333270'
+    - '2026-06-03 03:01:24.583333460'
+    description: The LAST_UPDATED_DATE column records the date and time when the patient's
+      record was last updated.
+  - name: IS_DELETED_FLG
+    type: string
+    sample_values:
+    - N
+    - Y
+    description: Indicates whether a patient record is marked as deleted, with 'Y'
+      for yes and 'N' for no.
+- name: PHARMACY_CLAIMS_FACT
+  description: The PHARMACY_CLAIMS_FACT table contains detailed records of pharmacy
+    claims, including information about the transaction type, drug details, patient
+    and prescriber identifiers, and financial aspects of the claim such as patient
+    copay and insurance details. Each row represents a unique pharmacy claim, identified
+    by a PHARMACY_CLAIMS_KEY, and includes timestamps for when the prescription was
+    filled and processed, as well as flags and categories related to the claim's status
+    and patient enrollment.
+  columns:
+  - name: PHARMACY_CLAIMS_KEY
+    type: Float64
+    sample_values:
+    - '4167.0'
+    - '4257.0'
+    - '4434.0'
+    - '4610.0'
+    - '4698.0'
+    description: A unique identifier for each pharmacy claim record, represented as
+      a floating-point number.
+  - name: SOURCE_CD
+    type: string
+    sample_values:
+    - IQVIA_COPAY
+    description: A code indicating the source of the pharmacy claim data, such as
+      'IQVIA_COPAY'.
+  - name: BRANDNAME
+    type: string
+    sample_values:
+    - Vumerity
+    - Tecfidera
+    - Avonex
+    - Plegridy
+    - Tysabri
+    description: The brand name of the medication associated with the pharmacy claim.
+  - name: TRANSACTIONTYPE
+    type: string
+    sample_values:
+    - C
+    - R
+    description: A code representing the type of transaction, such as 'C' for claim
+      or 'R' for reversal.
+  - name: CLAIMAUTHORIZATIONNUMBER
+    type: string
+    sample_values:
+    - '133124664'
+    - '129918048'
+    - '128832106'
+    - '128505697'
+    - '131817574'
+    description: A unique number assigned to authorize the pharmacy claim.
+  - name: ORIGINALCLAIMAUTHORIZATIONNUMBER
+    type: string
+    sample_values:
+    - '129644535'
+    - '133376727'
+    - '129931786'
+    - '129464588'
+    - '130563534'
+    description: The authorization number of the original claim, used for reference
+      in adjustments or reversals.
+  - name: EXTERNALPATIENTID
+    type: string
+    sample_values:
+    - LH200885000
+    - LH4839010
+    - LH324615
+    - LH2372
+    - LH20267
+    description: An identifier assigned to the patient externally, used for tracking
+      across systems.
+  - name: MEMBERID
+    type: string
+    sample_values:
+    - 09794436944
+    - 09460626436
+    - 09460592496
+    - '19460586704'
+    - '29460592137'
+    description: A unique identifier for the member associated with the pharmacy claim.
+  - name: GROUPNUMBER
+    type: string
+    sample_values:
+    - OHBG06031
+    - OHBG06051
+    - OHBG06041
+    - OHBG08071
+    - OHBG08031
+    description: A code representing the group or plan under which the pharmacy claim
+      is filed.
+  - name: RXNUM
+    type: string
+    sample_values:
+    - 4045437C7E6775757F474043
+    - 4143437A796472
+    - 40454378786676707B404241
+    - 4045437C7D61747179474444
+    - 4143447D7D6375
+    description: A unique prescription number associated with the pharmacy claim.
+  - name: DATEOFFILL
+    type: datetime64[ns]
+    sample_values:
+    - '2025-11-03'
+    - '2025-06-17'
+    - '2025-05-09'
+    - '2025-04-28'
+    - '2025-09-03'
+    description: The date when the prescription was filled by the pharmacy.
+  - name: DATEWRITTEN
+    type: datetime64[ns]
+    sample_values:
+    - '2025-07-23'
+    - '2024-10-22'
+    - '2025-01-03'
+    - '2024-09-25'
+    - '2025-05-19'
+    description: The date when the prescription was originally written by the healthcare
+      provider.
+  - name: DAYSUPPLY
+    type: Float64
+    sample_values:
+    - '30.0'
+    - '33.0'
+    - '60.0'
+    - '34.0'
+    - '28.0'
+    description: The number of days the dispensed medication is expected to last.
+  - name: DAW
+    type: string
+    sample_values:
+    - '0'
+    - '1'
+    - '2'
+    - '9'
+    - '6'
+    description: The Dispense as Written code indicating if generic substitution is
+      allowed.
+  - name: NDC
+    type: string
+    sample_values:
+    - '64406002003'
+    - '64406002001'
+    - '64406000602'
+    - '59627033304'
+    - '64406001101'
+    description: The National Drug Code, a unique identifier for medications in the
+      United States.
+  - name: DRUGDESC
+    type: string
+    sample_values:
+    - VUMERITY     CAP 231MG
+    - TECFIDERA    CAP 240MG
+    - AVONEX PEN   KIT 30MCG
+    - PLEGRIDY     INJ PEN
+    - AVONEX PREFL KIT 30MCG
+    description: A description of the drug including its name, form, and strength.
+  - name: NCPDPID
+    type: string
+    sample_values:
+    - '3155125'
+    - '0124165'
+    - '4436920'
+    - '1564930'
+    - '0361030'
+    description: The National Council for Prescription Drug Programs identifier for
+      the pharmacy.
+  - name: NEWREFILLCODE
+    type: string
+    sample_values:
+    - '3'
+    - '7'
+    - '4'
+    - '9'
+    - '5'
+    description: A code indicating whether the prescription is new or a refill.
+  - name: NUMBEROFREFILLS
+    type: string
+    sample_values:
+    - '11'
+    - '5'
+    - '1'
+    - '12'
+    - '6'
+    description: The total number of refills authorized by the prescriber.
+  - name: OTHERCOVERAGECODE
+    type: string
+    sample_values:
+    - '8'
+    - '0'
+    - '1'
+    - '3'
+    description: A code indicating the presence of other insurance coverage.
+  - name: PRESCRIBERNPI
+    type: string
+    sample_values:
+    - '1982041778'
+    - '1841533809'
+    - '1982659017'
+    - '1497130272'
+    - '1770538233'
+    description: A unique identifier for the healthcare provider who prescribed the
+      medication.
+  - name: DATEPROCESSED
+    type: datetime64[ns]
+    sample_values:
+    - '2025-11-03 16:49:07.999999927'
+    - '2025-06-17 14:21:57.000000035'
+    - '2025-05-09 01:29:50.999999781'
+    - '2025-04-28 14:35:43.999999736'
+    - '2025-09-03 11:42:11.000000309'
+    description: The date and time when the pharmacy claim was processed.
+  - name: SUBMISSIONMETHOD
+    type: string
+    sample_values:
+    - E
+    - M
+    description: The method by which the pharmacy claim was submitted, such as electronically
+      or manually.
+  - name: QUANTITY
+    type: Float64
+    sample_values:
+    - '120.0'
+    - '3.0'
+    - '15.0'
+    - '180.0'
+    - '5.0'
+    description: The amount of medication dispensed in the pharmacy claim.
+  - name: PATIENTBENEFIT
+    type: Float64
+    sample_values:
+    - '50.0'
+    - '250.0'
+    - '150.0'
+    - '200.0'
+    - '100.0'
+    description: The monetary amount covered by the patient's insurance for the claim.
+  - name: PATIENTCOPAYBEFOREBENEFITAPPLIED
+    type: Float64
+    sample_values:
+    - '50.0'
+    - '250.0'
+    - '150.0'
+    - '200.0'
+    - '100.0'
+    description: The copay amount the patient is responsible for before insurance
+      benefits are applied.
+  - name: PATIENTOOP
+    type: Float64
+    sample_values:
+    - '0.0'
+    - '177.0'
+    - '6034.86'
+    - '706.8'
+    - '2472.0'
+    description: The out-of-pocket cost the patient must pay after insurance benefits
+      are applied.
+  - name: PHARMACYTRANSACTIONFEE
+    type: Float64
+    sample_values:
+    - '0.09'
+    - '0.0'
+    - '0.03'
+    description: The fee charged by the pharmacy for processing the transaction.
+  - name: INSURANCEBIN
+    type: string
+    sample_values:
+    - '601341'
+    - PINTHISO
+    - U1188914
+    - U1117444
+    - U1195098
+    description: The Bank Identification Number used to identify the insurance plan
+      for the claim.
+  - name: INSURANCENAME
+    type: string
+    sample_values: []
+    description: The name of the insurance company associated with the claim.
+  - name: CARDLOADAMOUNT
+    type: Float64
+    sample_values:
+    - '0.0'
+    - '2.0'
+    - '5.0'
+    - '9.0'
+    - '11.0'
+    description: The amount of money loaded onto a card for a transaction, represented
+      as a floating-point number.
+  - name: TRANSACTIONID
+    type: string
+    sample_values:
+    - '133124664'
+    - '129918048'
+    - '128832106'
+    - '128505697'
+    - '131817574'
+    description: A unique identifier for each transaction, represented as a string.
+  - name: TRANSSEQ
+    type: string
+    sample_values:
+    - '0'
+    description: A sequence number for the transaction, typically starting from zero.
+  - name: CLAIM_TYPE
+    type: string
+    sample_values:
+    - PHARMACY
+    - MEDICAL
+    description: The type of claim being processed, such as 'PHARMACY' or 'MEDICAL'.
+  - name: PLACEHOLDER1
+    type: string
+    sample_values: []
+    description: A reserved column for future data or additional information, currently
+      empty.
+  - name: PLACEHOLDER2
+    type: string
+    sample_values: []
+    description: A reserved column for future data or additional information, currently
+      empty.
+  - name: PLACEHOLDER3
+    type: string
+    sample_values: []
+    description: A reserved column for future data or additional information, currently
+      empty.
+  - name: PLACEHOLDER4
+    type: string
+    sample_values: []
+    description: A reserved column for future data or additional information, currently
+      empty.
+  - name: PLACEHOLDER5
+    type: string
+    sample_values: []
+    description: A reserved column for future data or additional information, currently
+      empty.
+  - name: MK_PRODUCT_PM_ID
+    type: string
+    sample_values:
+    - '56'
+    - '39'
+    - '133'
+    - '7'
+    - '129'
+    description: An identifier for the product or service associated with the transaction,
+      represented as a string.
+  - name: IQV_ENROLLMENTS_KEY
+    type: Float64
+    sample_values:
+    - '136190.0'
+    - '92941.0'
+    - '75839.0'
+    - '131126.0'
+    - '86791.0'
+    description: A unique identifier for the enrollment record associated with the
+      pharmacy claim.
+  - name: PATIENT_KEY
+    type: Float64
+    sample_values:
+    - '541315.0'
+    - '955236.0'
+    - '1598435.0'
+    - '682362.0'
+    - '1055036.0'
+    description: A unique identifier for the patient associated with the pharmacy
+      claim.
+  - name: PHARMACY_KEY
+    type: Float64
+    sample_values:
+    - '-999999.0'
+    - '77683.0'
+    - '53629.0'
+    - '41950.0'
+    - '33079.0'
+    description: A unique identifier for the pharmacy where the claim was processed.
+  - name: HCP_KEY
+    type: Float64
+    sample_values:
+    - '844756.0'
+    - '732879.0'
+    - '608246.0'
+    - '686215.0'
+    - '637346.0'
+    description: A unique identifier for the healthcare provider associated with the
+      pharmacy claim.
+  - name: CREATED_DATE
+    type: datetime64[ns]
+    sample_values:
+    - '2025-12-10 03:48:53.839999742'
+    - '2026-04-03 04:18:10.946666802'
+    - '2026-04-02 03:45:37.156666420'
+    - '2026-04-01 03:52:03.623333401'
+    - '2026-03-29 04:20:49.599999954'
+    description: The date and time when the pharmacy claim record was created.
+  - name: LAST_UPDATED_DATE
+    type: datetime64[ns]
+    sample_values:
+    - '2026-05-20 04:19:00.583333046'
+    - '2026-06-07 03:47:28.676666667'
+    - '2026-06-10 04:22:31.313333164'
+    - '2026-05-20 04:19:14.376666878'
+    - '2026-05-29 03:49:35.770000137'
+    description: The date and time when the pharmacy claim record was last updated.
+  - name: IS_DELETED_FLG
+    type: string
+    sample_values:
+    - N
+    description: A flag indicating whether the pharmacy claim record has been marked
+      as deleted.
+  - name: BENEFIT_FLG
+    type: string
+    sample_values:
+    - <90%
+    - '>90%'
+    description: A flag indicating the percentage of benefit coverage for the pharmacy
+      claim.
+  - name: YM
+    type: string
+    sample_values:
+    - 2025-11
+    - 2025-06
+    - 2025-05
+    - 2025-04
+    - 2025-09
+    description: The year and month when the pharmacy claim was processed, formatted
+      as YYYY-MM.
+  - name: Claim_flag_Latest
+    type: Int64
+    sample_values:
+    - '0'
+    - '1'
+    description: An indicator of whether the claim is the latest version, with 1 for
+      latest and 0 otherwise.
+  - name: Claim_flag_Latest_R
+    type: Int64
+    sample_values:
+    - '0'
+    - '1'
+    description: Indicates whether the claim is the latest for a patient, with '1'
+      for yes and '0' for no.
+  - name: CLAIM_TRANSACTION_TYPE_FLG
+    type: Int64
+    sample_values:
+    - '1'
+    - '2'
+    description: Denotes the type of transaction for the claim, where '1' and '2'
+      represent different transaction types.
+  - name: Days_Enrollment
+    type: Int64
+    sample_values:
+    - '286'
+    - '236'
+    - '1164'
+    - '496'
+    - '1076'
+    description: Represents the number of days a patient has been enrolled in the
+      pharmacy benefit program.
+  - name: Is_First_Claim_Post_enrollment
+    type: Int64
+    sample_values:
+    - '0'
+    - '1'
+    description: Indicates if the claim is the first one after enrollment, with '1'
+      for yes and '0' for no.
+  - name: Patient_OOP_Category
+    type: string
+    sample_values:
+    - Fully Covered
+    - Partially Covered
+    description: Describes the patient's out-of-pocket expense category, such as 'Fully
+      Covered' or 'Partially Covered'.
+  - name: BENEFIT_FLG_PH
+    type: string
+    sample_values:
+    - 0-50%
+    - 50-70%
+    - 70-90%
+    - 90-100%
+    description: Shows the percentage range of the benefit coverage for the pharmacy
+      claim, such as '0-50%', '50-70%', or '70-90%'.
+  - name: SP_SEGMENT
+    type: string
+    sample_values:
+    - Unmapped
+    - Specialty Pharmacy (SP)
+    description: Categorizes the claim as either 'Unmapped' or related to 'Specialty
+      Pharmacy (SP)'.
+- name: PHARMACY_DIM
+  description: The PHARMACY_DIM table contains detailed information about various
+    pharmacies, including their unique identifiers, names, types, and specialties.
+    It also includes metadata such as creation and last updated dates, status, and
+    focus areas, along with identifiers like NPI, NCPDP number, and HIN. Additionally,
+    the table tracks the source of the data and whether the pharmacy record is marked
+    as deleted.
+  columns:
+  - name: PHARMACY_KEY
+    type: Float64
+    sample_values:
+    - '110914.0'
+    - '110916.0'
+    - '110917.0'
+    - '110918.0'
+    - '110919.0'
+    description: A unique identifier for each pharmacy represented as a floating-point
+      number.
+  - name: SOURCE_CD
+    type: string
+    sample_values:
+    - KOMODO
+    - VNT
+    - SPP-BIO
+    - KAISER
+    - SPP-MS
+    description: A code indicating the source of the pharmacy data.
+  - name: MK_ACCOUNT_VNT_ID
+    type: string
+    sample_values:
+    - '242985070158152715'
+    - '242977029165679617'
+    - '928924050816829356'
+    - '928918330922239909'
+    - '242977225199059970'
+    description: A unique identifier for the pharmacy account in the VNT system.
+  - name: ORG_ID
+    type: string
+    sample_values:
+    - '561861614'
+    - '13168'
+    - '13166'
+    - '13165'
+    - '13164'
+    description: A unique identifier for the organization associated with the pharmacy.
+  - name: CRM_ID
+    type: string
+    sample_values:
+    - 0014V00001iDfxKQAS
+    - 0014V00001iEctOQAS
+    - 0014V00001iDhUAQA0
+    - 0014V00001iDWOJQA4
+    - 0014V00001iDiDXQA0
+    description: A unique identifier for the pharmacy in the CRM system.
+  - name: PHARMACY_NAME
+    type: string
+    sample_values:
+    - 1663 PHARMACY INC
+    - GOLDEN STATE EMERGENCY PHYSICIANS INC
+    - WICKHAM TITUS HENDRIX AND TURNER PTRS
+    - HEARING AID SYSTEMS INC
+    - REGENERATIVE HEALTH AND CHIROPRACTIC LTD
+    description: The name of the pharmacy.
+  - name: PHARMACY_TYPE
+    type: string
+    sample_values:
+    - UNKNOWN
+    - RETAIL
+    - PROVIDER
+    - LTC
+    - SPECIALTY
+    description: The type of pharmacy, such as retail or provider.
+  - name: PHARMACY_SUBTYPE
+    type: string
+    sample_values:
+    - Community/Retail Pharmacy
+    - Urgent Care
+    - Land Transport
+    - Diagnostic Radiology
+    - Ambulatory Surgical
+    description: A more specific classification of the pharmacy type.
+  - name: PRIMARY_SPECIALTY_NAME
+    type: string
+    sample_values:
+    - Pharmaceutical Medicine
+    - Orthopedic Surgery
+    - Rheumatology
+    - Dermatology
+    - Primary Care Practice
+    description: The primary specialty associated with the pharmacy.
+  - name: BIIB_PRIMARY_SPECIALTY_NAME
+    type: string
+    sample_values:
+    - Hospital Pharmacy
+    - Pharmaceutical Medicine
+    - Community Pharmacy
+    - Other Specialty
+    - Other
+    description: The primary specialty name as defined by BIIB.
+  - name: SECONDARY_SPECIALTY_NAME
+    type: string
+    sample_values:
+    - Emergency Medicine
+    - Primary Care Practice
+    - Podiatry
+    - General Surgery
+    - Physical Medicine & Rehabilitation
+    description: This column represents the secondary specialty of the pharmacy, such
+      as 'Emergency Medicine' or 'Primary Care Practice'.
+  - name: PHARMACY_STATUS_NAME
+    type: string
+    sample_values:
+    - Active
+    - Closed
+    - Inactive
+    description: This column indicates the current status of the pharmacy, such as
+      'Active', 'Closed', or 'Inactive'.
+  - name: PHARMACY_FOCUS_AREA_1_NAME
+    type: string
+    sample_values:
+    - Vaccinations/Immunizations
+    - Respiratory Medicine
+    - Smoking Cessation Services
+    - Cosmetic Pharmacy
+    - Sexual Health
+    description: This column specifies the primary focus area of the pharmacy, like
+      'Vaccinations/Immunizations' or 'Respiratory Medicine'.
+  - name: PHARMACY_FOCUS_AREA_2_NAME
+    type: string
+    sample_values:
+    - Sexual Health
+    - Smoking Cessation Services
+    - Acupuncture
+    - Vaccinations/Immunizations
+    - General Medicine
+    description: This column denotes an additional focus area of the pharmacy, such
+      as 'Sexual Health' or 'Smoking Cessation Services'.
+  - name: PHARMACY_NPI
+    type: string
+    sample_values:
+    - '1740343433'
+    - '1770886558'
+    - '1417980343'
+    - '1538378534'
+    - '1205571262'
+    description: This column contains the National Provider Identifier (NPI) for the
+      pharmacy, which is a unique 10-digit identification number.
+  - name: PHARMACY_LOCATION_NAME
+    type: string
+    sample_values:
+    - Special Care Pharmacy Services
+    - 'KAISER PERMANENTE PHARMACY #329'
+    - 'KAISER PERMANENTE PHARMACY #339 (SANTA MONICA)'
+    - KAISER NORTHGATE MED CTR PHARM
+    - 'KAISER ORCHARD C OUTPATIENT PHARMACY #059R'
+    description: This column provides the name of the pharmacy location, for example,
+      'Special Care Pharmacy Services'.
+  - name: PHARMACY_NCPDP_NUMBER
+    type: string
+    sample_values:
+    - Unspecified
+    - '2359063'
+    - '1477416'
+    - '4021438'
+    - '5934787'
+    description: This column lists the National Council for Prescription Drug Programs
+      (NCPDP) number, which is a unique identifier for pharmacies.
+  - name: PHARMACY_HIN
+    type: string
+    sample_values: []
+    description: This column is intended to store the Health Industry Number (HIN)
+      for the pharmacy, although it currently has no sample values.
+  - name: CREATED_DATE
+    type: datetime64[ns]
+    sample_values:
+    - '2026-06-11 03:54:11.246666771'
+    - '2026-06-16 03:52:53.906666831'
+    - '2026-04-05 03:00:53.993333298'
+    - '2026-02-06 00:51:03.760000139'
+    - '2026-04-26 03:00:48.306666919'
+    description: This column records the date and time when the pharmacy record was
+      created in the system.
+  - name: LAST_UPDATED_DATE
+    type: datetime64[ns]
+    sample_values:
+    - '2026-06-11 03:54:11.246666771'
+    - '2026-06-19 03:52:12.273333640'
+    - '2026-06-18 03:29:53.246666667'
+    - '2026-06-17 03:33:36.936666777'
+    - '2026-06-16 03:52:48.673333597'
+    description: This column captures the date and time when the pharmacy record was
+      last updated.
+  - name: IS_DELETED_FLG
+    type: string
+    sample_values:
+    - N
+    - Y
+    description: A flag indicating whether the pharmacy record is deleted, with 'N'
+      for not deleted and 'Y' for deleted.
+  - name: Parent Pharmacy Group
+    type: string
+    sample_values:
+    - Others
+    - Cardinal Health
+    - McKesson
+    - AmerisourceBergen
+    description: The name of the parent company or group to which the pharmacy belongs,
+      such as 'Others', 'Cardinal Health', or 'McKesson'.
+- name: Spend Metric
+  description: The "Spend Metric" table contains a single column labeled "Column1,"
+    which lists various financial metrics related to Biogen's expenditures. The sample
+    rows indicate that the table includes metrics such as the total spend by Biogen,
+    the spend per patient, and the spend per claim, providing insights into different
+    aspects of Biogen's financial outlays.
+  columns:
+  - name: Column1
+    type: string
+    sample_values:
+    - Total Biogen Spend
+    - Biogen Spend per Patient
+    - Biogen Spend Per Claim
+    description: This column contains descriptions of different types of spending
+      metrics related to Biogen, such as total spend, spend per patient, and spend
+      per claim.
+- name: US_PRODUCT_MASTER
+  description: The US_PRODUCT_MASTER table contains detailed information about pharmaceutical
+    products, including their therapeutic classifications, brand names, and product
+    specifications. It includes data such as therapeutic area, franchise, product
+    form, strength, and launch dates, along with manufacturer details and distribution
+    types. This table is useful for analyzing product characteristics and market presence
+    in the pharmaceutical industry.
+  columns:
+  - name: MK_THERAPEUTIC_CLASS_PM_ID
+    type: Float64
+    sample_values:
+    - '1.0'
+    - '17.0'
+    - '20.0'
+    - '2.0'
+    - '61.0'
+    description: A unique identifier for the therapeutic class of the product.
+  - name: MK_REPORTING_GROUP_PM_ID
+    type: Float64
+    sample_values:
+    - '1.0'
+    - '6.0'
+    description: A unique identifier for the reporting group associated with the product.
+  - name: MK_PRODUCT_BRAND_PM_ID
+    type: Float64
+    sample_values:
+    - '16.0'
+    - '3272.0'
+    - '211.0'
+    - '14.0'
+    - '13.0'
+    description: A unique identifier for the brand of the product.
+  - name: MK_PRODUCT_PM_ID
+    type: Float64
+    sample_values:
+    - '133.0'
+    - '319724.0'
+    - '320110.0'
+    - '320132.0'
+    - '1451.0'
+    description: A unique identifier for the specific product.
+  - name: THERAPEUTIC_AREA
+    type: string
+    sample_values:
+    - MULTIPLE SCLEROSIS
+    - POST-PARTUM DEPRESSION
+    - AMYOTROPHIC LATERAL SCLEROSIS
+    - SPINAL MUSCULAR ATROPHY
+    - FRIEDREICHS ATAXIA
+    description: The medical field or condition that the product is designed to address.
+  - name: THERAPEUTIC_CLASS_CODE
+    type: string
+    sample_values:
+    - MS
+    - PPD
+    - ALS
+    - SMA
+    - FA
+    description: A code representing the therapeutic class of the product.
+  - name: FRANCHISE
+    type: string
+    sample_values:
+    - NEURODEGENERATIVE
+    - NEUROPSYCHIATRY
+    - NEUROMUSCULAR
+    description: The business division or category under which the product is marketed.
+  - name: REPORTING_GROUP_NAME
+    type: string
+    sample_values:
+    - BRANDED
+    - QALSODY
+    description: The name of the group responsible for reporting on the product's
+      performance.
+  - name: PRODUCT_BRAND_NAME
+    type: string
+    sample_values:
+    - TECFIDERA
+    - ZURZUVAE
+    - QALSODY
+    - SPINRAZA
+    - PLEGRIDY
+    description: The commercial name under which the product is sold.
+  - name: BRAND_LAUNCH_DATE
+    type: string
+    sample_values:
+    - 4/1/2013
+    - 10/1/2023
+    - 12/23/2016
+    - 2/1/2021
+    - 5/1/1996
+    description: The date on which the product brand was officially launched.
+  - name: BRAND_COMPETITOR_FLAG
+    type: string
+    sample_values:
+    - N
+    description: Indicates whether the product is a competitor brand, with 'N' meaning
+      it is not.
+  - name: BRAND_TC_APPROVAL_DATE
+    type: string
+    sample_values:
+    - 10/1/2023
+    - 1/1/2023
+    - 1/1/1900
+    description: The date when the product received approval from the therapeutic
+      committee, formatted as MM/DD/YYYY.
+  - name: PRIMARY_FLAG
+    type: string
+    sample_values:
+    - Y
+    description: Denotes if the product is a primary offering, with 'Y' indicating
+      it is.
+  - name: PRODUCT_DESCRIPTION
+    type: string
+    sample_values:
+    - TECFIDERA-240 MG 30 DAY
+    - ZURZUVAE 25MG, BLISTER PACK OF 28 CAPSULES
+    - REV710
+    - SPINRAZA INJ 12MG/5ML
+    - PLEGRIDY IM- 125 mcg
+    description: A detailed description of the product including its name, dosage,
+      and packaging.
+  - name: PRODUCT_CLASS
+    type: string
+    sample_values:
+    - ORAL
+    - GABA A RECEPTOR MODULATOR
+    - NA
+    - INTERFERON
+    - HIGH EFFICACY
+    description: Categorizes the product based on its therapeutic or chemical class.
+  - name: PRODUCT_FORM
+    type: string
+    sample_values:
+    - CAPSULE DELAYED RELEASE
+    - CAP
+    - INJECTION SOLUTION
+    - KIT
+    - VIAL
+    description: Describes the physical form in which the product is available, such
+      as capsule or injection.
+  - name: PRODUCT_STRENGTH
+    type: string
+    sample_values:
+    - 240 MG
+    - 25MG
+    - 6.66mg/ML 15ML
+    - 12 mg
+    - 125 mcg
+    description: Specifies the concentration or dosage of the active ingredient in
+      the product.
+  - name: PRIMARY_PRODUCT_CODE
+    type: string
+    sample_values:
+    - '64406000602'
+    - '64406003002'
+    - '99999810202'
+    - '64406005801'
+    - '64406001701'
+    description: A unique identifier assigned to the product for primary classification
+      purposes.
+  - name: SECONDARY_PRODUCT_CODE
+    type: string
+    sample_values:
+    - '6440600602'
+    - '6440603002'
+    - '99999810202'
+    - '6440605801'
+    - 64406-017-01
+    description: An additional identifier for the product used for secondary classification.
+  - name: PRODUCT_GROUP
+    type: string
+    sample_values:
+    - FUMARATE
+    - ZURZUVAE
+    - QALSODY
+    - SPINRAZA
+    - PLEGRIDY
+    description: Groups the product under a specific category or family based on its
+      active ingredient or brand.
+  - name: PRODUCT_SUB_TYPE
+    type: string
+    sample_values:
+    - TECFIDERA 240MG
+    - Basic ADT
+    - QALSODY
+    - SPINRAZA 12 MG INJECTION
+    - PLEGRIDY IM
+    description: The specific name or variant of the product, often including dosage
+      information.
+  - name: MANUFACTURER_NAME
+    type: string
+    sample_values:
+    - BIOGEN
+    - SAGE THERAPEUTICS INC
+    - Reata Pharmaceuticals, Inc.
+    description: The name of the company that produces the product.
+  - name: FREQUENCY
+    type: string
+    sample_values:
+    - BID (two times a day)
+    - One capsule orally once daily to be taken for 28 days
+    - NA
+    - every 14 days
+    - QW (once weekly)
+    description: The recommended frequency or schedule for taking the product.
+  - name: NDC_APPROVAL_DATE
+    type: string
+    sample_values: []
+    description: The date on which the product received approval for its National
+      Drug Code (NDC).
+  - name: NDC_LAUNCH_DATE
+    type: string
+    sample_values:
+    - 4/1/2013
+    - 10/1/2023
+    - 12/23/2016
+    - 2/1/2021
+    - 5/1/1996
+    description: The date on which the product was launched with its National Drug
+      Code (NDC).
+  - name: NDC_DAYS_SUPPLY
+    type: Float64
+    sample_values:
+    - '30.0'
+    - '0.0'
+    - '14.0'
+    - '7.0'
+    - '28.0'
+    description: The number of days the product is intended to last based on the prescribed
+      dosage.
+  - name: DISTRIBUTION_TYPE
+    type: string
+    sample_values:
+    - PHARMACY
+    - MEDICAL
+    description: The method by which the product is distributed, such as through pharmacies
+      or medical facilities.
+  - name: MODE_OF_ACTION
+    type: string
+    sample_values:
+    - NRF2 ACTIVATOR
+    - ALLOSTERIC MODULATOR
+    - Antisense Oligonucleotide
+    - IMMUNOMODULATOR
+    - ANTI ALPHA4 INTEGRIN
+    description: The mechanism by which the product exerts its effects in the body.
+  - name: MOLECULE
+    type: string
+    sample_values:
+    - dimethyl fumarate
+    - zuranolone
+    - NUSINERSEN
+    - peginterferon beta-1a
+    - natalizumab
+    description: The active chemical compound or ingredient in the product.
+  - name: INDICATIONS
+    type: string
+    sample_values:
+    - RMS
+    - NA
+    - Spinal Muscular Atrophy
+    - FA
+    description: The medical conditions or diseases for which the product is intended
+      to be used.
+  - name: TITRATION_FLAG
+    type: string
+    sample_values:
+    - N
+    - Y
+    description: Indicates whether the product requires titration, with 'Y' for yes
+      and 'N' for no.
+  - name: COUNTRY_CD
+    type: string
+    sample_values:
+    - USA
+    description: Represents the country code where the product is available, such
+      as 'USA'.
+  - name: NOTES
+    type: string
+    sample_values:
+    - bottle of 60 pills
+    - Blister Pack of 28
+    - NA
+    - PLEGRIDY IM- 125 mcg
+    - pack of 1 autoinjector
+    description: Provides additional information about the product packaging or other
+      relevant details, such as 'bottle of 60 pills' or 'Blister Pack of 28'.
+- name: Volume Metric
+  description: The "Volume Metric" table contains a single column labeled 'Column1',
+    which includes entries related to healthcare metrics. Specifically, it lists different
+    types of volume-related data, such as "Claim Volume" and "Patient Count," indicating
+    the table is likely used to categorize or identify various metrics associated
+    with healthcare claims and patient statistics.
+  columns:
+  - name: Column1
+    type: string
+    sample_values:
+    - Claim Volume
+    - Patient Count
+    description: This column contains string values that represent different types
+      of volume metrics, such as 'Claim Volume' and 'Patient Count'.
+measures:
+- name: Amount per claim
+  description: This measure calculates the average patient benefit amount per claim
+    by dividing the total patient benefit by the distinct count of claim authorization
+    numbers. It uses the PHARMACY_CLAIMS_FACT table and applies a filter where CLAIM_TRANSACTION_TYPE_FLG
+    equals 1, and it matches product brand names using the TREATAS function.
+  expression: 'CALCULATE(SUM(PHARMACY_CLAIMS_FACT[PATIENTBENEFIT])/DISTINCTCOUNT(PHARMACY_CLAIMS_FACT[CLAIMAUTHORIZATIONNUMBER]),
+
+    PHARMACY_CLAIMS_FACT[CLAIM_TRANSACTION_TYPE_FLG]=1 , TREATAS(VALUES(US_PRODUCT_MASTER[PRODUCT_BRAND_NAME]),PHARMACY_CLAIMS_FACT[BRANDNAME]))'
+  assigned_table: Measure Table
+  page_group: ''
+  dependent_measures: []
+- name: Last Updated
+  description: This measure calculates the last updated time by subtracting 5 hours
+    from the maximum UTC time in the LastRefresh table. It returns a formatted string
+    indicating the last update time in EST.
+  expression: "\nVAR LastRefreshTime = MAX(LastRefresh[UTC_Time]) - TIME(5,0,0)\n\
+    \ \nRETURN \"Last Updated: \" & FORMAT(LastRefreshTime, \"MMM dd, yyyy, hh:mm\
+    \ AM/PM\") & \" EST\""
+  assigned_table: Measure Table
+  page_group: ''
+  dependent_measures: []
+- name: Utilizing
+  description: This measure calculates the number of members utilizing the service
+    by subtracting the count of members enrolled but with no claims from the total
+    enrollment.
+  expression: '[Total enrollment] - [Enrolled But No Claims Till Date]'
+  assigned_table: Measure Table
+  page_group: ''
+  dependent_measures:
+  - Total enrollment
+  - Enrolled But No Claims Till Date
+- name: Total enrollment
+  description: This measure calculates the distinct count of members enrolled using
+    the IQV_ENROLLMENT_DIM table. It applies a filter to match product brand names
+    using the TREATAS function.
+  expression: CALCULATE( DISTINCTCOUNT(IQV_ENROLLMENT_DIM[MEMBERID]), TREATAS(VALUES(US_PRODUCT_MASTER[PRODUCT_BRAND_NAME]),IQV_ENROLLMENT_DIM[BRANDNAME]))
+  assigned_table: Measure Table
+  page_group: ''
+  dependent_measures: []
+- name: Redemption Rate
+  description: This measure calculates the redemption rate by dividing the number
+    of utilizing members by the total enrollment. It uses a default value of 0 to
+    handle division by zero.
+  expression: DIVIDE([Utilizing],[Total enrollment],0)
+  assigned_table: Measure Table
+  page_group: ''
+  dependent_measures:
+  - Utilizing
+  - Total enrollment
+- name: Enrollment from hub
+  description: This measure calculates the distinct count of members enrolled through
+    the 'HUB Portal' channel using the IQV_ENROLLMENT_DIM table. It applies a filter
+    to match product brand names using the TREATAS function.
+  expression: 'CALCULATE(DISTINCTCOUNT(IQV_ENROLLMENT_DIM[MEMBERID]),
+
+    IQV_ENROLLMENT_DIM[ENROLLMENTCHANNEL]="HUB Portal" , TREATAS(VALUES(US_PRODUCT_MASTER[PRODUCT_BRAND_NAME]),IQV_ENROLLMENT_DIM[BRANDNAME])
+    )
+
+
+    '
+  assigned_table: Measure Table
+  page_group: ''
+  dependent_measures: []
+- name: Enrollment from patient portal
+  description: This measure calculates the distinct count of members enrolled through
+    the 'Patient Portal' channel using the IQV_ENROLLMENT_DIM table. It applies a
+    filter to match product brand names using the TREATAS function.
+  expression: 'CALCULATE(DISTINCTCOUNT(IQV_ENROLLMENT_DIM[MEMBERID]),
+
+    IQV_ENROLLMENT_DIM[ENROLLMENTCHANNEL]="Patient Portal" , TREATAS(VALUES(US_PRODUCT_MASTER[PRODUCT_BRAND_NAME]),IQV_ENROLLMENT_DIM[BRANDNAME]))'
+  assigned_table: Measure Table
+  page_group: ''
+  dependent_measures: []
+- name: Bottles with copay redemption
+  description: This measure calculates the total quantity of bottles with copay redemption
+    using the PHARMACY_CLAIMS_FACT table. It applies a filter where CLAIM_TRANSACTION_TYPE_FLG
+    equals 1 and matches product brand names using the TREATAS function.
+  expression: "CALCULATE(SUM(PHARMACY_CLAIMS_FACT[QUANTITY]),\nPHARMACY_CLAIMS_FACT[CLAIM_TRANSACTION_TYPE_FLG]=1\
+    \  \n,TREATAS(VALUES(US_PRODUCT_MASTER[PRODUCT_BRAND_NAME]),PHARMACY_CLAIMS_FACT[BRANDNAME])\n\
+    )"
+  assigned_table: Measure Table
+  page_group: ''
+  dependent_measures: []
+- name: Total copay support
+  description: This measure calculates the total patient benefit from the PHARMACY_CLAIMS_FACT
+    table where the claim transaction type flag is 1. It applies a filter using the
+    TREATAS function to match product brand names from the US_PRODUCT_MASTER table
+    to the brand names in the PHARMACY_CLAIMS_FACT table.
+  expression: 'CALCULATE(SUM(PHARMACY_CLAIMS_FACT[PATIENTBENEFIT]),
+
+    PHARMACY_CLAIMS_FACT[CLAIM_TRANSACTION_TYPE_FLG]=1, TREATAS(VALUES(US_PRODUCT_MASTER[PRODUCT_BRAND_NAME]),PHARMACY_CLAIMS_FACT[BRANDNAME]))'
+  assigned_table: Measure Table
+  page_group: ''
+  dependent_measures: []
+- name: Average copay support
+  description: This measure computes the average patient benefit for claims with a
+    transaction type flag of 1 in the PHARMACY_CLAIMS_FACT table. It uses the AVERAGEX
+    function over a filtered table and applies a TREATAS filter to align product brand
+    names between the US_PRODUCT_MASTER and PHARMACY_CLAIMS_FACT tables.
+  expression: "CALCULATE(AVERAGEX(FILTER(PHARMACY_CLAIMS_FACT, \nPHARMACY_CLAIMS_FACT[CLAIM_TRANSACTION_TYPE_FLG]=1),\n\
+    PHARMACY_CLAIMS_FACT[PATIENTBENEFIT]), TREATAS(VALUES(US_PRODUCT_MASTER[PRODUCT_BRAND_NAME]),PHARMACY_CLAIMS_FACT[BRANDNAME]))"
+  assigned_table: Measure Table
+  page_group: ''
+  dependent_measures: []
+- name: Median copay support
+  description: This measure determines the median patient benefit for claims with
+    a transaction type flag of 1 in the PHARMACY_CLAIMS_FACT table. It uses the MEDIANX
+    function on a filtered table and applies a TREATAS filter to match product brand
+    names from the US_PRODUCT_MASTER table to those in the PHARMACY_CLAIMS_FACT table.
+  expression: "CALCULATE(MEDIANX(FILTER(PHARMACY_CLAIMS_FACT, \nPHARMACY_CLAIMS_FACT[CLAIM_TRANSACTION_TYPE_FLG]=1),\n\
+    PHARMACY_CLAIMS_FACT[PATIENTBENEFIT]),TREATAS(VALUES(US_PRODUCT_MASTER[PRODUCT_BRAND_NAME]),PHARMACY_CLAIMS_FACT[BRANDNAME])\n\
+    )"
+  assigned_table: Measure Table
+  page_group: ''
+  dependent_measures: []
+- name: Max copay support
+  description: This measure finds the maximum patient benefit from the PHARMACY_CLAIMS_FACT
+    table where the claim transaction type flag is 1. It uses a TREATAS filter to
+    align product brand names between the US_PRODUCT_MASTER and PHARMACY_CLAIMS_FACT
+    tables.
+  expression: 'CALCULATE(MAX(PHARMACY_CLAIMS_FACT[PATIENTBENEFIT]),
+
+    PHARMACY_CLAIMS_FACT[CLAIM_TRANSACTION_TYPE_FLG]=1,TREATAS(VALUES(US_PRODUCT_MASTER[PRODUCT_BRAND_NAME]),PHARMACY_CLAIMS_FACT[BRANDNAME]))'
+  assigned_table: Measure Table
+  page_group: ''
+  dependent_measures: []
+- name: Copay card support
+  description: This measure calculates the total patient benefit for claims with a
+    transaction type flag of 1 in the PHARMACY_CLAIMS_FACT table, using a specific
+    date relationship with the DATE_DIM_ENR table. It also applies a TREATAS filter
+    to match product brand names between the US_PRODUCT_MASTER and PHARMACY_CLAIMS_FACT
+    tables.
+  expression: 'CALCULATE(SUM(PHARMACY_CLAIMS_FACT[PATIENTBENEFIT]),
+
+    PHARMACY_CLAIMS_FACT[CLAIM_TRANSACTION_TYPE_FLG]=1,
+
+    USERELATIONSHIP(''DATE_DIM_ENR''[Date],PHARMACY_CLAIMS_FACT[DATEOFFILL]),TREATAS(VALUES(US_PRODUCT_MASTER[PRODUCT_BRAND_NAME]),PHARMACY_CLAIMS_FACT[BRANDNAME]))'
+  assigned_table: Measure Table
+  page_group: ''
+  dependent_measures: []
+- name: Total Patients
+  description: This measure counts the distinct number of patients (MEMBERID) in the
+    PHARMACY_CLAIMS_FACT table where the claim transaction type flag is 1. It uses
+    a TREATAS filter to align product brand names between the US_PRODUCT_MASTER and
+    PHARMACY_CLAIMS_FACT tables.
+  expression: '
+
+    CALCULATE(DISTINCTCOUNT ( PHARMACY_CLAIMS_FACT[MEMBERID] ),PHARMACY_CLAIMS_FACT[CLAIM_TRANSACTION_TYPE_FLG]=1,
+    TREATAS(VALUES(US_PRODUCT_MASTER[PRODUCT_BRAND_NAME]),PHARMACY_CLAIMS_FACT[BRANDNAME]))'
+  assigned_table: Measure Table
+  page_group: ''
+  dependent_measures: []
+- name: Average Claims per Patient
+  description: This measure calculates the average number of claims per patient by
+    dividing the total number of claims by the total number of distinct patients.
+  expression: '
+
+    DIVIDE ( [No. of claims], [Total Patients] )'
+  assigned_table: Measure Table
+  page_group: ''
+  dependent_measures:
+  - Total Patients
+  - No. of claims
+- name: Total Claims - Medical
+  description: This measure counts the distinct claim authorization numbers in the
+    PHARMACY_CLAIMS_FACT table for medical claims where the claim transaction type
+    flag is 1. It applies a TREATAS filter to match product brand names between the
+    US_PRODUCT_MASTER and PHARMACY_CLAIMS_FACT tables.
+  expression: '
+
+    CALCULATE(DISTINCTCOUNT (PHARMACY_CLAIMS_FACT[CLAIMAUTHORIZATIONNUMBER]  ),PHARMACY_CLAIMS_FACT[CLAIM_TRANSACTION_TYPE_FLG]=1,PHARMACY_CLAIMS_FACT[CLAIM_TYPE]="MEDICAL",
+    TREATAS(VALUES(US_PRODUCT_MASTER[PRODUCT_BRAND_NAME]),PHARMACY_CLAIMS_FACT[BRANDNAME]))'
+  assigned_table: Measure Table
+  page_group: ''
+  dependent_measures: []
+- name: Total Claims - Pharmacy
+  description: This measure calculates the distinct count of claim authorization numbers
+    from the PHARMACY_CLAIMS_FACT table where the claim transaction type flag is 1
+    and the claim type is 'PHARMACY'. It also applies a filter using the TREATAS function
+    to match product brand names from the US_PRODUCT_MASTER table.
+  expression: '
+
+    CALCULATE(DISTINCTCOUNT (PHARMACY_CLAIMS_FACT[CLAIMAUTHORIZATIONNUMBER]  ),PHARMACY_CLAIMS_FACT[CLAIM_TRANSACTION_TYPE_FLG]=1,PHARMACY_CLAIMS_FACT[CLAIM_TYPE]="PHARMACY"
+    ,TREATAS(VALUES(US_PRODUCT_MASTER[PRODUCT_BRAND_NAME]),PHARMACY_CLAIMS_FACT[BRANDNAME]))'
+  assigned_table: Measure Table
+  page_group: ''
+  dependent_measures: []
+- name: Total Patients1
+  description: This measure counts the number of patient keys in the PHARMACY_CLAIMS_FACT
+    table where the claim transaction type flag is 1. It uses the TREATAS function
+    to filter by product brand names from the US_PRODUCT_MASTER table.
+  expression: '
+
+    CALCULATE(COUNT ( PHARMACY_CLAIMS_FACT[PATIENT_KEY] ),
+
+    PHARMACY_CLAIMS_FACT[CLAIM_TRANSACTION_TYPE_FLG] = 1, TREATAS(VALUES(US_PRODUCT_MASTER[PRODUCT_BRAND_NAME]),PHARMACY_CLAIMS_FACT[BRANDNAME]))'
+  assigned_table: Measure Table
+  page_group: ''
+  dependent_measures: []
+- name: Biogen spend
+  description: This measure calculates the total patient benefit from the PHARMACY_CLAIMS_FACT
+    table where the claim transaction type flag is 1. It applies a filter using the
+    TREATAS function to match product brand names from the US_PRODUCT_MASTER table
+    and adds 0 to ensure a numeric result.
+  expression: "CALCULATE(SUM(PHARMACY_CLAIMS_FACT[PATIENTBENEFIT]), \nPHARMACY_CLAIMS_FACT[CLAIM_TRANSACTION_TYPE_FLG]\
+    \ = 1 , TREATAS(VALUES(US_PRODUCT_MASTER[PRODUCT_BRAND_NAME]),PHARMACY_CLAIMS_FACT[BRANDNAME]))\
+    \ + 0"
+  assigned_table: Measure Table
+  page_group: ''
+  dependent_measures: []
+- name: No. of claims
+  description: This measure calculates the distinct count of claim authorization numbers
+    from the PHARMACY_CLAIMS_FACT table where the claim transaction type flag is 1.
+    It uses the TREATAS function to filter by product brand names from the US_PRODUCT_MASTER
+    table.
+  expression: 'CALCULATE(DISTINCTCOUNT(PHARMACY_CLAIMS_FACT[CLAIMAUTHORIZATIONNUMBER]),
+
+    PHARMACY_CLAIMS_FACT[CLAIM_TRANSACTION_TYPE_FLG]=1,TREATAS(VALUES(US_PRODUCT_MASTER[PRODUCT_BRAND_NAME]),PHARMACY_CLAIMS_FACT[BRANDNAME]))'
+  assigned_table: Measure Table
+  page_group: ''
+  dependent_measures: []
+- name: Patient Benefit
+  description: This measure sums the patient benefit from the PHARMACY_CLAIMS_FACT
+    table where the claim transaction type flag is 1. It applies a filter using the
+    TREATAS function to match product brand names from the US_PRODUCT_MASTER table.
+  expression: "CALCULATE(SUM(PHARMACY_CLAIMS_FACT[PATIENTBENEFIT]), \nPHARMACY_CLAIMS_FACT[CLAIM_TRANSACTION_TYPE_FLG]\
+    \ =1, TREATAS(VALUES(US_PRODUCT_MASTER[PRODUCT_BRAND_NAME]),PHARMACY_CLAIMS_FACT[BRANDNAME]))\
+    \ \n"
+  assigned_table: Measure Table
+  page_group: ''
+  dependent_measures: []
+- name: Patient count
+  description: This measure calculates the distinct count of member IDs from the PHARMACY_CLAIMS_FACT
+    table where the claim transaction type flag is 1. It uses the TREATAS function
+    to filter by product brand names from the US_PRODUCT_MASTER table.
+  expression: CALCULATE(DISTINCTCOUNT(PHARMACY_CLAIMS_FACT[MEMBERID]),PHARMACY_CLAIMS_FACT[CLAIM_TRANSACTION_TYPE_FLG]
+    =1,TREATAS(VALUES(US_PRODUCT_MASTER[PRODUCT_BRAND_NAME]),PHARMACY_CLAIMS_FACT[BRANDNAME]))
+  assigned_table: Measure Table
+  page_group: ''
+  dependent_measures: []
+- name: Biogen spend per claim
+  description: This measure divides the total Biogen spend by the number of claims,
+    providing the average spend per claim. It uses a default value of 0 to handle
+    division by zero.
+  expression: DIVIDE([Biogen spend],[No. of claims],0)
+  assigned_table: Measure Table
+  page_group: ''
+  dependent_measures:
+  - Biogen spend
+  - No. of claims
+- name: Biogen spend per patient
+  description: This measure divides the total Biogen spend by the patient count, providing
+    the average spend per patient. It uses a default value of 0 to handle division
+    by zero.
+  expression: DIVIDE([Biogen spend],[Patient count],0)
+  assigned_table: Measure Table
+  page_group: ''
+  dependent_measures:
+  - Biogen spend
+  - Patient count
+- name: Volume metrics
+  description: This measure calculates either the number of claims or the patient
+    count based on the selected value in the 'Volume Metric'[Column1]. It uses the
+    'Volume Metric' table and applies a filter condition to check if 'Column1' is
+    filtered and matches specific values.
+  expression: "SWITCH(TRUE(),\n                    ISFILTERED('Volume Metric'[Column1])\
+    \ && SELECTEDVALUE('Volume Metric'[Column1])=\"Claim Volume\",[No. of claims],\n\
+    \                    ISFILTERED('Volume Metric'[Column1]) && SELECTEDVALUE('Volume\
+    \ Metric'[Column1])=\"Patient Count\",[Patient count])"
+  assigned_table: Measure Table
+  page_group: ''
+  dependent_measures:
+  - No. of claims
+  - Patient count
+- name: Volume metrics header
+  description: This measure returns a string indicating either 'Claim Volume' or 'Patient
+    Count' based on the selected value in the 'Volume Metric'[Column1]. It uses the
+    'Volume Metric' table and applies a filter condition to determine the appropriate
+    header text.
+  expression: "SWITCH(TRUE(),\n                    ISFILTERED('Volume Metric'[Column1])\
+    \ && SELECTEDVALUE('Volume Metric'[Column1])=\"Claim Volume\",\"Claim Volume\"\
+    ,\n                    ISFILTERED('Volume Metric'[Column1]) && SELECTEDVALUE('Volume\
+    \ Metric'[Column1])=\"Patient Count\",\"Patient Count\")"
+  assigned_table: Measure Table
+  page_group: ''
+  dependent_measures: []
+- name: Spend metrics
+  description: This measure calculates either the total Biogen spend or the Biogen
+    spend per patient based on the selected value in the 'Spend Metric'[Column1].
+    It uses the 'Spend Metric' table and applies a filter condition to check if 'Column1'
+    is filtered and matches specific values.
+  expression: "SWITCH(TRUE(),\n                    ISFILTERED('Spend Metric'[Column1])\
+    \ && SELECTEDVALUE('Spend Metric'[Column1])=\"Total Biogen Spend\",[Biogen spend],\n\
+    \                    ISFILTERED('Spend Metric'[Column1]) && SELECTEDVALUE('Spend\
+    \ Metric'[Column1])=\"Biogen Spend per Patient\",[Biogen spend per patient],\n\
+    \                    ISFILTERED('Spend Metric'[Column1]) && SELECTEDVALUE('Spend\
+    \ Metric'[Column1])=\"Biogen Spend Per Claim\",[Biogen spend per claim])"
+  assigned_table: Measure Table
+  page_group: ''
+  dependent_measures:
+  - Biogen spend
+  - Biogen spend per claim
+  - Biogen spend per patient
+- name: Spend metrics header
+  description: This measure returns a string indicating either 'Total Biogen Spend'
+    or 'Biogen Spend per Patient' based on the selected value in the 'Spend Metric'[Column1].
+    It uses the 'Spend Metric' table and applies a filter condition to determine the
+    appropriate header text.
+  expression: "SWITCH(TRUE(),\n                    ISFILTERED('Spend Metric'[Column1])\
+    \ && SELECTEDVALUE('Spend Metric'[Column1])=\"Total Biogen Spend\",\"Total Biogen\
+    \ Spend\",\n                    ISFILTERED('Spend Metric'[Column1]) && SELECTEDVALUE('Spend\
+    \ Metric'[Column1])=\"Biogen Spend per Patient\",\"Biogen Spend per Patient\"\
+    ,\n                    ISFILTERED('Spend Metric'[Column1]) && SELECTEDVALUE('Spend\
+    \ Metric'[Column1])=\"Biogen Spend Per Claim\",\"Biogen Spend Per Claim\")"
+  assigned_table: Measure Table
+  page_group: ''
+  dependent_measures: []
+- name: Total Patient Benefit (MAXIMIZER)
+  description: This measure calculates the total patient benefit by summing the 'PATIENTBENEFIT'
+    column from the 'MAXIMIZER_SPEND' table. It applies a filter using TREATAS to
+    match 'PRODUCT_BRAND_NAME' from 'US_PRODUCT_MASTER' with 'BRANDNAME' in 'MAXIMIZER_SPEND'.
+  expression: "CALCULATE(\n    SUM ( MAXIMIZER_SPEND[PATIENTBENEFIT] )\n    , TREATAS(VALUES(US_PRODUCT_MASTER[PRODUCT_BRAND_NAME]),MAXIMIZER_SPEND[BRANDNAME]))"
+  assigned_table: Measure Table
+  page_group: ''
+  dependent_measures: []
+- name: Patient_count_pharmacy
+  description: This measure calculates the distinct count of 'CLAIMAUTHORIZATIONNUMBER'
+    from the 'PHARMACY_CLAIMS_FACT' table where 'CLAIM_TRANSACTION_TYPE_FLG' equals
+    1. It uses TREATAS to filter by matching 'PRODUCT_BRAND_NAME' from 'US_PRODUCT_MASTER'
+    with 'BRANDNAME' in 'PHARMACY_CLAIMS_FACT'.
+  expression: "CALCULATE(DISTINCTCOUNT(PHARMACY_CLAIMS_FACT[CLAIMAUTHORIZATIONNUMBER]),\
+    \ \nPHARMACY_CLAIMS_FACT[CLAIM_TRANSACTION_TYPE_FLG] = 1,TREATAS(VALUES(US_PRODUCT_MASTER[PRODUCT_BRAND_NAME]),PHARMACY_CLAIMS_FACT[BRANDNAME]))"
+  assigned_table: Measure Table
+  page_group: ''
+  dependent_measures: []
+- name: Successful_Claim_PAT
+  description: This measure counts the number of 'MEMBERID' entries in the 'PHARMACY_CLAIMS_FACT'
+    table where 'CLAIM_TRANSACTION_TYPE_FLG' equals 1. It applies a filter using TREATAS
+    to match 'PRODUCT_BRAND_NAME' from 'US_PRODUCT_MASTER' with 'BRANDNAME' in 'PHARMACY_CLAIMS_FACT'.
+  expression: "CALCULATE(COUNT(PHARMACY_CLAIMS_FACT[MEMBERID]), \nPHARMACY_CLAIMS_FACT[CLAIM_TRANSACTION_TYPE_FLG]=1,\
+    \ TREATAS(VALUES(US_PRODUCT_MASTER[PRODUCT_BRAND_NAME]),PHARMACY_CLAIMS_FACT[BRANDNAME]))"
+  assigned_table: Measure Table
+  page_group: ''
+  dependent_measures: []
+- name: Quantity redeemption
+  description: This measure calculates the sum of 'QUANTITY' from the 'PHARMACY_CLAIMS_FACT'
+    table where 'CLAIM_TRANSACTION_TYPE_FLG' equals 1. It uses USERELATIONSHIP to
+    relate 'DATE_DIM_ENR'[DATE] with 'PHARMACY_CLAIMS_FACT'[DATEOFFILL] and applies
+    TREATAS to filter by 'PRODUCT_BRAND_NAME'.
+  expression: 'CALCULATE(SUM(PHARMACY_CLAIMS_FACT[QUANTITY]),PHARMACY_CLAIMS_FACT[CLAIM_TRANSACTION_TYPE_FLG]=1,
+
+    USERELATIONSHIP(''DATE_DIM_ENR''[DATE],PHARMACY_CLAIMS_FACT[DATEOFFILL]) , TREATAS(VALUES(US_PRODUCT_MASTER[PRODUCT_BRAND_NAME]),PHARMACY_CLAIMS_FACT[BRANDNAME]))'
+  assigned_table: Measure Table
+  page_group: ''
+  dependent_measures: []
+- name: Enrolled Claimed Within 6M
+  description: This measure calculates the distinct count of members from the IQV_ENROLLMENT_DIM
+    table who have made a claim within 180 days of enrollment. It filters the PHARMACY_CLAIMS_FACT
+    table for claims with a transaction type flag of 1 and a Days_Enrollment value
+    between 0 and 180.
+  expression: "\n    CALCULATE(\n        DISTINCTCOUNT( IQV_ENROLLMENT_DIM[MEMBERID]\
+    \ ),\n        FILTER(\n            IQV_ENROLLMENT_DIM,\n            CALCULATE(\n\
+    \                COUNTROWS( PHARMACY_CLAIMS_FACT ),\n                PHARMACY_CLAIMS_FACT[CLAIM_TRANSACTION_TYPE_FLG]\
+    \ = 1,\n                PHARMACY_CLAIMS_FACT[Days_Enrollment] >= 0,\n        \
+    \        PHARMACY_CLAIMS_FACT[Days_Enrollment] <= 180\n            ) > 0\n   \
+    \     ), TREATAS(VALUES(US_PRODUCT_MASTER[PRODUCT_BRAND_NAME]),PHARMACY_CLAIMS_FACT[BRANDNAME])\n\
+    \    )"
+  assigned_table: Measure Table
+  page_group: ''
+  dependent_measures: []
+- name: Enrolled Claimed After 6M
+  description: This measure calculates the distinct count of members from the IQV_ENROLLMENT_DIM
+    table who have made a claim after 180 days of enrollment. It filters the PHARMACY_CLAIMS_FACT
+    table for claims with a transaction type flag of 1 and a Days_Enrollment value
+    greater than 180, and applies a TREATAS function to align product brand names.
+  expression: "\n     CALCULATE(\n        DISTINCTCOUNT( IQV_ENROLLMENT_DIM[MEMBERID]\
+    \ ),\n        FILTER(\n            IQV_ENROLLMENT_DIM,\n            CALCULATE(\n\
+    \                COUNTROWS( PHARMACY_CLAIMS_FACT ),\n                PHARMACY_CLAIMS_FACT[CLAIM_TRANSACTION_TYPE_FLG]\
+    \ = 1,\n                PHARMACY_CLAIMS_FACT[Days_Enrollment] > 180\n        \
+    \    ) > 0\n        ), TREATAS(VALUES(US_PRODUCT_MASTER[PRODUCT_BRAND_NAME]),\
+    \ PHARMACY_CLAIMS_FACT[BRANDNAME])\n    )"
+  assigned_table: Measure Table
+  page_group: ''
+  dependent_measures: []
+- name: Enrolled But No Claims Till Date
+  description: This measure calculates the distinct count of members from the IQV_ENROLLMENT_DIM
+    table who have not made any claims to date. It uses the TREATAS function to align
+    product brand names between the US_PRODUCT_MASTER and PHARMACY_CLAIMS_FACT tables
+    and filters for members with zero claims.
+  expression: "CALCULATE(DISTINCTCOUNT(IQV_ENROLLMENT_DIM[MEMBERID])\n,TREATAS(VALUES(US_PRODUCT_MASTER[PRODUCT_BRAND_NAME]),\n\
+    \        IQV_ENROLLMENT_DIM[BRANDNAME]),\nFILTER(IQV_ENROLLMENT_DIM,\nCALCULATE(COUNTROWS(PHARMACY_CLAIMS_FACT),\n\
+    PHARMACY_CLAIMS_FACT[CLAIM_TRANSACTION_TYPE_FLG]=1)=0\n)\n,TREATAS(VALUES(US_PRODUCT_MASTER[PRODUCT_BRAND_NAME]),PHARMACY_CLAIMS_FACT[BRANDNAME])\n\
+    )"
+  assigned_table: Measure Table
+  page_group: ''
+  dependent_measures: []
+- name: Enrollment Balance Check
+  description: This measure calculates the balance of total enrollments by subtracting
+    the counts of members who claimed within 6 months, after 6 months, and those with
+    no claims till date from the total enrollment.
+  expression: '[Total enrollment]     - [Enrolled Claimed Within 6M]     - [Enrolled
+    Claimed After 6M]     - [Enrolled But No Claims Till Date]'
+  assigned_table: Measure Table
+  page_group: ''
+  dependent_measures:
+  - Total enrollment
+  - Enrolled Claimed Within 6M
+  - Enrolled Claimed After 6M
+  - Enrolled But No Claims Till Date
+- name: DATE_RELATION_CHECK
+  description: This measure counts the number of rows in the DATE_DIM_DOF table, which
+    is likely used to verify the integrity or completeness of date-related data.
+  expression: '
+
+    COUNTROWS(DATE_DIM_DOF)'
+  assigned_table: Measure Table
+  page_group: ''
+  dependent_measures: []
+- name: 90th Percentile Claim Cost
+  description: This measure calculates the 90th percentile of patient benefits from
+    the PHARMACY_CLAIMS_FACT table for claims with a transaction type flag of 1. It
+    uses the TREATAS function to align product brand names between the US_PRODUCT_MASTER
+    and PHARMACY_CLAIMS_FACT tables.
+  expression: "\n    CALCULATE( PERCENTILEX.INC(\n            FILTER(\n          \
+    \      PHARMACY_CLAIMS_FACT,\n                PHARMACY_CLAIMS_FACT[CLAIM_TRANSACTION_TYPE_FLG]\
+    \ = 1\n            ),\n            PHARMACY_CLAIMS_FACT[PATIENTBENEFIT],\n   \
+    \         0.9\n        ),TREATAS(VALUES(US_PRODUCT_MASTER[PRODUCT_BRAND_NAME]),PHARMACY_CLAIMS_FACT[BRANDNAME])\n\
+    \    )"
+  assigned_table: Measure Table
+  page_group: ''
+  dependent_measures: []
+- name: Claims ≥ 90th Percentile
+  description: This measure calculates the number of claims where the patient benefit
+    is greater than or equal to the 90th percentile claim cost. It uses a variable
+    to store the 90th percentile value and applies the TREATAS function to align product
+    brand names.
+  expression: "\nVAR P90 =\n    [90th Percentile Claim Cost]\nRETURN\nCALCULATE(\n\
+    \    [No. of claims],\n            PHARMACY_CLAIMS_FACT[PATIENTBENEFIT] >= P90\
+    \ , TREATAS(VALUES(US_PRODUCT_MASTER[PRODUCT_BRAND_NAME]),PHARMACY_CLAIMS_FACT[BRANDNAME])\n\
+    )"
+  assigned_table: Measure Table
+  page_group: ''
+  dependent_measures:
+  - No. of claims
+  - 90th Percentile Claim Cost
+- name: Rows With TREATAS
+  description: This measure counts the number of rows in the PHARMACY_CLAIMS_FACT
+    table where the claim transaction type flag is 1. It uses the TREATAS function
+    to align product brand names between the US_PRODUCT_MASTER and PHARMACY_CLAIMS_FACT
+    tables.
+  expression: "\nCALCULATE(\n    COUNTROWS(PHARMACY_CLAIMS_FACT),\n    PHARMACY_CLAIMS_FACT[CLAIM_TRANSACTION_TYPE_FLG]\
+    \ = 1,\n    TREATAS(\n        VALUES(US_PRODUCT_MASTER[PRODUCT_BRAND_NAME]),\n\
+    \        PHARMACY_CLAIMS_FACT[BRANDNAME]\n    )\n)"
+  assigned_table: Measure Table
+  page_group: ''
+  dependent_measures: []
+- name: Rows Without TREATAS
+  description: This measure calculates the number of rows in the PHARMACY_CLAIMS_FACT
+    table where the CLAIM_TRANSACTION_TYPE_FLG column equals 1. It uses the COUNTROWS
+    function within a CALCULATE function to apply the filter condition.
+  expression: "\nCALCULATE(\n    COUNTROWS(PHARMACY_CLAIMS_FACT),\n    PHARMACY_CLAIMS_FACT[CLAIM_TRANSACTION_TYPE_FLG]\
+    \ = 1\n)"
+  assigned_table: Measure Table
+  page_group: ''
+  dependent_measures: []
+- name: Debug Filters
+  description: This measure concatenates and returns a string of unique brand names
+    from the PHARMACY_CLAIMS_FACT table. It uses the CONCATENATEX function to iterate
+    over the distinct values of the BRANDNAME column, separating them with a comma.
+  expression: "\nCONCATENATEX(\n    VALUES(PHARMACY_CLAIMS_FACT[BRANDNAME]),\n   \
+    \ PHARMACY_CLAIMS_FACT[BRANDNAME],\n    \", \"\n)"
+  assigned_table: Measure Table
+  page_group: ''
+  dependent_measures: []
+- name: Distinct Members Visible
+  description: This measure calculates the distinct count of MEMBERID in the PHARMACY_CLAIMS_FACT
+    table where the CLAIM_TRANSACTION_TYPE_FLG column equals 1. It uses the DISTINCTCOUNT
+    function within a CALCULATE function to apply the filter condition.
+  expression: 'CALCULATE(
+
+    DISTINCTCOUNT(PHARMACY_CLAIMS_FACT[MEMBERID]), PHARMACY_CLAIMS_FACT[CLAIM_TRANSACTION_TYPE_FLG]
+    = 1)'
+  assigned_table: Measure Table
+  page_group: ''
+  dependent_measures: []
+- name: T.LAST UPDATE
+  description: This measure returns the earliest date from the LAST_UPDATED_DATE column
+    in the PHARMACY_CLAIMS_FACT table. It uses the MIN function to find the minimum
+    date value.
+  expression: MIN(PHARMACY_CLAIMS_FACT[LAST_UPDATED_DATE])
+  assigned_table: Measure Table
+  page_group: ''
+  dependent_measures: []
+- name: T.Rows in Maximizer Spend
+  description: This measure calculates the total number of rows in the MAXIMIZER_SPEND
+    table. It uses the COUNTROWS function to perform this calculation.
+  expression: COUNTROWS(MAXIMIZER_SPEND)
+  assigned_table: Measure Table
+  page_group: ''
+  dependent_measures: []
+relationships:
+- from_table: PHARMACY_CLAIMS_FACT
+  from_column: BRANDNAME
+  to_table: US_PRODUCT_MASTER
+  to_column: PRODUCT_BRAND_NAME
+  is_active: true
+- from_table: PHARMACY_CLAIMS_FACT
+  from_column: PHARMACY_KEY
+  to_table: PHARMACY_DIM
+  to_column: PHARMACY_KEY
+  is_active: true
+- from_table: PHARMACY_CLAIMS_FACT
+  from_column: DATEOFFILL
+  to_table: DATE_DIM_DOF
+  to_column: DATE
+  is_active: true
+- from_table: MAXIMIZER_SPEND
+  from_column: DATEOFFILL
+  to_table: DATE_DIM_DOF
+  to_column: DATE
+  is_active: true
+- from_table: MAXIMIZER_SPEND
+  from_column: BRANDNAME
+  to_table: US_PRODUCT_MASTER
+  to_column: PRODUCT_BRAND_NAME
+  is_active: true
+- from_table: ENROLLMENT_PATIENT_CLAIMS_MASTER
+  from_column: ENROLLMENTSTARTDATE
+  to_table: DATE_DIM_ENR
+  to_column: DATE
+  is_active: true
+- from_table: PHARMACY_CLAIMS_FACT
+  from_column: DATEOFFILL
+  to_table: DATE_DIM_ENR
+  to_column: DATE
+  is_active: false
+- from_table: PHARMACY_CLAIMS_FACT
+  from_column: IQV_ENROLLMENTS_KEY
+  to_table: IQV_ENROLLMENT_DIM
+  to_column: IQV_ENROLLMENTS_KEY
+  is_active: true
+- from_table: IQV_ENROLLMENT_DIM
+  from_column: ENROLLMENTSTARTDATE
+  to_table: DATE_DIM_ENR
+  to_column: DATE
+  is_active: true
+pages:
+  Summary:
+  - Amount per claim
+  - Average Claims per Patient
+  - Copay card support
+  - Enrolled Claimed After 6M
+  - Enrolled Claimed Within 6M
+  - Last Updated
+  - No. of claims
+  - Quantity redeemption
+  - Total Claims - Medical
+  - Total Claims - Pharmacy
+  - Total Patients1
+  - Total enrollment
+  Copay Stats:
+  - 90th Percentile Claim Cost
+  - Average copay support
+  - Biogen spend
+  - Bottles with copay redemption
+  - Claims ≥ 90th Percentile
+  - Copay card support
+  - Enrolled But No Claims Till Date
+  - Enrollment from hub
+  - Enrollment from patient portal
+  - Last Updated
+  - Max copay support
+  - Median copay support
+  - No. of claims
+  - Redemption Rate
+  - Successful_Claim_PAT
+  - Total copay support
+  - Total enrollment
+  - Utilizing
+  Spend Analysis:
+  - Biogen spend
+  - Biogen spend per claim
+  - Biogen spend per patient
+  - Last Updated
+  - No. of claims
+  - Patient Benefitt
+  - Patient count
+  Brand Analysis:
+  - Last Updated
+  - Spend metrics
+  - Volume metrics
+  Additional:
+  - Biogen spend
+  - Last Updated
+  - Patient_count_pharmacy
+  - Successful_Claim_PAT
+  - Total Patient Benefit (MAXIMIZER)
+  User Guide: []

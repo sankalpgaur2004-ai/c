@@ -1,0 +1,219 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Serif+Display&family=DM+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── CSS Custom Properties ─────────────────────────────────────── */
+:root {
+  /* Core palette */
+  --color-primary:           #FFFFFF;
+  --color-secondary:         #E8EBF5;
+  --color-secondary-hover:   #D8DBED;
+  --color-secondary-light:   #F0F1F8;
+  --color-secondary-muted:   #D4D8EB;
+  --color-tertiary:          #8B1A2B;
+  --color-tertiary-hover:    #A31F32;
+  --color-tertiary-light:    #B02235;
+  --color-tertiary-muted:    #F5E6E8;
+
+  /* Surfaces */
+  --color-bg:                #F5F6FA;
+  --color-surface:           #FFFFFF;
+  --color-surface-raised:    #ECEEF5;
+
+  /* Borders */
+  --color-border:            #E2E6F0;
+  --color-border-strong:     #C8CEDE;
+
+  /* Text */
+  --color-text:              #0F172A;
+  --color-text-muted:        #4B5577;
+  --color-text-faint:        #8B93AD;
+  --color-text-inverse:      #FFFFFF;
+
+  /* Shadows */
+  --shadow-sm:   0 1px 3px rgba(232,235,245,0.12);
+  --shadow-md:   0 4px 16px rgba(232,235,245,0.15);
+  --shadow-lg:   0 8px 32px rgba(232,235,245,0.20);
+  --shadow-card: 0 2px 8px rgba(232,235,245,0.10);
+  --shadow-navy: 0 4px 20px rgba(232,235,245,0.25);
+
+  /* Layout */
+  --navbar-h:    56px;
+  --panel-min-w: 48px;
+
+  /* Radii */
+  --radius-sm:   6px;
+  --radius-md:   10px;
+  --radius-lg:   14px;
+  --radius-xl:   20px;
+
+  /* Transitions */
+  --transition-fast:   0.15s ease;
+  --transition-base:   0.2s ease;
+  --transition-slow:   0.3s ease;
+}
+
+/* ── Base Reset ────────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  height: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: 'DM Sans', system-ui, sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  height: 100%;
+  font-size: 14px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Scrollbars ────────────────────────────────────────────────── */
+::-webkit-scrollbar          { width: 5px; height: 5px; }
+::-webkit-scrollbar-track    { background: var(--color-bg); }
+::-webkit-scrollbar-thumb    { background: var(--color-border-strong); border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover { background: var(--color-secondary-light); }
+
+/* ── Typography ────────────────────────────────────────────────── */
+pre, code {
+  font-family: 'DM Mono', 'Courier New', monospace;
+  background: var(--color-surface-raised);
+  border-radius: var(--radius-sm);
+  padding: 2px 6px;
+  font-size: 0.85rem;
+  color: var(--color-secondary);
+  border: 1px solid var(--color-border);
+}
+
+/* ── Tailwind Component Layer ──────────────────────────────────── */
+@layer components {
+
+  /* Buttons */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 font-medium rounded-md
+           transition-all duration-150 cursor-pointer select-none whitespace-nowrap;
+  }
+  .btn-sm   { @apply btn text-xs px-3 py-1.5; }
+  .btn-md   { @apply btn text-sm px-4 py-2; }
+  .btn-lg   { @apply btn text-base px-5 py-2.5; }
+
+  .btn-primary {
+    @apply text-white shadow-sm hover:shadow-navy active:scale-[0.98];
+    background-color: #2D5A8C;
+  }
+  .btn-primary:hover {
+    background-color: #3A6BA8;
+  }
+  .btn-tertiary {
+    @apply bg-tertiary text-white hover:bg-tertiary-hover
+           shadow-sm active:scale-[0.98];
+  }
+  .btn-ghost {
+    @apply bg-transparent border border-transparent hover:border-border;
+    color: #2D5A8C;
+    background-color: transparent;
+  }
+  .btn-ghost:hover {
+    background-color: rgba(45, 90, 140, 0.1);
+  }
+  .btn-outline {
+    @apply bg-transparent border;
+    color: #2D5A8C;
+    border-color: #E2E6F0;
+  }
+  .btn-outline:hover {
+    background-color: rgba(45, 90, 140, 0.1);
+    border-color: #2D5A8C;
+  }
+
+  /* Cards */
+  .card {
+    @apply bg-surface rounded-lg border border-border shadow-card
+           transition-all duration-200;
+  }
+  .card-hover {
+    @apply card hover:shadow-navy cursor-pointer;
+    border-color: #E2E6F0;
+  }
+  .card-hover:hover {
+    border-color: #2D5A8C;
+  }
+
+  /* Panel headers */
+  .panel-header {
+    @apply flex items-center justify-between px-4 py-3
+           border-b border-border bg-white;
+  }
+  .panel-title {
+    @apply text-sm font-semibold tracking-wide uppercase;
+    color: #2D5A8C;
+  }
+
+  /* Inputs */
+  .input {
+    @apply w-full px-3 py-2 text-sm bg-surface border border-border rounded-md
+           text-ink placeholder-ink-faint
+           focus:outline-none focus:ring-2 transition-all duration-150;
+  }
+  .input:focus {
+    border-color: #2D5A8C;
+    box-shadow: 0 0 0 2px rgba(45, 90, 140, 0.1);
+  }
+
+  /* Badges */
+  .badge {
+    @apply inline-flex items-center gap-1 px-2 py-0.5 rounded-full
+           text-xs font-medium;
+  }
+  .badge-navy   {
+    @apply badge;
+    background-color: rgba(45, 90, 140, 0.1);
+    color: #2D5A8C;
+  }
+  .badge-maroon { @apply badge bg-tertiary-muted text-tertiary; }
+}
+
+/* ── Utility Layer ─────────────────────────────────────────────── */
+@layer utilities {
+  .text-balance  { text-wrap: balance; }
+  .scrollbar-none { scrollbar-width: none; }
+  .scrollbar-none::-webkit-scrollbar { display: none; }
+}
+
+/* ── Animations ────────────────────────────────────────────────── */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-12px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.4; }
+}
